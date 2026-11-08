@@ -16,12 +16,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Use the approved Claude Design prototype as the structural reference. Check the design system for visual decisions and distinguish exploratory ideas from approved requirements.
 - Keep the commercial homepage and professional portfolio at `/portfolio` distinct. Follow the README's commercial requirements. Use only approved prices and verified portfolio content or claims.
 - Keep dependencies and abstractions tied to concrete needs. Follow the naming and commit conventions in `docs/ARCHITECTURE.md`.
-- Run scope-appropriate checks and report any unavailable validation. Keep documentation aligned with implementation. Stage, commit, or push only when explicitly requested.
+- Run scope-appropriate checks and report any unavailable validation. Keep documentation aligned with implementation. Never stage, commit, or push without explicit authorization.
 
 ## Backlog work
 
 1. Locate the requested `AMSAF-###` task and acceptance criteria in `docs/BACKLOG.md`.
 2. Review `docs/ARCHITECTURE.md`, the relevant milestone in `docs/ROADMAP.md`, and `docs/DESIGN_SYSTEM.md` for interface work. Confirm tooling against the README and actual project files.
-3. Investigate and report conflicts among requirements, architecture, and implementation before changing scope.
-4. Execute only the requested task. Validate it and record status, evidence, and blockers in the backlog. Mark a task done only when its acceptance criteria have evidence.
-5. Report changed files, checks, limitations, and unresolved issues. Record material reuse, decisions, and rework in `docs/DEV_LOG.md` when relevant.
+3. Report architectural decisions and blockers. Investigate and report conflicts among requirements, architecture, and implementation before changing scope.
+4. Execute only the requested task. Validate it and record status, evidence, and blockers in the backlog. Mark a task `Done` when its acceptance criteria are met and validation evidence is recorded. Reopen it if subsequent review identifies issues.
+5. Keep task reports concise. Include changed files, checks, reuse, limitations, and pending decisions. Record material reuse, decisions, and rework in `docs/DEV_LOG.md` when relevant.
