@@ -17,6 +17,7 @@ export default function ContactPage() {
           "Na sua mensagem, me conte sobre seu negócio, o que você precisa apresentar no site e como gostaria que seus clientes entrassem em contato.",
         actions: [commercialContact],
       }}
+      titleStyle="contact"
     />
   );
 }

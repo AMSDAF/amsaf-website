@@ -20,7 +20,10 @@ export default function PortfolioPage() {
 
   return (
     <>
-      <Hero content={{ title: name, description: introduction }} />
+      <Hero
+        content={{ title: name, description: introduction }}
+        titleStyle="name"
+      />
 
       <ContentSection
         content={{
@@ -34,7 +37,7 @@ export default function PortfolioPage() {
           <ul className="mt-4 flex flex-wrap gap-2">
             {skills.map((skill) => (
               <li
-                className="rounded-full border border-border bg-canvas px-3 py-1 text-sm"
+                className="rounded-tag border border-rule bg-canvas px-3 py-1 font-mono text-label-sm"
                 key={skill}
               >
                 {skill}
@@ -54,8 +57,8 @@ export default function PortfolioPage() {
       >
         {background.map(({ title, entries }) => (
           <div className="mt-5" key={title}>
-            <h3 className="font-semibold">{title}</h3>
-            <ul className="mt-2 divide-y divide-border border-y border-border text-content-muted">
+            <h3 className="max-w-[18ch] font-display text-title">{title}</h3>
+            <ul className="mt-2 divide-y divide-rule border-y border-rule text-content-muted">
               {entries.map((entry) => (
                 <li className="py-3" key={entry}>
                   {entry}
@@ -69,12 +72,12 @@ export default function PortfolioPage() {
       <ContentSection
         content={{ id: "projetos", title: "Projetos de software" }}
       >
-        <ul className="mt-5 divide-y divide-border border-y border-border">
+        <ul className="mt-5 divide-y divide-rule border-y border-rule">
           {projects.map(({ slug, title, summary }) => (
             <li className="py-4" key={slug}>
-              <h3 className="text-lg font-semibold">
+              <h3 className="max-w-[18ch] font-display text-title">
                 <Link
-                  className="rounded-sm underline underline-offset-4"
+                  className="inline-flex min-h-6 items-center rounded-control underline decoration-content-subtle underline-offset-4 hover:text-accent-text hover:decoration-accent-text active:text-accent-text active:decoration-accent-text"
                   href={projectDetailPath(slug)}
                 >
                   {title}
@@ -93,7 +96,7 @@ export default function PortfolioPage() {
         }}
       >
         <Link
-          className="mt-5 inline-flex rounded-sm border border-content bg-content px-4 py-2 text-sm font-medium text-canvas hover:bg-content-muted"
+          className="mt-8 action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active"
           href="/#servicos"
         >
           Conhecer os serviços da AMSAF

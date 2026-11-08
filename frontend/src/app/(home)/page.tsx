@@ -50,8 +50,9 @@ const processSteps = [
 ];
 
 const actionClass =
-  "inline-flex rounded-sm border border-content bg-content px-4 py-2 text-sm font-medium text-canvas hover:bg-content-muted";
-const textLinkClass = "rounded-sm font-medium underline underline-offset-4";
+  "action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active";
+const textLinkClass =
+  "inline-flex min-h-6 items-center rounded-control font-medium underline decoration-content-subtle underline-offset-4 hover:text-accent-text hover:decoration-accent-text active:text-accent-text active:decoration-accent-text";
 
 export default function Home() {
   return (
@@ -67,8 +68,8 @@ export default function Home() {
           ],
         }}
       >
-        <figure className="rounded-xl border border-border bg-surface p-4 sm:p-6">
-          <figcaption className="text-sm font-medium text-content-muted">
+        <figure className="rounded-card border border-border bg-surface p-5 sm:p-6">
+          <figcaption className="text-body-sm text-content-muted">
             Exemplo ilustrativo de site
           </figcaption>
           <div className="mt-3 overflow-hidden rounded-lg border border-border bg-canvas">
@@ -76,10 +77,10 @@ export default function Home() {
               Estúdio de fotografia
             </p>
             <div className="space-y-3 px-4 py-6 sm:px-6">
-              <p className="text-sm text-content-muted">Portfólio de ensaios</p>
-              <p className="text-2xl font-semibold tracking-tight">
-                Retratos em luz natural
+              <p className="text-body-sm text-content-muted">
+                Portfólio de ensaios
               </p>
+              <p className="font-display text-title">Retratos em luz natural</p>
               <div aria-hidden="true" className="grid grid-cols-3 gap-2">
                 <div className="aspect-square rounded-sm bg-surface-muted" />
                 <div className="aspect-square rounded-sm bg-surface" />
@@ -98,7 +99,9 @@ export default function Home() {
             "Um site complementa suas redes sociais e reúne o que você faz, seus serviços e seus canais de contato.",
         }}
       >
-        <p className="mt-6 font-semibold">O que vale conferir no seu site</p>
+        <p className="mt-10 max-w-[18ch] font-display text-title lg:mt-14">
+          O que vale conferir no seu site
+        </p>
         <ul className="mt-3 max-w-2xl list-disc space-y-2 pl-5 text-content-muted">
           {presenceChecklist.map((item) => (
             <li key={item}>{item}</li>
@@ -113,36 +116,38 @@ export default function Home() {
           description: serviceProposalNote,
         }}
       >
-        <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:gap-5 xl:grid-cols-4">
           {services.map((service) => (
             <li
-              className="flex flex-col rounded-xl border border-border bg-canvas p-4"
+              className="flex flex-col rounded-card border border-border bg-surface p-5 sm:p-6"
               key={service.route}
             >
-              <h3 className="text-lg font-semibold">{service.label}</h3>
-              <p className="mt-2 text-sm leading-6 text-content-muted">
+              <h3 className="max-w-[18ch] font-display text-title">
+                {service.label}
+              </h3>
+              <p className="mt-2 text-body-sm text-content-muted">
                 {service.summary}
               </p>
-              <ul className="my-4 list-disc space-y-2 pl-5 text-sm leading-6 text-content-muted">
+              <ul className="my-4 list-disc space-y-2 pl-5 text-body-sm text-content-muted">
                 {service.baseScope.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
               {service.scopeNote && (
-                <p className="mb-4 text-sm leading-6 text-content-muted">
+                <p className="mb-4 text-body-sm text-content-muted">
                   {service.scopeNote}
                 </p>
               )}
-              <div className="mt-auto border-t border-border pt-4">
-                <p className="text-sm text-content-muted">A partir de</p>
-                <p className="text-2xl font-semibold">
+              <div className="mt-auto border-t border-dashed border-rule pt-4">
+                <p className="text-body-sm text-content-muted">A partir de</p>
+                <p className="font-display text-price proportional-nums">
                   {formatBrl(service.startingPriceInCentavos)}
                 </p>
-                <p className="mt-2 text-sm leading-6 text-content-muted">
+                <p className="mt-2 text-body-sm text-content-muted">
                   Manutenção opcional de{" "}
                   {formatBrl(service.monthlyMaintenanceInCentavos)} por mês
                 </p>
-                <div className="mt-4 flex flex-wrap items-center gap-3 text-sm">
+                <div className="mt-4 flex flex-wrap items-center gap-3 text-body-sm">
                   <Link
                     aria-label={`Ver detalhes de ${service.label}`}
                     className={textLinkClass}
@@ -159,23 +164,23 @@ export default function Home() {
           ))}
         </ul>
         <div className="mt-6 max-w-2xl">
-          <h3 className="font-semibold">Depois da publicação</h3>
-          <p className="mt-2 leading-7 text-content-muted">
-            {serviceMaintenanceNote}
-          </p>
+          <h3 className="max-w-[18ch] font-display text-title">
+            Depois da publicação
+          </h3>
+          <p className="mt-2 text-content-muted">{serviceMaintenanceNote}</p>
         </div>
       </ContentSection>
 
       <ContentSection
         content={{ id: "trabalhos", title: "Trabalhos selecionados" }}
       >
-        <ul className="mt-6">
+        <ul className="mt-10 lg:mt-14">
           {projects.map((project) => (
             <li
-              className="max-w-2xl rounded-xl border border-border bg-canvas p-4"
+              className="max-w-2xl rounded-card border border-border bg-surface p-5 sm:p-6"
               key={project.slug}
             >
-              <h3 className="text-lg font-semibold">
+              <h3 className="max-w-[18ch] font-display text-title">
                 <Link
                   className={textLinkClass}
                   href={projectDetailPath(project.slug)}
@@ -195,11 +200,11 @@ export default function Home() {
           title: "Da primeira conversa à publicação",
         }}
       >
-        <ol className="mt-6 grid list-decimal gap-x-10 gap-y-4 pl-5 marker:font-semibold sm:grid-cols-2 lg:grid-cols-5">
+        <ol className="mt-10 grid list-decimal lg:mt-14 gap-x-10 gap-y-4 pl-5 marker:font-semibold sm:grid-cols-2 lg:grid-cols-5">
           {processSteps.map(({ title, description }) => (
             <li key={title}>
               <h3 className="font-semibold">{title}</h3>
-              <p className="mt-2 text-sm leading-6 text-content-muted">
+              <p className="mt-2 text-body-sm text-content-muted">
                 {description}
               </p>
             </li>
@@ -214,7 +219,7 @@ export default function Home() {
           description: professionalProfile.introduction,
         }}
       >
-        <Link className={`mt-5 inline-flex ${textLinkClass}`} href="/portfolio">
+        <Link className={`mt-8 ${textLinkClass}`} href="/portfolio">
           Ver portfólio profissional
         </Link>
       </ContentSection>
@@ -226,8 +231,9 @@ export default function Home() {
           description:
             "Me conte sobre seu negócio e o que você precisa apresentar no site.",
         }}
+        headingSize="display-xl"
       >
-        <div className="mt-5 flex flex-wrap items-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center gap-3">
           <a className={actionClass} href={commercialContact.href}>
             {commercialContact.label}
           </a>

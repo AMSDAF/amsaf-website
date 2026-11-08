@@ -40,7 +40,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
-      <Hero content={{ title: project.title, description: project.summary }} />
+      <Hero
+        content={{ title: project.title, description: project.summary }}
+        titleStyle="detail"
+      />
 
       <ContentSection
         content={{
@@ -78,7 +81,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             {project.links.map(({ href, label }) => (
               <li key={href}>
                 <Link
-                  className="rounded-sm underline underline-offset-4"
+                  className="inline-flex min-h-6 items-center rounded-control wrap-anywhere underline decoration-content-subtle underline-offset-4 hover:text-accent-text hover:decoration-accent-text active:text-accent-text active:decoration-accent-text"
                   href={href}
                 >
                   {label}
@@ -93,7 +96,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         content={{ id: "portfolio", title: "Portfólio profissional" }}
       >
         <Link
-          className="mt-4 inline-flex rounded-sm border border-content bg-content px-4 py-2 text-sm font-medium text-canvas hover:bg-content-muted"
+          className="mt-8 action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active"
           href="/portfolio#projetos"
         >
           Voltar aos projetos

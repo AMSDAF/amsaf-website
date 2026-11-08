@@ -206,7 +206,7 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-**Status.** In progress. M1 is complete. AMSAF-025 and AMSAF-015 are done, and the [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) is ready for AMSAF-026. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, and AMSAF-026 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
 
 ### A — Visual foundations
 
@@ -251,9 +251,15 @@ The specification covers each acceptance item:
 
 #### AMSAF-026 — Apply the approved visual foundations
 
+**Status.** Done. The project owner visually approved the implementation within the task scope on 2026-11-08.
+
 **Dependencies.** AMSAF-015.
 
 **Acceptance.** Reuse the root layout and global Tailwind/CSS styling to apply the approved typography, dark surfaces, text and accent roles, responsive widths and spacing, and visible focus. Verify those styles on commercial, professional, and fallback pages, with a readable font fallback and the same dark presentation under light and dark system preferences.
+
+**Evidence.** The root layout loads the three approved Latin WOFF2 files locally, with two preloads and JetBrains Mono available on demand. Shared styles and existing components apply the approved palette, typography, spacing, container gutters, focus outline, and interactive target sizes. Lint, typecheck, all eight tests, and the production build passed. Production Edge checks covered all eight public pages and both unknown URL cases at 320, 375, and 1280 px. They verified HTTP status, dark presentation under both system preferences, heading and main landmarks, target sizes, keyboard focus and skip links where present, service selector state and summary placement, and horizontal overflow. A separate check verified the homepage action's rest, hover, and pressed states and anchor navigation. Blocking the font downloads left the homepage, portfolio, and 404 readable at 320 px. Axe reported zero violations in the checked WCAG A/AA rules at 320 and 1280 px.
+
+**Review scope.** The process step labels retain their existing size in the approved body font. The display title size exceeded the current five-column layout for “Desenvolvimento” at 1280 px. AMSAF-032 owns the process hierarchy. The wordmark, mobile disclosure, page compositions, action variants, and 404 shell have separate implementation tasks.
 
 ### B — Shared components
 
