@@ -160,9 +160,22 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-013 — Add automated structural checks
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-012.
 
 **Acceptance.** Using existing Vitest tooling, verify four distinct service paths, separation from `/portfolio`, consistency between service records and configured links, unique project slugs, and known and unknown slug lookup. Keep inherited SEO tests passing. Run lint, production build, type check, and tests, and attach command results. Check rendered routes separately in AMSAF-014 because the existing Vitest suite runs in Node.
+
+**Evidence.** On 2026-11-08, added five checks in [public-structure.test.ts](../frontend/tests/public-structure.test.ts). They verify the four approved service paths in order, exclusion of `/portfolio`, consistency with the configured WhatsApp link, unique project slugs, matching detail URLs and records for known slugs, and an undefined result for an unknown slug. Rendered route validation remains in AMSAF-014.
+
+| Command | Result |
+| --- | --- |
+| `npm run lint` | Passed (exit 0). |
+| `npm run build` | Passed (exit 0). Prerendered the eight public pages, including the approved project detail. |
+| `npm run typecheck` | Passed (exit 0), after the build generated route types. |
+| `npm test` | Passed (exit 0). Two suites, eight tests, including the three inherited SEO tests. |
+| `npm run format:check -- --end-of-line auto` | Passed (exit 0). |
+| `git diff --check` | Passed (exit 0). |
 
 #### AMSAF-014 — Verify the complete M1 structure
 

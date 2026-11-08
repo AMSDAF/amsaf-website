@@ -28,7 +28,7 @@ M1 uses static, typed project records with unique slugs. The portfolio listing a
 | `frontend/src/config/`     | Static service, contact, professional profile, project, and scaffold content, plus centralized SEO settings. |
 | `frontend/src/types/`      | Shared content and navigation contracts.                                                                     |
 | `frontend/public/gallery/` | Local demonstration SVGs.                                                                                    |
-| `frontend/tests/`          | Unit tests for the default indexing and sitemap behavior.                                                    |
+| `frontend/tests/`          | Node-based Vitest checks for service and project structure, indexing, and sitemap behavior.                  |
 
 Indexing is currently disabled and the canonical site URL is unset. The layout uses the indexing flag, robots disallows crawling, and the sitemap function returns no entries. When authorized for production, keep route metadata, robots, and sitemap aligned with the central policy. Include the fixed public URLs and concrete published project URLs in the production sitemap and keep previews non-indexable. Protect private resources through authorization.
 

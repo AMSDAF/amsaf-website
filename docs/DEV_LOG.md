@@ -100,3 +100,8 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 ## 2026-11-08 — AMSAF-012 public navigation and contact
 
 - **Reuse.** Kept the approved shell links, catalog-driven service selector, and shared WhatsApp destination. Added the project detail link to the homepage showcase and used the same slug-based path builder in both project listings.
+
+## 2026-11-08 — AMSAF-013 automated structural checks
+
+- **Reuse.** Added catalog and link assertions to the existing Node-based Vitest suite. The service tests check the route values used by the homepage and selector and the WhatsApp link used by service records. The project tests use the existing slug lookup and detail path builder.
+- **Validation scope.** The tests exercise data and URL helpers. AMSAF-014 covers the rendered routes.
