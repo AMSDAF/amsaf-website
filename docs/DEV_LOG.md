@@ -2,6 +2,11 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Public layouts and landmarks
+
+- **AMSAF-004.** Reused the App Router root document, the Foundation shell's responsive styling, and the existing focus and indexing policies. Moved navigation into route layouts and made the shell responsible for a single main landmark and a keyboard skip link.
+- **Layout decision.** Home and contact use the commercial composition, all four service layouts share a composition, and the profile and project layouts are siblings so each owns its own landmarks. The current homepage keeps links to its scaffold sections until AMSAF-010 replaces the content. Future layouts ship without page entries. AMSAF-012 verifies the complete link wiring.
+
 ## 2026-11-08 — Project documentation baseline
 
 - **Effort.** Inspected the Git working tree, inherited scaffold, and both instruction files. Defined the AMSAF scope, six milestones, and matching backlog.

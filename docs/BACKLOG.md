@@ -44,9 +44,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-004 — Establish public layouts and landmarks
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-002.
 
 **Acceptance.** Use the existing App Router layout and shell where they fit. Render one main landmark per page and distinct header/footer compositions for the home, service details, contact page, professional portfolio and project details as specified in the route inventory. Verify on the available scaffold that Brazilian Portuguese language metadata, keyboard focus, and the default indexing policy remain intact. Final link wiring is covered by AMSAF-012.
+
+**Evidence.** On 2026-11-08, verified that all eight route layouts render one main landmark, a skip link, and the expected header and footer destinations using temporary server-rendered fixtures. Headless Edge at 320 px verified the production homepage's `pt-BR` document language, single main, visible first-Tab skip link, focus transfer to main on Enter, and no horizontal overflow. Verified `noindex, nofollow`, a disallow-all robots response, and an empty sitemap. Lint, production build, type check, the three SEO tests, and `git diff --check` passed. The default format check flagged existing CRLF checkout endings. Prettier passed with `--end-of-line auto`. The homepage uses its scaffold anchors until AMSAF-010. The other layouts are ready for their page tasks, with final link verification in AMSAF-012.
 
 #### AMSAF-005 — Define static content contracts
 

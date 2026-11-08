@@ -22,11 +22,6 @@ export interface SiteContent {
   title: string;
 }
 
-export interface FooterContent {
-  navigation: LinkContent[];
-  cta: LinkContent;
-}
-
 export interface ContentSection {
   description: string;
   id: string;

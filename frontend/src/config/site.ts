@@ -1,7 +1,5 @@
-import type { NavigationItem } from "@/types/navigation";
 import type {
   ContentSection,
-  FooterContent,
   GalleryItem,
   HeroContent,
   SiteContent,
@@ -70,23 +68,3 @@ export const siteGallery = [
     },
   },
 ] satisfies GalleryItem[];
-
-export const siteNavigation = [
-  {
-    href: "/",
-    label: "Início",
-  },
-] satisfies NavigationItem[];
-
-export const siteFooter = {
-  navigation: [
-    {
-      href: "#main-content",
-      label: "Ir para o conteúdo",
-    },
-  ],
-  cta: {
-    href: "#main-content",
-    label: "Explorar o template",
-  },
-} satisfies FooterContent;
