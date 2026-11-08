@@ -17,33 +17,19 @@ const returnToProjects = {
   label: "Voltar aos projetos",
 };
 
-export function CommercialLayout({
-  children,
-  scaffold = false,
-}: {
-  children: ReactNode;
-  scaffold?: boolean;
-}) {
+export function CommercialLayout({ children }: { children: ReactNode }) {
   return (
     <SiteShell
       brand={commercialBrand}
-      headerLinks={
-        scaffold
-          ? [{ href: "#template-overview", label: "Estrutura do site" }]
-          : [
-              services,
-              work,
-              { href: "/#como-funciona", label: "Como funciona" },
-              { href: "/#sobre", label: "Sobre" },
-              portfolio,
-            ]
-      }
+      headerLinks={[
+        services,
+        work,
+        { href: "/#como-funciona", label: "Como funciona" },
+        { href: "/#sobre", label: "Sobre" },
+        portfolio,
+      ]}
       headerAction={commercialContact}
-      footerLinks={
-        scaffold
-          ? [{ href: "#template-principles", label: "Princípios do site" }]
-          : [services, work, portfolio]
-      }
+      footerLinks={[services, work, portfolio]}
     >
       {children}
     </SiteShell>

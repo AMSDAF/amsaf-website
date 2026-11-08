@@ -108,9 +108,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-010 — Build the commercial homepage
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside the service pages.
 
 **Acceptance.** Direct-load `/` and verify the section inventory in order. Present all four service summaries with their shared base scopes and approved starting prices, customized proposals, and optional maintenance. Verify that selected work and the developer introduction use approved content and that the layout accommodates the service, portfolio, and WhatsApp actions. Follow the agreed M1 treatment for the preview and checklist.
+
+**Evidence.** On 2026-11-08, direct-loaded `/` in the production build and checked the approved section order, illustrative preview, static checklist, sole approved project, and verified developer introduction. Headless Edge at 320 and 1280 px verified visible keyboard focus, skip-link focus transfer, hero anchor navigation, and absence of horizontal overflow. Confirmed all four service routes returned HTTP 200 and matched the homepage's base scopes and eight approved prices. Verified the portfolio, contact guidance, and WhatsApp link targets, `pt-BR`, inherited `noindex, nofollow`, disallow-all robots, and an empty sitemap. Build, type check, lint, three SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed. Portfolio, contact, and project detail pages remain in their respective tasks. Complete navigation is tracked in AMSAF-012.
 
 #### AMSAF-011 — Build the professional portfolio
 

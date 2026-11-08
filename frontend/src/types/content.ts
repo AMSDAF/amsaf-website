@@ -23,7 +23,7 @@ export interface SiteContent {
 }
 
 export interface ContentSection {
-  description: string;
+  description?: string;
   id: string;
   title: string;
 }

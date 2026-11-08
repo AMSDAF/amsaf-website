@@ -5,11 +5,7 @@ import {
   services,
   type ServiceContent,
 } from "@/config/services";
-
-const brl = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
+import { formatBrl } from "@/lib/format-brl";
 
 export function ServiceDetail({ service }: { service: ServiceContent }) {
   return (
@@ -86,13 +82,13 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             A partir de
           </h2>
           <p className="mt-2 text-3xl font-semibold tracking-tight">
-            {brl.format(service.startingPriceInCentavos / 100)}
+            {formatBrl(service.startingPriceInCentavos)}
           </p>
 
           <div className="mt-5 border-t border-border pt-5 text-sm leading-6 text-content-muted">
             <p className="font-semibold text-content">
               Manutenção opcional de{" "}
-              {brl.format(service.monthlyMaintenanceInCentavos / 100)} por mês
+              {formatBrl(service.monthlyMaintenanceInCentavos)} por mês
             </p>
             <p className="mt-2">{serviceMaintenanceNote}</p>
           </div>

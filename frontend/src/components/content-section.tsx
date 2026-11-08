@@ -1,10 +1,12 @@
+import type { ReactNode } from "react";
 import type { ContentSection as ContentSectionContent } from "@/types/content";
 
 interface ContentSectionProps {
   content: ContentSectionContent;
+  children?: ReactNode;
 }
 
-export function ContentSection({ content }: ContentSectionProps) {
+export function ContentSection({ content, children }: ContentSectionProps) {
   return (
     <section
       aria-labelledby={`${content.id}-title`}
@@ -19,10 +21,13 @@ export function ContentSection({ content }: ContentSectionProps) {
           >
             {content.title}
           </h2>
-          <p className="mt-4 text-base leading-7 text-content-muted">
-            {content.description}
-          </p>
+          {content.description && (
+            <p className="mt-4 text-base leading-7 text-content-muted">
+              {content.description}
+            </p>
+          )}
         </div>
+        {children}
       </div>
     </section>
   );

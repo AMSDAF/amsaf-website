@@ -77,3 +77,8 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse.** The analysis identified the root layout and shell, homepage components, typed content primitives, and SEO configuration as starting points. Source inspection confirmed which routes and content models still needed implementation.
 - **Limitations.** The benchmark estimated 7.7× fewer tokens per query across four sample queries. Actual savings were unverified, and semantic extraction token counts were unavailable. The graph omitted 16 references with unresolved targets and could not verify rendered behavior.
 - **Decision.** Use Graphify as an optional aid alongside source verification. Reuse the existing graph during implementation and analysis. Regenerate it only after an approved AMSAF task is complete and a refresh is needed. Keep generated artifacts local and out of Git.
+
+## 2026-11-08 — AMSAF-010 commercial homepage
+
+- **Reuse.** Switched the homepage to the approved commercial shell links and extended the existing hero and section components to accept content. Reused the service, contact, project, and profile records. Shared BRL formatting with the service details.
+- **Decisions.** Used the neutral scaffold styles for M1 and wrote provisional Brazilian Portuguese copy. Replaced the prototype controls with an illustrative photography site and a static checklist. The showcase presents the sole approved project as a text entry. The project detail and complete navigation are tracked in AMSAF-024 and AMSAF-012.

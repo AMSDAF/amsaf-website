@@ -1,17 +1,19 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import type { HeroContent } from "@/types/content";
 
 interface HeroProps {
   content: HeroContent;
+  children?: ReactNode;
 }
 
-export function Hero({ content }: HeroProps) {
+export function Hero({ content, children }: HeroProps) {
   return (
     <section
       aria-labelledby="hero-title"
       className="border-b border-border bg-canvas"
     >
-      <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-10 px-4 py-16 sm:px-6 sm:py-24 lg:flex-row lg:items-center lg:[&>*]:min-w-0 lg:[&>*]:flex-1">
         <div className="max-w-3xl">
           <h1
             className="text-4xl font-semibold tracking-tight text-content sm:text-6xl"
@@ -37,6 +39,7 @@ export function Hero({ content }: HeroProps) {
             </div>
           ) : null}
         </div>
+        {children}
       </div>
     </section>
   );
