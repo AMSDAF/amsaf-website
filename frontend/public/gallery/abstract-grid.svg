@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title">
+  <title id="title">Grade geométrica em tons neutros</title>
+  <rect width="480" height="360" fill="#e5e5e5"/>
+  <path d="M0 90h480M0 180h480M0 270h480M120 0v360M240 0v360M360 0v360" stroke="#a3a3a3" stroke-width="2"/>
+  <circle cx="240" cy="180" r="72" fill="#525252"/>
+</svg>

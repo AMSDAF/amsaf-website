@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --foundation-color-canvas: #ffffff;
+  --foundation-color-surface: #f5f5f5;
+  --foundation-color-surface-muted: #e5e5e5;
+  --foundation-color-border: #d4d4d4;
+  --foundation-color-content: #171717;
+  --foundation-color-content-muted: #525252;
+  --foundation-color-content-subtle: #737373;
+  --foundation-color-focus: #404040;
+}
+
+@theme inline {
+  --color-canvas: var(--foundation-color-canvas);
+  --color-surface: var(--foundation-color-surface);
+  --color-surface-muted: var(--foundation-color-surface-muted);
+  --color-border: var(--foundation-color-border);
+  --color-content: var(--foundation-color-content);
+  --color-content-muted: var(--foundation-color-content-muted);
+  --color-content-subtle: var(--foundation-color-content-subtle);
+  --color-focus: var(--foundation-color-focus);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--foundation-color-canvas);
+  color: var(--foundation-color-content);
+  color-scheme: light;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--foundation-color-canvas);
+  color: var(--foundation-color-content);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+a:not([class]) {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--foundation-color-focus);
+  outline-offset: 3px;
+}

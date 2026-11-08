@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title">
+  <title id="title">Contraste abstrato em tons neutros</title>
+  <rect width="480" height="360" fill="#262626"/>
+  <rect x="48" y="48" width="384" height="264" fill="#d4d4d4"/>
+  <circle cx="240" cy="180" r="84" fill="#404040"/>
+</svg>

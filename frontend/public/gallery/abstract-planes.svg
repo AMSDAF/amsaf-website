@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title">
+  <title id="title">Planos abstratos em tons neutros</title>
+  <rect width="480" height="360" fill="#f5f5f5"/>
+  <path d="M0 280 190 70l105 105L480 20v340H0Z" fill="#737373"/>
+  <path d="m0 280 190-85 105 75L480 120v240H0Z" fill="#d4d4d4"/>
+</svg>
