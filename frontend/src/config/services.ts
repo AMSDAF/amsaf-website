@@ -53,23 +53,25 @@ export const portfoliosService: ServiceContent = {
   contact: commercialContact,
 };
 
+export const institutionalWebsitesService: ServiceContent = {
+  route: "/institucionais",
+  label: "Sites Institucionais",
+  summary: "Um site para apresentar sua empresa e facilitar o contato.",
+  audience:
+    "Empresas que precisam explicar quem são, o que fazem e como entrar em contato.",
+  baseScope: [
+    "Páginas internas de serviços, equipe, localização e contato",
+    "Otimização básica para mecanismos de busca",
+  ],
+  startingPriceInCentavos: 159000,
+  monthlyMaintenanceInCentavos: 11990,
+  contact: commercialContact,
+};
+
 export const services: readonly ServiceContent[] = [
   landingPagesService,
   portfoliosService,
-  {
-    route: "/institucionais",
-    label: "Sites Institucionais",
-    summary: "Um site para apresentar sua empresa e facilitar o contato.",
-    audience:
-      "Empresas que precisam explicar quem são, o que fazem e como entrar em contato.",
-    baseScope: [
-      "Páginas internas de serviços, equipe, localização e contato",
-      "Otimização básica para mecanismos de busca",
-    ],
-    startingPriceInCentavos: 159000,
-    monthlyMaintenanceInCentavos: 11990,
-    contact: commercialContact,
-  },
+  institutionalWebsitesService,
   {
     route: "/comerciais",
     label: "Sites Comerciais",

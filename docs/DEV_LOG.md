@@ -2,6 +2,10 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Institutional Websites detail
+
+- **AMSAF-008.** Added `/institucionais` using the shared service layout and detail component. The page and selector reference the same Institutional Websites catalog record, and the page derives its metadata from that record.
+
 ## 2026-11-08 — Portfolios service detail
 
 - **AMSAF-007.** Added `/portfolios` using the existing service layout, detail component, and approved Portfolios catalog record. The route exports its own metadata and leaves the professional portfolio at `/portfolio` for AMSAF-011.

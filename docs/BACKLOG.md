@@ -86,9 +86,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-008 — Build the Institutional Websites detail route
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-006.
 
 **Acceptance.** Direct-load `/institucionais`. Review the approved section inventory and service record for its own audience, base scope, customization, price, maintenance language where applicable, and contact.
+
+**Evidence.** On 2026-11-08, direct-loaded `/institucionais` in the production build and verified the approved section order, institutional audience, internal-page and basic SEO scope, customization note, R$ 1.590,00 starting price, R$ 119,90 optional monthly maintenance, and WhatsApp destination. Headless Edge at 320 and 1280 px confirmed the selector state, keyboard focus, responsive summary placement, and absence of horizontal overflow. Confirmed `pt-BR`, inherited `noindex, nofollow`, and HTTP 200 for the two existing service pages. Build, type check, lint, SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed. Complete navigation verification remains in AMSAF-012.
 
 #### AMSAF-009 — Build the Commercial Websites detail route
 
