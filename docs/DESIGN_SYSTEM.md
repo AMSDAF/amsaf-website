@@ -34,6 +34,7 @@ The project owner approved this checklist in AMSAF-002 on 2026-11-08. Use it to 
 - For project details, require the title, summary, and project-specific detail. Omit empty optional sections for technologies, decisions, verified results, or links. Place approved project images with their corresponding content and include appropriate alt text. Omit missing images and sample claims.
 - Keep the homepage preview as one static, clearly identified illustrative example and the checklist as a static list. Remove the preview category controls, checkbox affordances, and score from the prototype's M1 treatment. Keep the preview and checklist in their reference positions.
 - The secondary link to `/contato` adds an internal route to the homepage contact invitation. Keep the reference's direct WhatsApp action as the primary action and use the destination below.
+- The homepage showcase and professional portfolio link each listed project to its own detail page. The detail page returns visitors to `/portfolio#projetos`.
 
 ## M1 public content inputs
 

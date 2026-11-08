@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ContentSection } from "@/components/content-section";
 import { Hero } from "@/components/hero";
 import { professionalProfile } from "@/config/professional-profile";
-import { projects } from "@/config/projects";
+import { projectDetailPath, projects } from "@/config/projects";
 
 export const metadata: Metadata = {
   title: `${professionalProfile.name} | Portfólio profissional`,
@@ -75,7 +75,7 @@ export default function PortfolioPage() {
               <h3 className="text-lg font-semibold">
                 <Link
                   className="rounded-sm underline underline-offset-4"
-                  href={`/portfolio/projetos/${slug}`}
+                  href={projectDetailPath(slug)}
                 >
                   {title}
                 </Link>

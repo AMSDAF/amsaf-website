@@ -4,7 +4,7 @@ import { ContentSection } from "@/components/content-section";
 import { Hero } from "@/components/hero";
 import { commercialContact } from "@/config/contact";
 import { professionalProfile } from "@/config/professional-profile";
-import { projects } from "@/config/projects";
+import { projectDetailPath, projects } from "@/config/projects";
 import {
   serviceMaintenanceNote,
   serviceProposalNote,
@@ -175,7 +175,14 @@ export default function Home() {
               className="max-w-2xl rounded-xl border border-border bg-canvas p-4"
               key={project.slug}
             >
-              <h3 className="text-lg font-semibold">{project.title}</h3>
+              <h3 className="text-lg font-semibold">
+                <Link
+                  className={textLinkClass}
+                  href={projectDetailPath(project.slug)}
+                >
+                  {project.title}
+                </Link>
+              </h3>
               <p className="mt-2 text-content-muted">{project.summary}</p>
             </li>
           ))}

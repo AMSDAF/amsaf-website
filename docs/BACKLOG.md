@@ -150,9 +150,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-012 — Wire public navigation and contact
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-006 through AMSAF-011, AMSAF-023, AMSAF-024.
 
 **Acceptance.** Verify the home links to all four services and the professional portfolio, `/contato` is reachable through approved public navigation, and listed projects open their own detail URLs and link back to `/portfolio`. Verify the service selector and return-to-services links from every service page, the portfolio's link back to services, and approved header and footer links. Confirm that section links work from their source routes and the service selector identifies the current page. Check that WhatsApp actions resolve to the approved destination and that all internal targets exist.
+
+**Evidence.** On 2026-11-08, all eight public pages returned HTTP 200 in the production build. At both 320 and 1280 px, headless Edge followed 67 internal links and verified 12 WhatsApp navigation requests to the approved URL through interception. Checked header, footer, and main content destinations, fragment visibility, the active service on every selector transition, the homepage link to `/contato`, and both project listings and the detail return links. Confirmed an unknown project slug returned HTTP 404 and the indexing policy remained disabled. Build, type check, lint, three SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 #### AMSAF-013 — Add automated structural checks
 

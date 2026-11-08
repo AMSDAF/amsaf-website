@@ -30,3 +30,7 @@ export const projects: readonly ProjectContent[] = [
 export function findProjectBySlug(slug: string) {
   return projects.find((project) => project.slug === slug);
 }
+
+export function projectDetailPath(slug: string) {
+  return `/portfolio/projetos/${slug}`;
+}
