@@ -36,6 +36,8 @@ Each public page belongs to one route layout that uses `SiteShell` to render the
 
 The service catalog supplies the homepage and detail pages in the approved display order. Starting prices and optional monthly maintenance are stored as integer centavos in BRL for formatting at render time. The commercial header and service records reference the same WhatsApp link. The project collection is shared across the commercial showcase, professional portfolio, and project details. Empty collections represent unavailable professional and project material and allow the page to omit that content.
 
+The Landing Pages route passes its catalog record to `ServiceDetail`, which renders the approved structure for the four service pages inside the shared service layout. The selector reads the catalog and marks the current route. The price and contact summary follows the detail in reading order and sits beside it on wider screens.
+
 ## Required adaptations
 
 - Replace the template-specific copy, navigation, gallery examples, and metadata with AMSAF content in M1. Review the shell and component contracts for reuse across the homepage, product details, contact page, professional portfolio, and project details. The inherited package name remains `portfolio-foundation`.

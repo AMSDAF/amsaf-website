@@ -21,22 +21,24 @@ export const serviceProposalNote =
 export const serviceMaintenanceNote =
   "A manutenção mensal é opcional e cobre hospedagem, monitoramento e suporte técnico conforme combinado. Você também pode gerenciar sua própria hospedagem.";
 
+export const landingPagesService: ServiceContent = {
+  route: "/landing-pages",
+  label: "Landing Pages",
+  summary: "Uma página para apresentar sua oferta e facilitar o contato.",
+  audience:
+    "Profissionais que querem divulgar um serviço, uma oferta, uma campanha, um curso ou um evento.",
+  baseScope: [
+    "Uma página responsiva organizada em seções",
+    "Botão de contato direto pelo WhatsApp",
+    "Configuração do domínio e publicação",
+  ],
+  startingPriceInCentavos: 75000,
+  monthlyMaintenanceInCentavos: 4990,
+  contact: commercialContact,
+};
+
 export const services: readonly ServiceContent[] = [
-  {
-    route: "/landing-pages",
-    label: "Landing Pages",
-    summary: "Uma página para apresentar sua oferta e facilitar o contato.",
-    audience:
-      "Profissionais que querem divulgar um serviço, uma oferta, uma campanha, um curso ou um evento.",
-    baseScope: [
-      "Uma página responsiva organizada em seções",
-      "Botão de contato direto pelo WhatsApp",
-      "Configuração do domínio e publicação",
-    ],
-    startingPriceInCentavos: 75000,
-    monthlyMaintenanceInCentavos: 4990,
-    contact: commercialContact,
-  },
+  landingPagesService,
   {
     route: "/portfolios",
     label: "Portfólios",

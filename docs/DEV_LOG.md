@@ -2,6 +2,11 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Landing Pages detail
+
+- **AMSAF-006.** Reviewed the committed Landing Pages prototype and applied the approved M1 hierarchy to `/landing-pages`. Reused the service layout, approved catalog and WhatsApp configuration, and neutral scaffold styles. The shared detail component keeps the price and contact summary after the descriptive sections in reading order.
+- **Navigation.** The selector uses the four approved routes and marks the current page. The other services, homepage services anchor, and professional portfolio are tracked in their own tasks. AMSAF-012 covers verification of the complete navigation.
+
 ## 2026-11-08 — Static content contracts
 
 - **AMSAF-005.** Added typed service, profile, and project records from the approved M1 inputs. Reused the shared link and image types, moved the WhatsApp destination into shared configuration, and used the profile name in the professional header.

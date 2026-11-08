@@ -66,9 +66,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-006 — Build the Landing Pages detail route
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005.
 
 **Acceptance.** Direct-load `/landing-pages` and verify the reference order and hierarchy. The page includes a service selector, introduction, intended audience, base scope, customization note, and starting-price and WhatsApp summary. The layout accommodates the home/services return and portfolio footer link. Verify copy and price against the Landing Pages record. Extract shared detail composition only where it fits the approved service pages.
+
+**Evidence.** On 2026-11-08, direct-loaded `/landing-pages` in the local production build and checked the rendered page against the committed Landing Pages export and the approved M1 inventory. Verified selector order and current state, catalog copy and scope, the R$ 750,00 starting price, R$ 49,90 optional monthly maintenance, WhatsApp destination, and return and footer link targets. Headless Edge at 320 and 1280 px verified the summary placement, readable order, keyboard focus, and absence of horizontal overflow. Confirmed `pt-BR`, a single main landmark, and inherited `noindex, nofollow`. Lint, build, type check, SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed. Destination availability for the other services, homepage anchor, and professional portfolio remains in their page tasks, with final navigation checks in AMSAF-012.
 
 #### AMSAF-007 — Build the Portfolios service route
 
