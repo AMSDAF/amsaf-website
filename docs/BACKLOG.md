@@ -18,9 +18,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-002 — Confirm the route and section inventory
 
-**Dependencies.** AMSAF-001. **Inputs.** Resolve the open structural questions below with the project owner.
+**Status.** Done. The project owner approved the inventory on 2026-11-08.
+
+**Dependencies.** AMSAF-001.
 
 **Acceptance.** Use the approved route map to record section order, navigation destinations and anchors, and how the Landing Pages layout applies to the three other services. Confirm the contact page hierarchy and the common project detail structure, including how optional project content is presented. Decide the M1 treatment of the homepage preview and checklist and record any approved departure from the references. Use this inventory as the comparison checklist for page acceptance.
+
+**Evidence.** Reviewed all six pages of the three committed design exports. The approved [M1 route acceptance checklist](DESIGN_SYSTEM.md#m1-route-acceptance-checklist) maps the eight route patterns to ordered sections and navigation destinations. It records service layout reuse, contact and project hierarchies, optional project sections, and approved departures from the references. Checked that all eight inventory route patterns match the architecture and that all seven documented anchor targets are defined. `git diff --check` passed. Publishable content and the WhatsApp destination are tracked in AMSAF-003. Rendered route and navigation checks are tracked in AMSAF-014.
 
 #### AMSAF-003 — Confirm content and contact inputs
 
@@ -121,8 +125,7 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 | Missing        | Service, contact, portfolio and project detail routes, a service selector and detail/price composition, homepage service summaries and process steps, and professional skills and experience/project rows. Prefer route-local markup for one-off sections and share composition when multiple approved pages need it.                                                               |
 
 - The repository currently serves only the scaffold at `/` alongside robots and sitemap. The existing tests cover SEO defaults and provide no rendered-route or responsive coverage.
-- The [structural reference inventory](DESIGN_SYSTEM.md#confirmed-structure-and-content) has a homepage, one service example, and a professional portfolio. The service slugs are approved. Category-specific structural differences, the contact page hierarchy, and the project detail section order still need confirmation. Reusing the Landing Pages hierarchy is a proposal for AMSAF-002.
-- The homepage preview and checklist are shown in the prototype. Confirm whether their M1 representation is static, minimally interactive, or deferred. Final visual tokens, mascot behavior, and advanced motion remain outside M1.
+- The approved [M1 route acceptance checklist](DESIGN_SYSTEM.md#m1-route-acceptance-checklist) defines one service hierarchy, contact and project detail structures, and static treatment of the homepage preview and checklist. Final visual tokens, mascot behavior, and advanced motion remain outside M1.
 - Review cross-route anchors and shared data ownership before enabling public navigation. A single globally configured shell or copied service data could produce incorrect links and inconsistent prices.
 - Approved content, pricing, and the WhatsApp destination gate page acceptance. Keep M1 local and non-indexable. [Cloudflare, authentication, persistent content and image management](ARCHITECTURE.md#technical-risks-and-validation-gates) remain later validation gates.
 

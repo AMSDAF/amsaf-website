@@ -21,3 +21,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 
 - **Decisions and rework.** Recorded the approved product slugs, added the WhatsApp contact page and shared project detail route to M1, and updated navigation and validation gates. Added AMSAF-023 and AMSAF-024 to preserve existing task IDs.
 - **Open.** Confirm contact and project section hierarchy, approved project records and results, and the remaining content inputs before implementation.
+
+## 2026-11-08 — AMSAF-002 route inventory
+
+- **Effort and reuse.** Reviewed the six export pages against the approved route map and M1 acceptance criteria. Used the homepage, Landing Pages, and professional portfolio exports as the structural baseline.
+- **Decisions.** The project owner approved one hierarchy for all four services, dedicated contact and project detail structures, and explicit navigation targets. The homepage uses a static preview and checklist to preserve their content roles in M1.
+- **Open.** AMSAF-003 tracks publishable content and the WhatsApp destination.
