@@ -1,119 +1,45 @@
-# Portfolio Foundation
+# AMSAF
 
-Fundação web reutilizável para portfólios profissionais. A primeira implementação
-planejada é o portfólio comercial da Emilly Araújo Fotografia; posteriormente, a
-mesma infraestrutura poderá apoiar um portfólio de desenvolvedor.
+AMSAF is Antônio Marcos's independent developer identity and the name of his official website project. The site helps prospective clients understand his website services and gives professional audiences a separate place to explore his work.
 
-O projeto não pretende ser um SaaS, CMS genérico ou construtor visual. A
-reutilização deve concentrar-se em infraestrutura e componentes comprovadamente
-compartilhados, sem forçar a mesma experiência visual para todas as marcas.
+## Public website
 
-## Estado atual
+| Route        | Purpose                                                                                                                                                                                                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`          | Commercial homepage for Landing Pages, Portfolios, Institutional Websites, and Commercial Websites. Each category presents a standard scope and an approved starting price. Clients can request a customized proposal and choose optional recurring maintenance. |
+| `/portfolio` | Dedicated professional portfolio for Antônio Marcos, focused on his profile and verified work. Portfolios sold as a service belong on the commercial homepage.                                                                                                   |
 
-O repositório concluiu as tarefas PF-001 a PF-009 da fundação e PF-010 a PF-019
-do EPIC-02. O shell estrutural envolve a aplicação com Header, navegação
-principal, conteúdo principal e Footer; a página inicial também compõe Hero,
-seções, galeria, cards e CTAs neutros. Identidade visual, conteúdo comercial,
-painel administrativo, métricas e integrações ainda não foram implementados. A
-infraestrutura SEO está preparada, mas a indexação permanece desativada até
-existir domínio e publicação autorizada.
-Consulte o [roadmap](./docs/ROADMAP.md) e o [backlog](./docs/BACKLOG.md) para o
-estado detalhado.
+WhatsApp is the primary contact channel. The site uses no contact forms, artificial scarcity, or manipulative sales tactics. Public content is in Brazilian Portuguese. Project documentation and technical conventions are in English.
 
-## Stack instalada
+The Claude Design prototype establishes the structural direction. Visual identity and interaction details are open for refinement. The repository currently runs the inherited Portfolio Foundation scaffold at `/`. The AMSAF homepage and `/portfolio` are planned.
 
-- Next.js 16.4.1 com App Router e Turbopack.
-- React e React DOM 19.3.0.
-- TypeScript 5.9.3 com `strict` habilitado.
-- Tailwind CSS 4.3.3, integrado pelo `@tailwindcss/turbopack`.
-- Vitest 3.2.4 para testes unitários.
-- npm.
+## Local development
 
-As versões efetivamente instaladas têm como fonte de verdade o
-[`frontend/package-lock.json`](./frontend/package-lock.json). Supabase, Vercel,
-Google Analytics, Search Console e armazenamento de imagens são possibilidades
-futuras, não integrações atuais.
+The Next.js application lives in `frontend/`. Use Node.js 20.9 or later and npm. [Next.js installation requirements](https://nextjs.org/docs/app/getting-started/installation)
 
-## Requisitos
-
-- Node.js 20.9.0 ou superior.
-- npm disponível no ambiente.
-
-Não são necessárias variáveis de ambiente ou serviços externos para o scaffold
-atual.
-
-## Instalação e desenvolvimento
-
-Os comandos da aplicação devem ser executados dentro de `frontend/`:
-
-```bash
+```sh
 cd frontend
 npm ci
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000). Para encerrar o servidor,
-pressione `Ctrl+C`.
+Open <http://localhost:3000>. Run checks from `frontend/`.
 
-## Comandos disponíveis atualmente
-
-Dentro de `frontend/`:
-
-| Comando | Situação |
-| --- | --- |
-| `npm run dev` | disponível |
-| `npm run build` | disponível |
-| `npm start` | disponível após um build |
-| `npm run lint` | disponível |
-| `npm run typecheck` | disponível |
-| `npm run test` | disponível |
-| `npm run format` | disponível |
-| `npm run format:check` | disponível |
-
-## Estrutura
-
-```text
-portfolio-foundation/
-├── docs/                 # visão, arquitetura, design system e planejamento
-├── frontend/
-│   ├── public/
-│   │   └── gallery/       # Mídia SVG local e substituível do template
-│   ├── src/
-│   │   ├── app/          # App Router e tela inicial atual
-│   │   ├── components/   # Componentes compartilhados com uso concreto
-│   │   ├── config/       # Configuração estática do site e SEO
-│   │   └── types/        # Contratos compartilhados
-│   ├── tests/            # Testes unitários da fundação
-│   ├── vitest.config.ts
-│   ├── next.config.ts
-│   ├── package.json
-│   └── tsconfig.json
-├── .gitignore
-├── AGENTS.md
-└── README.md
+```sh
+npm run lint
+npm run build
+npm run typecheck
+npm test
+npm run format:check
 ```
 
-O alias `@/*` aponta para `frontend/src/*`. O Tailwind CSS 4 usa
-`@import "tailwindcss"` em `frontend/src/app/globals.css`, que também define
-tokens neutros iniciais; ainda não há arquivo `tailwind.config`.
+The build generates Next.js route types used by the standalone type check on a fresh checkout. The repository lockfile defines the dependency versions.
 
-O diretório de componentes foi criado para o shell estrutural implementado na
-PF-011. Features e bibliotecas serão criadas quando houver responsabilidades
-concretas para elas. Os diretórios de configuração e tipos já existem porque
-centralizam contratos e dados estáticos do scaffold atual; nenhuma camada
-adicional é criada antecipadamente.
+## Project documentation
 
-A indexação está desativada por padrão: não há domínio, URL canônica ou
-publicação autorizada configurados. A ativação de SEO público deve definir um
-domínio real e alterar explicitamente a política em `src/config/seo.ts`.
-
-## Documentação
-
-- [Arquitetura](./docs/ARCHITECTURE.md)
-- [Design System](./docs/DESIGN_SYSTEM.md)
-- [Roadmap](./docs/ROADMAP.md)
-- [Backlog](./docs/BACKLOG.md)
-
-As decisões e o planejamento devem permanecer consistentes com o código
-implementado. Mudanças de escopo devem ser registradas na documentação
-correspondente.
+- [Roadmap](docs/ROADMAP.md) for milestone scope and exit criteria.
+- [Backlog](docs/BACKLOG.md) for tasks, acceptance criteria, and evidence.
+- [Design system](docs/DESIGN_SYSTEM.md) for approved requirements and open design directions.
+- [Architecture](docs/ARCHITECTURE.md) for the inherited baseline, required adaptations, and technical risks.
+- [Development log](docs/DEV_LOG.md) for effort, reuse, decisions, and rework.
+- [Repository instructions](AGENTS.md) and [frontend instructions](frontend/AGENTS.md) for contributors.

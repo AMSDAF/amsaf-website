@@ -1,144 +1,46 @@
-# Arquitetura
+# AMSAF architecture
 
-## Escopo
+## Scope and baseline
 
-O Portfolio Foundation é uma única aplicação Next.js inicialmente. Seu objetivo
-é fornecer uma base reutilizável para portfólios profissionais, começando pela
-Emilly Araújo Fotografia e podendo receber uma segunda implementação para um
-desenvolvedor de software. Não é um SaaS, CMS genérico ou construtor visual.
+AMSAF is one Next.js application in `frontend/`, with project documentation at the repository root and in `docs/`. The commercial homepage and professional portfolio are separate routes within that application. Start with static, typed content. A protected administrative panel and persistent editing follow the integration decisions in M4. A separate backend, generic CMS, theme system, and plugin platform are outside the current scope.
 
-## Estrutura atual
+The inherited baseline is Next.js 16.4.1 with App Router and Turbopack, React and React DOM 19.3.0, TypeScript 5.9.3 in strict mode, Tailwind CSS and its Turbopack loader at 4.3.3, Vitest 3.2.4, and npm. See [package.json](../frontend/package.json) and [package-lock.json](../frontend/package-lock.json). The `@/*` alias resolves to `frontend/src/*`.
 
-```text
-portfolio-foundation/
-├── docs/
-├── frontend/
-│   ├── public/
-│   │   └── gallery/
-│   ├── src/
-│   │   ├── app/
-│   │   │   ├── globals.css
-│   │   │   ├── layout.tsx
-│   │   │   ├── page.tsx
-│   │   │   ├── robots.ts
-│   │   │   └── sitemap.ts
-│   │   ├── config/
-│   │   │   ├── seo.ts
-│   │   │   └── site.ts
-│   │   ├── components/
-│   │   │   ├── card.tsx
-│   │   │   ├── content-section.tsx
-│   │   │   ├── gallery.tsx
-│   │   │   ├── hero.tsx
-│   │   │   └── site-shell.tsx
-│   │   └── types/
-│   │       ├── content.ts
-│   │       └── navigation.ts
-│   ├── tests/
-│   │   └── seo.test.ts
-│   ├── vitest.config.ts
-│   ├── next.config.ts
-│   ├── package.json
-│   ├── package-lock.json
-│   └── tsconfig.json
-├── .gitignore
-├── AGENTS.md
-└── README.md
-```
+| Location                   | Current responsibility                                                                                       |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `frontend/src/app/`        | Root layout, scaffold homepage, global styles, robots, and sitemap. The layout sets `lang="pt-BR"`.          |
+| `frontend/src/components/` | Shell, hero, sections, gallery, and card. The shell reads site configuration and the card uses `next/image`. |
+| `frontend/src/config/`     | Typed static scaffold content and centralized SEO settings.                                                  |
+| `frontend/src/types/`      | Shared content and navigation contracts.                                                                     |
+| `frontend/public/gallery/` | Local demonstration SVGs.                                                                                    |
+| `frontend/tests/`          | Unit tests for the default indexing and sitemap behavior.                                                    |
 
-O código da aplicação permanece em `frontend/`; essa fronteira não deve ser
-reorganizada. `src/config` e `src/types` agora existem porque PF-004 introduziu
-configuração centralizada e contratos compartilhados; `src/config/seo.ts`
-centraliza a ativação explícita da indexação definida na PF-006. Os componentes
-do template em `src/components/` foram criados no EPIC-02 porque possuem uso
-concreto no layout raiz e na página inicial. Features e lib continuam ausentes
-porque o scaffold atual ainda não possui responsabilidades que justifiquem
-essas camadas.
+Indexing is currently disabled and the canonical site URL is unset. The layout uses the indexing flag, robots disallows crawling, and the sitemap function returns no entries. When authorized for production, keep route metadata, robots, and sitemap aligned with the central policy. Include both public routes in the production sitemap and keep previews non-indexable. Protect private resources through authorization.
 
-## Responsabilidades dos diretórios
+## Required adaptations
 
-Quando forem necessários, os diretórios terão responsabilidades distintas:
+- Replace the template-specific copy, navigation, gallery examples, and metadata with AMSAF content in M1. Review the shell and component contracts for reuse across `/` and the new `/portfolio` route. The inherited package name remains `portfolio-foundation`.
+- Keep public copy in Brazilian Portuguese and document approved visual choices in M2. Existing styles provide a neutral scaffold.
+- Reassess the inherited hosting and service assumptions in M4. Vercel was a template possibility. Cloudflare is the deployment target to validate. Authentication, content and media providers, and optional analytics or search integrations remain undecided. None of these integrations are configured in the repository.
 
-- `src/app/`: rotas, layouts e arquivos reconhecidos pelo App Router.
-- `src/components/`: componentes de interface compartilháveis e sem conteúdo
-  específico de uma marca.
-- `src/features/`: fluxos ou áreas de negócio que combinam apresentação,
-  comportamento e dados da própria feature.
-- `src/config/`: configuração estática da aplicação e integrações, sem lógica
-  de apresentação. Inclui a configuração do site e a política de SEO.
-- `src/lib/`: utilitários e serviços independentes de componentes React.
-- `src/types/`: contratos TypeScript compartilhados quando não pertencerem a
-  uma feature específica. Atualmente contém os contratos neutros de conteúdo e
-  navegação.
-- `tests/`: testes unitários da fundação, sem dependência da interface ou de
-  serviços externos.
+## Technical risks and validation gates
 
-Esses diretórios não devem ser criados apenas como scaffolding vazio. Uma
-feature pode manter seus tipos, dados e utilitários próximos dela quando isso
-reduzir acoplamento; mover algo para uma camada compartilhada exige uso
-concreto em mais de um ponto.
+| Risk                       | What to decide and verify                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Cloudflare deployment      | The repository has no Cloudflare runtime configuration. Choose a deployment path that supports the pinned Next.js App Router app and the panel's server needs. Verify the build, public and metadata routes, static assets, environment bindings, and representative server requests in a Cloudflare preview. A local Next.js build alone cannot verify runtime compatibility. |
+| Authentication             | Decide the provider, operator access policy, and session lifecycle. In preview, verify cookie and callback behavior on the selected runtime, server-side authorization for protected reads and mutations, sign-out, and rejection of expired or unauthorized sessions. Keep credentials server-side.                                                                           |
+| Persistent content storage | Decide editable fields, schema, source of truth, publication and cache behavior, migrations, and recovery. Verify authorized writes, survival across redeploys, public reads, and cache refresh. Treat bundled static configuration as an initial content source.                                                                                                              |
+| Image management           | Local SVGs exercise bundled assets only. Choose storage, delivery and optimization, upload limits and validation, access controls, alt text handling, and replacement and deletion rules. Verify representative uploads and `next/image` behavior on the target runtime. Test recovery from partial failures that could leave broken references or orphaned files.             |
 
-## Tecnologias atuais
+Cloudflare's current Next.js guidance is a starting point for the compatibility check. Record the selected path and evidence in M4 before relying on it for M5. [Cloudflare Next.js deployment guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
 
-- Next.js 16.4.1, App Router e Turbopack.
-- React e React DOM 19.3.0.
-- TypeScript 5.9.3, com `strict: true`.
-- Tailwind CSS 4.3.3 e `@tailwindcss/turbopack`.
-- Vitest 3.2.4 para testes unitários.
-- npm.
+## Dependency rules
 
-As versões e configurações instaladas estão em
-`frontend/package.json`, `frontend/package-lock.json`, `frontend/tsconfig.json`,
-`frontend/next.config.ts` e `frontend/vitest.config.ts`.
+- `app` composes route-level UI and can use components, configuration, types, and feature or service modules once they are needed.
+- Keep feature-specific data, types, and behavior close to their feature. Create `features/` or `lib/` when concrete responsibilities justify them. Avoid dependencies between sibling features and cycles between layers.
+- Shared components can consume typed props and shared contracts. Keep feature-specific content in its owning route, feature, or configuration. Data, configuration, services, and types do not import presentation. Configuration may import shared types.
+- Keep the indexing policy centralized for metadata, robots, and sitemap. Give external integrations clear boundaries and introduce them when the corresponding task requires them.
 
-O alias `@/*` já está configurado em `frontend/tsconfig.json` para apontar para
-`frontend/src/*`. Ele deve ser usado para imports entre áreas da aplicação
-quando melhorar a clareza, sem substituir a separação de responsabilidades.
+## Conventions
 
-## Decisões arquiteturais
-
-1. Uma aplicação única inicialmente; não criar backend separado neste estágio.
-2. Conteúdo estático primeiro; persistência e painel vêm depois.
-3. Separar dados, contratos tipados e apresentação. A configuração estática
-   fica em `src/config`, enquanto os contratos ficam em `src/types`.
-4. A indexação permanece desativada até existir domínio e publicação autorizada.
-5. Extrair componentes compartilhados somente após existir necessidade concreta.
-6. O núcleo não pode depender da identidade visual da Emilly.
-7. Reutilizar infraestrutura e componentes quando fizer sentido, sem exigir que
-   toda implementação tenha a mesma experiência visual.
-8. Evitar sistemas de plugins, temas e abstrações genéricas sem caso de uso.
-9. Não adicionar banco de dados à fundação antes do EPIC-04.
-
-## Tecnologias futuras
-
-Supabase (persistência e autenticação), Supabase Storage ou alternativa para
-imagens, Vercel, Google Analytics 4, Search Console e ferramentas de conversão
-são possibilidades planejadas. Nenhuma está implementada ou deve ser descrita
-como dependência atual.
-
-## Regras de dependência
-
-- `app` pode compor `features`, `components`, `config`, `lib` e `types`.
-- `features` pode usar componentes compartilhados, configuração, lib e tipos,
-  mas não deve ser importada por uma feature irmã.
-- `components` não deve importar conteúdo específico de uma marca ou feature.
-- `config`, `lib` e `types` não devem importar componentes de apresentação.
-- Dados não devem importar componentes de apresentação.
-- `config` pode importar contratos de `types`, mas `types` não pode importar
-  configuração ou componentes.
-- `robots.ts` e `sitemap.ts` devem consumir a política de SEO centralizada, sem
-  duplicar domínio ou estado de indexação.
-- Integrações externas devem ficar atrás de limites claros e só serão
-  introduzidas quando a tarefa correspondente for iniciada.
-- Evitar dependências circulares e manter aliases relativos ao `@/*` existente.
-
-O fluxo preferencial é direcionado para dentro: `app` compõe as camadas
-inferiores, enquanto as camadas inferiores não importam rotas nem a identidade
-de uma implementação. Dependências entre áreas devem ser introduzidas somente
-quando houver uma relação funcional explícita.
-
-## Convenções
-
-Arquivos e diretórios usam kebab-case; componentes, tipos e interfaces usam
-PascalCase; variáveis e funções usam camelCase. Commits usam inglês e
-Conventional Commits. Tarefas usam o formato `PF-###`.
+Use kebab-case for filenames and directories, PascalCase for components and types, and camelCase for functions and variables. Use English and Conventional Commits for commit messages. Use `AMSAF-###` for tasks and `EPIC-##` for epic identifiers.

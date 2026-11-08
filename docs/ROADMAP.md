@@ -1,89 +1,62 @@
-# Roadmap
+# AMSAF roadmap
 
-O roadmap é incremental. Cada EPIC depende de decisões e validações do anterior;
-a documentação não substitui os critérios de aceite das tarefas.
+The Claude Design prototype defines the structural direction. Visual details are subject to refinement. All milestones are planned. The [backlog](BACKLOG.md) tracks individual tasks and completion evidence.
 
-## EPIC-01 — Fundação do Projeto
+## M1 — Structural Foundation
 
-Estabelecer estrutura técnica, ferramentas, configurações, documentação e
-validações.
+**Scope.** Establish the commercial homepage and separate professional portfolio using static, typed content. Apply the approved prototype structure and reuse the inherited shell and components where they fit.
 
-- Entregáveis: repositório Next.js, arquitetura, contratos, base visual, SEO,
-  validações e documentação.
-- Dependências: nenhuma.
-- Limites: não construir o site comercial completo nem o painel.
-- Estado: PF-001 a PF-009 concluídas. A fundação está pronta para iniciar o
-  EPIC-02; isso não implica que o template neutro já tenha sido implementado.
+**Success criteria**
 
-## EPIC-02 — Template Neutro
+- `/` and `/portfolio` load directly and are reachable through public navigation. Each route has a distinct purpose, heading, and Brazilian Portuguese copy.
+- The homepage lists all four categories, their standard scopes and approved starting prices, plus options for a customized proposal and recurring maintenance.
+- The primary contact action opens the approved WhatsApp destination. A route review finds no contact forms, artificial scarcity, or manipulative sales tactics.
+- Portfolio entries use verified content. Homepage and portfolio structure are reviewed against the approved prototype.
 
-Construir uma interface navegável em tons de cinza, com conteúdo de demonstração
-neutro, layouts e componentes reutilizáveis orientados por uso real.
+## M2 — Visual Identity
 
-- Entregáveis: contratos e dados de demonstração, shell da aplicação, Header,
-  Footer, navegação, Hero, seções, galeria, cards, CTAs, composição da página
-  inicial, estados responsivos e validações de acessibilidade.
-- Dependências: PF-001 a PF-009 concluídas; uso dos contratos de
-  `frontend/src/types/`, da configuração existente e dos tokens neutros de
-  `frontend/src/app/globals.css`. Não depende de banco, armazenamento,
-  autenticação, domínio ou serviço externo.
-- Sequência: PF-010 e PF-011 estabelecem contratos e shell; PF-012 a PF-015
-  entregam componentes; PF-016 compõe a página; PF-017 e PF-018 validam
-  comportamento responsivo e acessibilidade; PF-019 encerra o epic com
-  validação e documentação.
-- Critério de saída: a aplicação deve oferecer uma página inicial navegável,
-  responsiva e acessível em conteúdo neutro, com componentes reutilizáveis
-  somente onde houver uso concreto, sem dependência de identidade de marca.
-- Limites: não aplicar identidade visual da Emilly, não publicar conteúdo
-  comercial real, não criar CMS, backend, autenticação, persistência,
-  integrações de métricas ou sistema de temas/plugins; a indexação continua
-  desativada conforme a fundação.
-- Estado: concluído; PF-010 a PF-019 concluídas com evidências registradas no
-  backlog. O template neutro está pronto para as decisões e materiais do
-  EPIC-03.
+**Scope.** Refine and approve AMSAF typography, color, spacing, layout, and component states for the public routes.
 
-## EPIC-03 — Emilly Araújo Fotografia
+**Success criteria**
 
-Aplicar identidade visual e conteúdo específicos da fotógrafa, preservando a
-marca original.
+- Approved tokens and component patterns are recorded in the design system and applied across both routes.
+- Mobile and desktop reviews confirm readable hierarchy, visible keyboard focus, sufficient text and control contrast, and layouts free from unintended horizontal overflow.
 
-- Entregáveis: home, portfólio por categorias, sobre, serviços, depoimentos
-  autorizados, campanhas e CTAs de contato.
-- Dependências: template neutro e materiais originais da marca.
-- Limites: cores e tipografia de referência não são tokens finais; publicar
-  fotos de clientes exige as autorizações necessárias.
-- Estado: futuro.
+## M3 — Personality and Interactivity
 
-## EPIC-04 — Gerenciamento de Conteúdo
+**Scope.** Select and implement interactions that express Antônio Marcos's personality while keeping service discovery and contact straightforward.
 
-Adicionar autenticação, persistência, armazenamento de imagens e painel
-administrativo.
+**Success criteria**
 
-- Entregáveis: gerenciamento prioritário de campanhas e portfólio, além de
-  edição de conteúdo selecionado e configurações básicas.
-- Dependências: necessidade concreta de operação e definição da estratégia de
-  dados.
-- Limites: não construir editor visual genérico.
-- Estado: futuro; Supabase e Storage são possibilidades, não decisões de
-  implementação atual.
+- Each approved interaction has a recorded purpose and passes a review with pointer, touch, and keyboard where applicable.
+- Essential content, navigation, and contact remain usable with reduced motion. Interaction states are documented and reviewed on both public routes where used.
 
-## EPIC-05 — SEO, GEO e Métricas
+## M4 — Configuration and Integrations
 
-Implementar e validar descoberta, indexação, desempenho e mensuração de
-conversões.
+**Scope.** Configure the canonical URL and WhatsApp destination, validate the Cloudflare runtime, and make decisions on authentication, content storage, and media delivery. Assess optional integrations separately.
 
-- Entregáveis: Metadata API, sitemap, robots, URLs semânticas, dados
-  estruturados, imagens otimizadas, conteúdo de serviços e métricas.
-- Dependências: domínio, conteúdo e requisitos de privacidade definidos.
-- Limites: não prometer indexação, posicionamento ou resultado de aquisição.
-- Estado: futuro; Search Console e Analytics ainda não estão configurados.
+**Success criteria**
 
-## EPIC-06 — Portfólio do Desenvolvedor
+- A repeatable Cloudflare preview serves both public routes and verifies metadata routes, assets, server configuration, and the runtime capabilities needed for the panel.
+- The architecture records decisions for authentication, content storage, and media delivery with preview evidence or explicit blockers. Any optional integration enabled has a documented purpose and a smoke test.
+- Preview stays non-indexable. The canonical production domain and index-enablement procedure are documented.
 
-Criar uma segunda implementação usando a fundação existente.
+## M5 — Administrative Panel
 
-- Entregáveis: projetos, tecnologias, experiência e estudos de caso.
-- Dependências: evidência de reutilização real após EPIC-02 e EPIC-03.
-- Limites: extrair abstrações somente quando justificadas por mais de uma
-  necessidade concreta.
-- Estado: futuro.
+**Scope.** Build a protected panel for approved content and media workflows once M4 validates the integration choices.
+
+**Success criteria**
+
+- Authorized operators can sign in, sign out, and update the agreed content and media fields. Unauthenticated and unauthorized requests cannot read protected data or mutate content, including through direct requests.
+- An approved edit survives a redeployment and appears on the public route according to the documented publication and cache behavior.
+- A preview exercise verifies upload validation, image replacement and removal, and recovery from a failed media operation.
+
+## M6 — Quality and Launch
+
+**Scope.** Validate the public routes and admin flow, review launch content, and release to the authorized production domain.
+
+**Success criteria**
+
+- Lint, production build, type check, and tests pass. Launch evidence records accessibility, responsive layout, performance, and end-to-end smoke checks against agreed criteria.
+- Production smoke checks verify routes, WhatsApp, approved content, and admin access controls. Metadata, canonical URLs, robots, and the sitemap reflect the authorized indexing state.
+- Deployment and rollback steps are recorded and exercised in preview. Launch approval and the production smoke-check results are recorded in the backlog.
