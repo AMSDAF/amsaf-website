@@ -128,9 +128,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-023 — Build the contact page
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-003, AMSAF-004. Can run alongside the service and portfolio pages.
 
 **Acceptance.** Direct-load `/contato` and verify the approved Brazilian Portuguese heading, contact guidance, and primary WhatsApp link using the approved destination. The page has no contact form. Verify keyboard access to the contact action and shared navigation.
+
+**Evidence.** On 2026-11-08, direct-loaded `/contato` in the production build and verified the Brazilian Portuguese heading and guidance, a single primary contact action in the main content, and absence of a contact form. Headless Edge at 320 and 1280 px verified visible keyboard focus, skip-link focus transfer, navigation to the approved WhatsApp URL using an intercepted request, shared header and footer destinations, and no horizontal overflow. Verified keyboard navigation to the homepage services anchor and the homepage link back to `/contato`. Confirmed `pt-BR`, `noindex, nofollow`, disallow-all robots, and an empty sitemap. Build, type check, lint, three SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 #### AMSAF-024 — Build the dynamic project detail pages
 
