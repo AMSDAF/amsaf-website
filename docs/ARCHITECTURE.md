@@ -36,7 +36,7 @@ Each public page belongs to one route layout that uses `SiteShell` to render the
 
 The service catalog supplies the homepage and detail pages in the approved display order. Starting prices and optional monthly maintenance are stored as integer centavos in BRL for formatting at render time. The commercial header and service records reference the same WhatsApp link. The project collection is shared across the commercial showcase, professional portfolio, and project details. Empty collections represent unavailable professional and project material and allow the page to omit that content.
 
-The Landing Pages, Portfolios, and Institutional Websites routes each pass their catalog record to `ServiceDetail`, which renders the approved structure for the four service pages inside the shared service layout. The selector reads the catalog and marks the current route. The price and contact summary follows the detail in reading order and sits beside it on wider screens.
+Each of the four service routes passes its catalog record to `ServiceDetail` inside the shared service layout. The selector reads the catalog and marks the current route. The detail renders a scope note when the record provides one. The price and contact summary follows the detail in reading order and sits beside it on wider screens.
 
 ## Required adaptations
 

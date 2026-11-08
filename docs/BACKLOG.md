@@ -96,9 +96,15 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-009 — Build the Commercial Websites detail route
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-006.
 
 **Acceptance.** Direct-load `/comerciais`. Review the approved section inventory and service record for its own audience, base scope, customization, price, maintenance language where applicable, and contact.
+
+**Evidence.** On 2026-11-08, direct-loaded `/comerciais` in the production build and verified section order, selector state, the approved audience and catalog scope, the scope exclusions, customization, R$ 1.990,00 starting price, R$ 169,90 optional monthly maintenance, and WhatsApp destination. Confirmed HTTP 200 for the other three service pages and that the scope note appears only on `/comerciais`. Headless Edge verified keyboard focus, summary placement, and no horizontal overflow at 320 px with scrollbars hidden to simulate mobile and at 1280 px with desktop scrollbars. A 320 px desktop viewport with a reserved scrollbar exposes the scaffold's existing 320 px body minimum. Confirmed `pt-BR` and inherited `noindex, nofollow`. Build, type check, lint, SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
+
+**Overflow follow-up.** Removed the inherited `body` minimum width from the stylesheet imported by the root layout. In the production build, all four service routes passed at 320 and 1280 px both with a reserved vertical scrollbar and with no reserved gutter. At 320 px with a reserved scrollbar, document client and scroll widths both measured 305 px. Reapplying the old rule in the browser reproduced the 320 px scroll width on every service route. Desktop geometry matched with and without the old rule in both scrollbar conditions, and the summary stayed below the details at 320 px and beside them at 1280 px. Build, type check, lint, SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 #### AMSAF-010 — Build the commercial homepage
 

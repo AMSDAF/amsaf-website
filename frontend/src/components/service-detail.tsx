@@ -61,6 +61,11 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
                 </li>
               ))}
             </ul>
+            {service.scopeNote && (
+              <p className="mt-3 leading-7 text-content-muted">
+                {service.scopeNote}
+              </p>
+            )}
           </section>
 
           <section aria-labelledby="service-customization">

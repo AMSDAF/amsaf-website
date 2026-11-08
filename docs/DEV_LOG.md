@@ -2,6 +2,11 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Commercial Websites detail
+
+- **AMSAF-009.** Added `/comerciais` using the shared service layout, detail component, and approved catalog record. The record supplies a scope note that makes the approved exclusions visible alongside the included deliverables.
+- **Overflow follow-up.** Removed the Foundation body's 320 px minimum in the global stylesheet so the shared shell can fit the space left by a vertical scrollbar. Verified all four service routes in both scrollbar conditions at narrow and desktop widths. The fix required no layout component changes.
+
 ## 2026-11-08 — Institutional Websites detail
 
 - **AMSAF-008.** Added `/institucionais` using the shared service layout and detail component. The page and selector reference the same Institutional Websites catalog record, and the page derives its metadata from that record.

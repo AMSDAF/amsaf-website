@@ -10,6 +10,7 @@ export interface ServiceContent {
   summary: string;
   audience: string;
   baseScope: readonly string[];
+  scopeNote?: string;
   startingPriceInCentavos: number;
   monthlyMaintenanceInCentavos: number;
   contact: LinkContent;
@@ -68,23 +69,27 @@ export const institutionalWebsitesService: ServiceContent = {
   contact: commercialContact,
 };
 
+export const commercialWebsitesService: ServiceContent = {
+  route: "/comerciais",
+  label: "Sites Comerciais",
+  summary: "Um catálogo ou cardápio digital com atendimento pelo WhatsApp.",
+  audience:
+    "Empresas que querem apresentar produtos ou serviços e receber consultas ou pedidos.",
+  baseScope: [
+    "Catálogo ou cardápio digital responsivo",
+    "Páginas por categoria",
+    "Consultas e pedidos pelo WhatsApp",
+  ],
+  scopeNote:
+    "Checkout, integração de pagamentos, gestão de estoque e painel administrativo ficam fora do escopo base.",
+  startingPriceInCentavos: 199000,
+  monthlyMaintenanceInCentavos: 16990,
+  contact: commercialContact,
+};
+
 export const services: readonly ServiceContent[] = [
   landingPagesService,
   portfoliosService,
   institutionalWebsitesService,
-  {
-    route: "/comerciais",
-    label: "Sites Comerciais",
-    summary: "Um catálogo ou cardápio digital com atendimento pelo WhatsApp.",
-    audience:
-      "Empresas que querem apresentar produtos ou serviços e receber consultas ou pedidos.",
-    baseScope: [
-      "Catálogo ou cardápio digital responsivo",
-      "Páginas por categoria",
-      "Consultas e pedidos pelo WhatsApp",
-    ],
-    startingPriceInCentavos: 199000,
-    monthlyMaintenanceInCentavos: 16990,
-    contact: commercialContact,
-  },
+  commercialWebsitesService,
 ];

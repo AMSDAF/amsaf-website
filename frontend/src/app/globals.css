@@ -33,7 +33,6 @@ html {
 }
 
 body {
-  min-width: 320px;
   margin: 0;
   background: var(--foundation-color-canvas);
   color: var(--foundation-color-content);
