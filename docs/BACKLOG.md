@@ -4,7 +4,7 @@ This is the source of truth for tasks, acceptance criteria, and completion evide
 
 ## EPIC-01 — Structural Foundation (M1)
 
-**Status.** Planned. The preparation audit below records the current baseline. Implementation requires explicit approval of this plan. M1 uses static content in the existing Next.js app. Final visual identity, advanced animation and mascot behavior, production infrastructure and integrations, admin implementation, and deployment are outside M1.
+**Status.** Done. AMSAF-014 verified the local M1 structure on 2026-11-08. The preparation audit below records the inherited baseline. M1 uses static content in the existing Next.js app. Final visual identity, advanced animation and mascot behavior, production infrastructure and integrations, admin implementation, and deployment belong to later milestones.
 
 The approved public route map is [documented in the architecture](ARCHITECTURE.md#approved-public-routes).
 
@@ -179,9 +179,17 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-014 — Verify the complete M1 structure
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-013.
 
 **Acceptance.** Record a local production-build smoke check covering direct entry and navigation on every fixed public route and every approved project URL, plus a 404 for an unknown project slug, including section links, the service selector, portfolio return, and WhatsApp. At 320px and a representative desktop width, verify legible content order, visible keyboard focus, usable navigation, and absence of unintended horizontal overflow. Compare headings and sections with the approved inventory and check content consistency across routes, including approved prices and scope, Brazilian Portuguese, and the absence of contact forms, artificial scarcity, manipulative sales tactics, and unsupported claims. Verify robots and sitemap remain in the inherited non-indexing state. Record evidence and outstanding defects before closing M1.
+
+**Evidence.** On 2026-11-08, a fresh local production build returned HTTP 200 for `/`, all four service pages, `/contato`, `/portfolio`, and `/portfolio/projetos/emilly-araujo-fotografia`. At 320 and 1280 px, headless Edge followed 67 internal links and intercepted 12 WhatsApp navigations to the approved destination at each width. Verified section destinations, current-service indicators, project return, visible keyboard focus, skip-link focus transfer, responsive summary placement, and no horizontal overflow with or without a reserved scrollbar gutter.
+
+Reviewed rendered headings, screenshots, and copy against the approved inventory and content. Confirmed the static preview and checklist, all four base scopes and eight approved prices, custom proposals and optional maintenance, verified profile and project content, and Brazilian Portuguese. The review found no contact forms, artificial scarcity, manipulative sales tactics, or unsupported claims. All eight pages retained `noindex, nofollow`. Robots disallowed all crawling and the sitemap was empty.
+
+**Defects and closeout.** Replaced the English framework fallback with a Brazilian Portuguese 404 and verified HTTP 404, `noindex`, and keyboard return to the homepage for an unknown project slug. No outstanding M1 defects were found in this smoke check. Skills, experience, and education entries still require verified content, consistent with the approved M1 omission. Build, standalone type check, lint, all eight Vitest tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 ### Preparation audit and open decisions
 
@@ -191,7 +199,7 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 | Adaptable      | `SiteShell` uses one global navigation and footer, while the references show different public navigation contexts. `Hero` renders title, copy and actions but no preview or media. `ContentSection` supports a heading and description. `Gallery` hardcodes demo headings, and `Card` requires an image. Adapt only where the approved content fits. Demo SVGs are scaffold assets. |
 | Missing        | Service, contact, portfolio and project detail routes, a service selector and detail/price composition, homepage service summaries and process steps, and professional skills and experience/project rows. Prefer route-local markup for one-off sections and share composition when multiple approved pages need it.                                                               |
 
-- The repository currently serves only the scaffold at `/` alongside robots and sitemap. The existing tests cover SEO defaults and provide no rendered-route or responsive coverage.
+- At the start of M1, the repository served the scaffold at `/` alongside robots and sitemap. The inherited tests covered SEO defaults.
 - The approved [M1 route acceptance checklist](DESIGN_SYSTEM.md#m1-route-acceptance-checklist) defines one service hierarchy, contact and project detail structures, and static treatment of the homepage preview and checklist. Final visual tokens, mascot behavior, and advanced motion remain outside M1.
 - Review cross-route anchors and shared data ownership before enabling public navigation. A single globally configured shell or copied service data could produce incorrect links and inconsistent prices.
 - Approved content, pricing, and the WhatsApp destination gate page acceptance. Keep M1 local and non-indexable. [Cloudflare, authentication, persistent content and image management](ARCHITECTURE.md#technical-risks-and-validation-gates) remain later validation gates.

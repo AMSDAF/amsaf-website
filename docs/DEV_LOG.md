@@ -105,3 +105,8 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 
 - **Reuse.** Added catalog and link assertions to the existing Node-based Vitest suite. The service tests check the route values used by the homepage and selector and the WhatsApp link used by service records. The project tests use the existing slug lookup and detail path builder.
 - **Validation scope.** The tests exercise data and URL helpers. AMSAF-014 covers the rendered routes.
+
+## 2026-11-08 — AMSAF-014 M1 verification
+
+- **Reuse.** Extended the local navigation smoke check to compare rendered headings, prices, scopes, keyboard focus, and viewport layout with the approved M1 inventory. Reviewed the rendered copy and screenshots across the eight public pages.
+- **Rework.** The unknown project URL exposed the English framework fallback. Added a Brazilian Portuguese root 404 using the shared hero and a keyboard-accessible link to the homepage.

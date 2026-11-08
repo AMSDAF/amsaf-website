@@ -1,8 +1,10 @@
 # AMSAF roadmap
 
-The Claude Design prototype defines the structural direction. Visual details are subject to refinement. All milestones are planned. The [backlog](BACKLOG.md) tracks individual tasks and completion evidence.
+The Claude Design prototype defines the structural direction. Visual details are subject to refinement. The [backlog](BACKLOG.md) tracks individual tasks and completion evidence.
 
 ## M1 — Structural Foundation
+
+**Status.** Done. Local verification is recorded in [AMSAF-014](BACKLOG.md#amsaf-014--verify-the-complete-m1-structure).
 
 **Scope.** Use static, typed content to deliver the [approved public route map](ARCHITECTURE.md#approved-public-routes), including the commercial homepage, four dedicated product pages, `/contato`, `/portfolio`, and dynamic project details at `/portfolio/projetos/[slug]`. Apply the approved structural inventory and reuse Foundation components where they fit. Final identity, advanced interactions, production integrations, admin, and deployment belong to later milestones.
 
