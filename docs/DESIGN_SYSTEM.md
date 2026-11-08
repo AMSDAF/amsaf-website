@@ -12,7 +12,7 @@ The committed Claude Design exports establish the structural direction below. Th
 
 Four dedicated product pages are required for M1. The Landing Pages export provides the shared product-detail structure. The service slugs are approved in the [public route map](ARCHITECTURE.md#approved-public-routes). The Portfolios product is a commercial service with its own route. The M1 checklist below specifies the approved treatment of the homepage preview and checklist.
 
-- The commercial homepage at `/` explains the four service categories, their standard scopes, and approved starting prices. It presents customized proposals and recurring maintenance as options.
+- The commercial homepage at `/` explains the four service categories, their standard scopes, and approved starting prices. It presents customized proposals and recurring maintenance as options. Use the [commercial offer](commercial-offer.md#confirmed-prices-and-baseline-scopes) for the homepage and service pages, and format prices for Brazilian Portuguese.
 - The professional portfolio at `/portfolio` presents Antônio Marcos and verified work. Its purpose is distinct from the Portfolios service.
 - The approved route map adds `/contato` and `/portfolio/projetos/[slug]`. Contact uses WhatsApp without a form. The M1 checklist below gives the shared project detail section order.
 - Use Brazilian Portuguese for public copy, labels, and accessible names. Keep pricing and scope clear. Use WhatsApp as the primary contact action.
@@ -33,7 +33,28 @@ The project owner approved this checklist in AMSAF-002 on 2026-11-08. Use it to 
 - Use the Landing Pages hierarchy for all four services. The introduction, audience, base scope, customization, price, maintenance information, and contact context come from each service's own record. The commercial `/portfolios` offer shares this hierarchy and stays separate from the professional `/portfolio`.
 - For project details, require the title, summary, and project-specific detail. Omit empty optional sections for technologies, decisions, verified results, or links. Place approved project images with their corresponding content and include appropriate alt text. Omit missing images and sample claims.
 - Keep the homepage preview as one static, clearly identified illustrative example and the checklist as a static list. Remove the preview category controls, checkbox affordances, and score from the prototype's M1 treatment. Keep the preview and checklist in their reference positions.
-- The secondary link to `/contato` adds an internal route to the homepage contact invitation. Keep the reference's direct WhatsApp action as the primary action. Destination and publishable content approval are tracked in AMSAF-003.
+- The secondary link to `/contato` adds an internal route to the homepage contact invitation. Keep the reference's direct WhatsApp action as the primary action and use the destination below.
+
+## M1 public content inputs
+
+- Use the approved commercial WhatsApp number `+5581999370547` for the homepage, service pages, and `/contato`. The direct link is `https://wa.me/5581999370547`.
+- Use provisional Brazilian Portuguese commercial copy, subject to refinement. Base service copy on the [commercial offer](commercial-offer.md). On `/contato`, invite visitors to describe their business and what they need from the site.
+- Keep the homepage introduction and professional profile to verified facts. Antônio Marcos is an independent software developer and AMSAF is his independent developer identity.
+- Emilly Araújo Fotografia is the sole project authorized for initial display in the commercial showcase and professional portfolio. Use the same project record across the showcase, portfolio, and detail page.
+- Omit unavailable optional material, including project links, technologies, decisions, results, images, testimonials, metrics, and professional claims. Include alt text for any approved images used.
+
+### Emilly Araújo Fotografia
+
+Use this minimal Brazilian Portuguese case study for M1, subject to editorial refinement. The approved project selection and the [commercial homepage reference](references/Home%20%28%20%29.pdf) establish the project name and identify it as a photography portfolio.
+
+| Field | Content |
+| --- | --- |
+| Title | Emilly Araújo Fotografia |
+| Summary | Portfólio de fotografia |
+| Slug | `emilly-araujo-fotografia` |
+| Project detail | O site da Emilly Araújo Fotografia funciona como portfólio digital para apresentar o trabalho fotográfico de Emilly Araújo. |
+
+The approved M1 case study omits technologies, decisions, results, external links, and images with their associated alt text. It also omits testimonials and metrics.
 
 ## Inherited implementation
 

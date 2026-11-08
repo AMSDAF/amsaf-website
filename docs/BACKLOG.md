@@ -28,9 +28,17 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-003 — Confirm content and contact inputs
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-001. Can run alongside AMSAF-002.
 
 **Acceptance.** Record approved Brazilian Portuguese copy or content inputs for every public route and approved project, including each service's audience, standard scope and starting price, custom proposal and optional maintenance language, and the WhatsApp destination. Identify approved work, profile facts, unique project slugs, project links, technologies, decisions, verified results, images and alt text, or record an approved omission or fallback for each missing optional item. Keep any remaining required inputs explicitly blocked. Prototype placeholders, prices, sample brands, and claims are reference material.
+
+**Evidence.** On 2026-11-08, recorded the approved implementation and maintenance prices, four service audiences and scopes, payment and maintenance terms, separate internal pricing assumptions, and open contract details in the [commercial offer](commercial-offer.md). Cross-checked the service routes against the approved route map and the scopes against the committed references and the owner's Commercial Websites clarification. Verified all eight price entries, documentation references, and whitespace. `git diff --check` passed.
+
+**Additional evidence.** On 2026-11-08, the owner approved the commercial WhatsApp destination, Emilly Araújo Fotografia as the sole initial public project, provisional Brazilian Portuguese commercial copy, and omission of unavailable optional content. The [M1 public content inputs](DESIGN_SYSTEM.md#m1-public-content-inputs) record the destination, project title, summary and unique slug, verified profile facts, and omission policy.
+
+**Case-study evidence.** The [Emilly Araújo Fotografia record](DESIGN_SYSTEM.md#emilly-araújo-fotografia) supplies the required title, summary, unique slug, and concise Brazilian Portuguese project detail based on its documented purpose as a photography portfolio. The owner approved omission of unavailable optional sections. Verified the record against the M1 project detail checklist and the initial publication decision. Outstanding proposal and contract details remain tracked separately in the commercial offer.
 
 ### B — Shared structure
 

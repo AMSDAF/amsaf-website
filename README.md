@@ -38,6 +38,7 @@ The build generates Next.js route types used by the standalone type check on a f
 
 ## Project documentation
 
+- [Commercial offer](docs/commercial-offer.md) for approved pricing, scopes, payment and maintenance terms, and internal assumptions.
 - [Roadmap](docs/ROADMAP.md) for milestone scope and exit criteria.
 - [Backlog](docs/BACKLOG.md) for tasks, acceptance criteria, and evidence.
 - [Design system](docs/DESIGN_SYSTEM.md) for approved requirements and open design directions.

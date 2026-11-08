@@ -28,6 +28,21 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Decisions.** The project owner approved one hierarchy for all four services, dedicated contact and project detail structures, and explicit navigation targets. The homepage uses a static preview and checklist to preserve their content roles in M1.
 - **Open.** AMSAF-003 tracks publishable content and the WhatsApp destination.
 
+## 2026-11-08 — AMSAF-003 commercial offer
+
+- **Effort and reuse.** Checked the service descriptions in the committed Claude Design exports and mapped each offer to its approved service route.
+- **Decisions.** Recorded approved pricing and terms in one reference for the homepage and service pages, separated internal estimating assumptions from confirmed prices, and clarified the WhatsApp catalog and menu scope.
+- **Open.** The backlog tracks outstanding content and contact approvals. The commercial offer records unresolved proposal and contract details.
+
+## 2026-11-08 — AMSAF-003 contact and launch content
+
+- **Decisions and reuse.** Recorded the approved WhatsApp destination and sole initial project, Emilly Araújo Fotografia. Reused the reference's project title and summary, assigned its route slug, and recorded the owner's approval of provisional commercial copy and omission of unavailable optional content.
+- **Open.** The project detail route still needs verified project-specific content.
+
+## 2026-11-08 — AMSAF-003 case-study completion
+
+- **Decision and reuse.** Used the documented photography portfolio purpose for the concise Emilly Araújo Fotografia detail copy. Recorded the approved optional omissions and closed the content task with the case study subject to editorial refinement.
+
 ## 2026-11-08 — Graphify experiment
 
 - **Effort.** The initial graph covered 34 files and produced 218 nodes, 390 relationships, and 14 communities. A follow-up architectural analysis using the existing graph took 19 seconds and traced reuse opportunities and implementation gaps for EPIC-01.
