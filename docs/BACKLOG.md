@@ -54,9 +54,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-005 — Define static content contracts
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-002.
 
 **Acceptance.** Type-check one static service record per approved category, with unique route and label, summary, audience, base scope, approved starting-price field and contact reference. The homepage and detail pages can consume the same service records. Keep professional profile, experience, and project content separate from service records. Use typed project records with unique slugs, summary and detail content, technologies, decisions, and verified results when available. Use those records for both the portfolio listing and detail routes. Model only fields the approved pages consume and keep absent values explicit. Approved publishable values come from AMSAF-003.
+
+**Evidence.** On 2026-11-08, checked the four ordered service routes, distinct labels, required copy, all eight approved BRL amounts, and the shared WhatsApp reference with a temporary Vitest fixture. Verified the sole approved project, its exact detail copy, and explicit empty collections for unavailable profile and project material. The three SEO tests, both content checks, lint, production build, standalone type check, Prettier with `--end-of-line auto`, and `git diff --check` passed. Page rendering and permanent structural tests remain in their respective tasks.
 
 ### C — Pages
 

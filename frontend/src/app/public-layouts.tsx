@@ -1,8 +1,13 @@
 import type { ReactNode } from "react";
 import { SiteShell } from "@/components/site-shell";
+import { commercialContact } from "@/config/contact";
+import { professionalProfile } from "@/config/professional-profile";
 
 const commercialBrand = { href: "/", label: "AMSAF" };
-const professionalBrand = { href: "/portfolio", label: "Antônio Marcos" };
+const professionalBrand = {
+  href: "/portfolio",
+  label: professionalProfile.name,
+};
 const services = { href: "/#servicos", label: "Serviços" };
 const work = { href: "/#trabalhos", label: "Trabalhos" };
 const portfolio = { href: "/portfolio", label: "Portfólio profissional" };
@@ -10,10 +15,6 @@ const returnToServices = { href: services.href, label: "Voltar aos serviços" };
 const returnToProjects = {
   href: "/portfolio#projetos",
   label: "Voltar aos projetos",
-};
-const whatsApp = {
-  href: "https://wa.me/5581999370547",
-  label: "Falar pelo WhatsApp",
 };
 
 export function CommercialLayout({
@@ -37,7 +38,7 @@ export function CommercialLayout({
               portfolio,
             ]
       }
-      headerAction={whatsApp}
+      headerAction={commercialContact}
       footerLinks={
         scaffold
           ? [{ href: "#template-principles", label: "Princípios do site" }]

@@ -25,7 +25,7 @@ M1 uses static, typed project records with unique slugs. The portfolio listing a
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `frontend/src/app/`        | Root document and metadata, route layouts, scaffold homepage, global styles, robots, and sitemap. The root sets `lang="pt-BR"`. |
 | `frontend/src/components/` | Shared site shell, hero, sections, gallery, and card. The shell receives navigation from route layouts and the card uses `next/image`. |
-| `frontend/src/config/`     | Typed static scaffold content and centralized SEO settings.                                                  |
+| `frontend/src/config/`     | Static service, contact, professional profile, project, and scaffold content, plus centralized SEO settings. |
 | `frontend/src/types/`      | Shared content and navigation contracts.                                                                     |
 | `frontend/public/gallery/` | Local demonstration SVGs.                                                                                    |
 | `frontend/tests/`          | Unit tests for the default indexing and sitemap behavior.                                                    |
@@ -33,6 +33,8 @@ M1 uses static, typed project records with unique slugs. The portfolio listing a
 Indexing is currently disabled and the canonical site URL is unset. The layout uses the indexing flag, robots disallows crawling, and the sitemap function returns no entries. When authorized for production, keep route metadata, robots, and sitemap aligned with the central policy. Include the fixed public URLs and concrete published project URLs in the production sitemap and keep previews non-indexable. Protect private resources through authorization.
 
 Each public page belongs to one route layout that uses `SiteShell` to render the header, main landmark, and footer. The four services share a composition. Home and contact share the commercial composition, with temporary section links on the homepage scaffold. Place the future portfolio page in `app/portfolio/(profile)/` and the project detail page under `app/portfolio/projetos/` so their shells remain siblings. The route group does not change the public URL.
+
+The service catalog supplies the homepage and detail pages in the approved display order. Starting prices and optional monthly maintenance are stored as integer centavos in BRL for formatting at render time. The commercial header and service records reference the same WhatsApp link. The project collection is shared across the commercial showcase, professional portfolio, and project details. Empty collections represent unavailable professional and project material and allow the page to omit that content.
 
 ## Required adaptations
 

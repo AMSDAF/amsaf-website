@@ -2,6 +2,11 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Static content contracts
+
+- **AMSAF-005.** Added typed service, profile, and project records from the approved M1 inputs. Reused the shared link and image types, moved the WhatsApp destination into shared configuration, and used the profile name in the professional header.
+- **Data decisions.** Store prices in integer centavos and use empty collections for unavailable profile and project material. The four offers and the approved case study are ready for the later page tasks.
+
 ## 2026-11-08 — Public layouts and landmarks
 
 - **AMSAF-004.** Reused the App Router root document, the Foundation shell's responsive styling, and the existing focus and indexing policies. Moved navigation into route layouts and made the shell responsible for a single main landmark and a keyboard skip link.
