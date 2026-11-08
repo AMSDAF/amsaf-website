@@ -18,12 +18,14 @@ The Claude Design prototype defines the structural direction. Visual details are
 
 ## M2 — Visual Identity
 
-**Scope.** Refine and approve AMSAF typography, color, spacing, layout, and component states for the public routes.
+**Status.** Planned. See [EPIC-02](BACKLOG.md#epic-02--visual-identity-m2) for the approval gate, implementation sequence, and validation tasks.
+
+**Scope.** Preserve the M1 structure and apply the [approved visual direction](DESIGN_SYSTEM.md#m2-visual-direction) across commercial pages, professional pages, and the 404. Use a dark neutral foundation with blue accents, the lowercase `amsaf.` wordmark with a blue dot, and a compact expandable mobile header. Explore new font families before approving the typography. Creative interactions belong in M3.
 
 **Success criteria**
 
-- Approved tokens and component patterns are recorded in the design system and applied across the public routes.
-- Mobile and desktop reviews confirm readable hierarchy, visible keyboard focus, sufficient text and control contrast, and layouts free from unintended horizontal overflow.
+- Record approved typography, visual tokens, and component patterns in the design system before applying them across the public routes and 404.
+- Review a local production build at 320, 375, and 1280 px for hierarchy, contrast, visible focus, mobile navigation behavior, and horizontal overflow. Recheck the M1 route and content inventory, WhatsApp, fallback status, and disabled indexing.
 
 ## M3 — Personality and Interactivity
 

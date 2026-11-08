@@ -110,3 +110,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 
 - **Reuse.** Extended the local navigation smoke check to compare rendered headings, prices, scopes, keyboard focus, and viewport layout with the approved M1 inventory. Reviewed the rendered copy and screenshots across the eight public pages.
 - **Rework.** The unknown project URL exposed the English framework fallback. Added a Brazilian Portuguese root 404 using the shared hero and a keyboard-accessible link to the homepage.
+
+## 2026-11-08 — EPIC-02 planning
+
+- **Evidence and reuse.** Used the Claude visual audit and committed reference inventory alongside the verified M1 baseline. Checked the existing graph report against the root styles, route layouts, shared shell, and page components. The plan reuses these components and the existing catalog and project records.
+- **Decisions.** Recorded the approved dark theme for both audiences, the wordmark, and the mobile disclosure. Kept AMSAF-015 as the approval gate and assigned AMSAF-025 through AMSAF-038 to exploration, implementation, and validation. The 404 shell treatment has its own acceptance checks.
+- **Open.** Font candidates and exact visual specifications need approval. The page tasks use approved content and document the image omissions. M3 owns creative interactions.

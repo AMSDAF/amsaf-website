@@ -61,13 +61,23 @@ The approved M1 case study omits technologies, decisions, results, external link
 
 The current shell, hero, sections, cards, gallery, neutral Tailwind color roles, and focus styling are scaffold assets. The abstract gallery images are demonstration assets. Assess reuse against the AMSAF content and structure. Existing typography, palette, spacing, and assets carry no AMSAF visual approval.
 
+## M2 visual direction
+
+Apply a dark theme on every public page, including the professional portfolio, project details, and 404. Use a neutral black-and-white foundation with blue accents and the lowercase `amsaf.` wordmark with a blue dot. Maintain the different commercial and professional purposes through hierarchy, layout, content, and navigation. The [Claude Design exports](#confirmed-structure-and-content) guide composition, and the [M1 route acceptance checklist](#m1-route-acceptance-checklist) governs section order and destinations.
+
+Use a compact mobile header with expandable navigation. Its disclosure is essential navigation in M2. Creative motion, mascot behavior, and other personality interactions belong in M3. The homepage preview and checklist keep their static M1 behavior.
+
+Explore new font families for display, body and interface, and monospace roles. The [M2 visual audit](m2-visual-audit.md) provides sampled colors, type estimates, and composition ideas. Its light professional palette and proposed light-theme accent are superseded by the approved dark direction. [AMSAF-015](BACKLOG.md#amsaf-015--approve-visual-specifications) is the approval gate for exact values, font selection, spacing, sizing, and component states.
+
+Use approved Portuguese copy, prices, and verified work. The audit's sample tags and labels, highlighted headline wording, prefilled WhatsApp message, and extra showcase entry would require separate approval. Design the selected work and developer introduction for the approved content available today, which includes neither project imagery nor a developer portrait.
+
 ## Exploratory directions
 
 | Area        | Open for refinement                                                                                                                                            |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Identity    | Wordmark or text treatment, color roles, typography, and imagery.                                                                                              |
+| Identity    | Exact color values, typography, and treatment of available imagery within the approved M2 direction.                                                           |
 | Layout      | Spacing, density, responsive presentation of service scopes and starting prices, and presentation of verified project work.                                    |
 | Components  | Shared navigation, service and project presentations, and a recognizable WhatsApp action. Review hover, focus, and active states where relevant.               |
 | Personality | Explore purposeful motion or interactive details and compare them with simpler states. Include keyboard, touch, and reduced-motion behavior in any evaluation. |
 
-Record approved choices and their usage in M2. Record approved interactions and accessibility behavior in M3.
+Record approved M2 choices and their usage in this design system. Record the approved creative interactions and their accessibility behavior in M3.

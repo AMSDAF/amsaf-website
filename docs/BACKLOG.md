@@ -206,9 +206,107 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-| Task                                              | Acceptance criteria                                                                                                                                                                              |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AMSAF-015 — Approve and apply the visual identity | Record approved tokens and component states. Verify their application on the public routes at mobile and desktop widths, including hierarchy, contrast, keyboard focus, and horizontal overflow. |
+**Status.** Planned. M1 is complete. Typography exploration and approval of exact visual specifications are outstanding. See the [M2 visual audit](m2-visual-audit.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+
+### A — Visual foundations
+
+#### AMSAF-025 — Explore typography
+
+**Dependencies.** AMSAF-014.
+
+**Acceptance.** Compare at least two new family combinations for display, body/interface, and monospace roles using existing Brazilian Portuguese hero, service price, and portfolio samples. Record mobile and desktop specimens, diacritics, available weights, license and loading considerations, and a proposed fallback stack. Present candidates for approval in AMSAF-015.
+
+#### AMSAF-015 — Approve visual specifications
+
+**Dependencies.** AMSAF-025.
+
+**Acceptance.** Record owner approval in the design system for type families, roles and scale, dark neutral and blue color roles, spacing and width, responsive layout, and shared component variants and states. Include tested text, control, and focus color pairings. Track open decisions with their affected scope. Treat sampled values and estimates from the audit as reference evidence.
+
+#### AMSAF-026 — Apply the approved visual foundations
+
+**Dependencies.** AMSAF-015.
+
+**Acceptance.** Reuse the root layout and global Tailwind/CSS styling to apply the approved typography, dark surfaces, text and accent roles, responsive widths and spacing, and visible focus. Verify those styles on commercial, professional, and fallback pages, with a readable font fallback and the same dark presentation under light and dark system preferences.
+
+### B — Shared components
+
+#### AMSAF-027 — Refine the wordmark and responsive header
+
+**Dependencies.** AMSAF-026.
+
+**Acceptance.** Adapt `SiteShell` and its route compositions to display the lowercase `amsaf.` wordmark with a blue dot. Preserve brand destinations, distinct commercial and professional navigation, and each existing action. At desktop widths verify the brand, links and actions fit in the approved hierarchy. At mobile widths verify a compact collapsed header and a disclosure that exposes every applicable link and action. Check the Portuguese accessible name, exposed expanded state, hidden links out of tab order, and operation by keyboard and touch. Verify usable targets and visible focus at 320 px.
+
+#### AMSAF-028 — Refine shared footers
+
+**Dependencies.** AMSAF-026.
+
+**Acceptance.** Verify the approved brand treatment and existing route-specific footer links in the commercial, service, profile, and project compositions. Verify desktop alignment, narrow-width wrapping, and visible link and focus states. Use approved identity content.
+
+#### AMSAF-029 — Define shared action and section treatments
+
+**Dependencies.** AMSAF-026.
+
+**Acceptance.** Adapt the existing hero and section components where they fit. Demonstrate distinct filled contact, primary, and secondary action treatments and approved hover, focus, and active states. Verify the approved section heading, optional monospace label, and wide-screen split heading treatment collapse in reading order. Use existing copy or separately approved labels.
+
+### C — Commercial pages
+
+#### AMSAF-030 — Refine the homepage hero, preview, and checklist
+
+**Dependencies.** AMSAF-029.
+
+**Acceptance.** Verify primary and secondary hero hierarchy and destinations, a clearly illustrative static browser-style preview with caption, and static checklist rows. Verify the wide composition and narrow stacking in the M1 order. Any highlighted word must work with the approved heading copy.
+
+#### AMSAF-031 — Refine homepage offers and maintenance
+
+**Dependencies.** AMSAF-029.
+
+**Acceptance.** Verify all four service cards show the catalog scope, approved starting price, custom proposal context, optional maintenance price and terms, and distinct details and WhatsApp actions. Review numbering, scope rows, price separation and action wrapping on desktop and mobile. Any separate maintenance treatment must keep each monthly price clearly associated with its service.
+
+#### AMSAF-032 — Refine homepage work, process, and developer sections
+
+**Dependencies.** AMSAF-029.
+
+**Acceptance.** Verify the sole approved case study has a deliberate text-led treatment and working detail link. Verify the existing process sequence has visible step hierarchy and the developer introduction retains verified profile copy and its portfolio link. Review wide and narrow compositions using available content, including the absence of approved project imagery and a developer portrait.
+
+#### AMSAF-033 — Refine the shared service detail layout
+
+**Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
+
+**Acceptance.** Use the Landing Pages export for the route label, title, numbered scope rows, service selector, return link, and price/contact hierarchy. Verify all four routes use `ServiceDetail`, mark the current service, and match the corresponding catalog scope, prices, optional maintenance, and contact destination. Verify the summary sits beside the details at wide widths and follows them at narrow widths and in reading order. Keep the commercial-only scope note on `/comerciais`.
+
+#### AMSAF-034 — Refine contact and the homepage contact invitation
+
+**Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
+
+**Acceptance.** Verify the two surfaces share the approved centered contact hierarchy with a prominent WhatsApp action using the approved destination. Confirm the homepage retains its guidance link to `/contato` and the contact page keeps its guidance and single primary action. Verify keyboard access and wrapping at narrow widths.
+
+### D — Professional pages
+
+#### AMSAF-035 — Refine the professional portfolio
+
+**Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
+
+**Acceptance.** Adapt the portfolio export's large name, split introduction, section rows and rules, and closing return to services to the approved dark palette. Preserve anchors and verify the skills and experience availability notes, the sole approved project row and its detail link, and the return to `/#servicos`. Check the stacked reading order at mobile widths. Use verified data for tags, dates, or stacks when available.
+
+#### AMSAF-036 — Refine shared project details
+
+**Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
+
+**Acceptance.** Apply the professional visual patterns to the shared detail composition. Verify the approved project renders its title, summary and case content, omits absent optional material, and returns to `/portfolio#projetos`. Check narrow and wide widths and confirm unknown slugs still return HTTP 404.
+
+### E — Fallback and final validation
+
+#### AMSAF-037 — Align the 404 page with the commercial shell
+
+**Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
+
+**Acceptance.** Verify an unknown top-level URL and unknown project slug retain HTTP 404, Brazilian Portuguese fallback copy, and a visible home recovery action in the dark commercial shell. Check exactly one main landmark, skip-link focus transfer, and usable navigation on mobile and desktop.
+
+#### AMSAF-038 — Verify the complete M2 visual identity
+
+**Dependencies.** AMSAF-030 through AMSAF-037.
+
+**Acceptance.** Review a local production build at 320, 375, and 1280 px on every public route and the 404. Record screenshots and results by route and width, including readable hierarchy, contrast (4.5:1 for normal text and 3:1 for large text and required control indicators), visible focus, navigation target sizing, mobile disclosure behavior, and absence of unintended horizontal overflow. Recheck the [M1 route acceptance checklist](DESIGN_SYSTEM.md#m1-route-acceptance-checklist), approved prices and verified content, WhatsApp destination, landmarks, links and anchors, 404 status, and disabled indexing. Run the README checks and record evidence and any blockers in the backlog.
 
 ## EPIC-03 — Personality and Interactivity (M3)
 
