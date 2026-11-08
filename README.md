@@ -12,7 +12,7 @@ AMSAF is Antônio Marcos's independent developer identity and the name of his of
 
 The approved routes also include `/contato` for contact and `/portfolio/projetos/[slug]` for project details. WhatsApp is the primary contact channel. The site uses no contact forms, artificial scarcity, or manipulative sales tactics. Public content is in Brazilian Portuguese. Project documentation and technical conventions are in English.
 
-The Claude Design prototype establishes the structural direction. Visual identity and interaction details are open for refinement. The AMSAF commercial homepage runs at `/`, with service details at `/landing-pages`, `/portfolios`, `/institucionais`, and `/comerciais`. The professional portfolio runs at `/portfolio` and contact guidance is available at `/contato`. Project details are planned.
+The Claude Design prototype establishes the structural direction. Visual identity and interaction details are open for refinement. The AMSAF commercial homepage runs at `/`, with service details at `/landing-pages`, `/portfolios`, `/institucionais`, and `/comerciais`. The professional portfolio runs at `/portfolio` and contact guidance is available at `/contato`. The portfolio links to the approved project detail for Emilly Araújo Fotografia.
 
 ## Local development
 

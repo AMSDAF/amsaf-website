@@ -91,3 +91,8 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 ## 2026-11-08 — AMSAF-023 contact page
 
 - **Reuse.** Used the existing commercial layout, hero, and approved WhatsApp destination. Reused the homepage contact heading and added brief guidance on what to share in the first message.
+
+## 2026-11-08 — AMSAF-024 project detail pages
+
+- **Reuse.** Composed the shared detail page with the existing professional detail layout, hero, and content sections. The detail and metadata use the same project record as the portfolio listing.
+- **Decisions.** Prerendered the approved project slugs and disabled runtime generation for other slugs. The initial Emilly Araújo Fotografia record supplies the title, summary, and context. Optional content renders only when its approved record includes it.

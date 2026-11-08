@@ -138,9 +138,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-024 — Build the dynamic project detail pages
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside AMSAF-011.
 
 **Acceptance.** Direct-load each approved `/portfolio/projetos/[slug]` URL using one shared detail structure and its matching project record. Verify project-specific content, technologies, decisions, and verified results where available. Omit missing optional sections according to the approved inventory. An unknown slug returns a 404. The structure accommodates a return link to `/portfolio`.
+
+**Evidence.** On 2026-11-08, direct-loaded the prerendered Emilly Araújo Fotografia detail at `/portfolio/projetos/emilly-araujo-fotografia` and verified its approved title, summary, case description, metadata, and omitted optional sections and images. Headless Edge at 320 and 1280 px verified visible keyboard focus, skip-link focus transfer, return to `/portfolio#projetos`, navigation back to the detail from the listing, and no horizontal overflow. An unknown slug and a case-mismatched slug returned HTTP 404. Confirmed `pt-BR`, `noindex, nofollow`, disallow-all robots, and an empty sitemap. Build, type check, lint, three SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 ### D — Validation
 

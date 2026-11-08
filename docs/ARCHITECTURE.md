@@ -19,7 +19,7 @@ The inherited baseline is Next.js 16.4.1 with App Router and Turbopack, React an
 | `/portfolio`                 | Antônio Marcos's professional profile and verified project listing.  |
 | `/portfolio/projetos/[slug]` | Shared project detail structure backed by a project-specific record. |
 
-M1 uses static, typed project records with unique slugs. The portfolio listing and detail route read the same records. Each detail can present project-specific content, technologies, decisions, and verified results. Unknown slugs return a 404. The dynamic route segment identifies the project, and hosting and persistence decisions remain in M4.
+M1 uses static, typed project records with unique slugs. The portfolio listing and detail route read the same records. The build prerenders a detail page for each approved slug, and unknown slugs return HTTP 404. Each detail presents its project-specific content and renders optional technologies, decisions, results, links, and images when the record provides them. Hosting and persistence decisions remain in M4.
 
 | Location                   | Current responsibility                                                                                       |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
