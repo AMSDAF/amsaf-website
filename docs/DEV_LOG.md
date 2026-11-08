@@ -82,3 +82,8 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 
 - **Reuse.** Switched the homepage to the approved commercial shell links and extended the existing hero and section components to accept content. Reused the service, contact, project, and profile records. Shared BRL formatting with the service details.
 - **Decisions.** Used the neutral scaffold styles for M1 and wrote provisional Brazilian Portuguese copy. Replaced the prototype controls with an illustrative photography site and a static checklist. The showcase presents the sole approved project as a text entry. The project detail and complete navigation are tracked in AMSAF-024 and AMSAF-012.
+
+## 2026-11-08 — AMSAF-011 professional portfolio
+
+- **Reuse.** Composed the page in the existing profile route group with the professional shell, shared hero and section components, and the approved profile and project records.
+- **Decisions.** Kept the required section headings and navigation anchors for skills and for experience and education. Used a short availability note for each section while its content records are empty. The project row links to its approved slug, with the detail page tracked in AMSAF-024.

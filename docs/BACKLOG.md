@@ -118,9 +118,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-011 — Build the professional portfolio
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside the homepage and service pages.
 
 **Acceptance.** Direct-load `/portfolio` and verify the professional introduction, skills, experience and education, software projects, and return to commercial services in the approved order. Verify Brazilian Portuguese headings, approved profile content, and verified projects. Keep the commercial service catalog on the commercial routes.
+
+**Evidence.** On 2026-11-08, direct-loaded `/portfolio` in the production build at 320 and 1280 px. Verified the approved order, Brazilian Portuguese headings and metadata, verified introduction, and Emilly Araújo Fotografia as the sole project. The skills and experience and education sections show an availability note until verified entries are available. Confirmed visible keyboard focus, skip-link focus transfer, section anchor navigation, no horizontal overflow, and navigation to the commercial services and back. Direct-loaded the separate `/portfolios` service and confirmed its distinct heading. Verified the project link target by slug. The target returns 404 until AMSAF-024 implements project details, with complete navigation verification in AMSAF-012. Confirmed `noindex, nofollow`, disallow-all robots, and an empty sitemap. Build, type check, lint, three SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 #### AMSAF-023 — Build the contact page
 
