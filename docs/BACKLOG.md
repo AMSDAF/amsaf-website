@@ -206,21 +206,48 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-**Status.** Planned. M1 is complete. Typography exploration and approval of exact visual specifications are outstanding. See the [M2 visual audit](m2-visual-audit.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+**Status.** In progress. M1 is complete. AMSAF-025 and AMSAF-015 are done, and the [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) is ready for AMSAF-026. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
 
 ### A — Visual foundations
 
 #### AMSAF-025 — Explore typography
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-014.
 
 **Acceptance.** Compare at least two new family combinations for display, body/interface, and monospace roles using existing Brazilian Portuguese hero, service price, and portfolio samples. Record mobile and desktop specimens, diacritics, available weights, license and loading considerations, and a proposed fallback stack. Present candidates for approval in AMSAF-015.
 
+**Evidence.** On 2026-11-08, the [typography exploration](m2-typography-exploration.md) compared three OFL 1.1 systems. They are Geist with Geist Mono, Bricolage Grotesque with Instrument Sans and JetBrains Mono, and Schibsted Grotesk with IBM Plex Mono. A standalone [specimen page](specimens/typography.html) sets the approved hero and actions, Landing Pages card and prices, professional introduction, availability note, and project row on the reference dark palette. Headless Edge recorded screenshots at 1280 and 375 px, confirmed all candidate faces loaded, and found no horizontal overflow at 1280, 375, or 320 px. Every specimen text pairing measured at least 4.74:1.
+
+The record covers Portuguese diacritics, available weights and axes from the installed Next.js font data, and licences verified against the Google Fonts repository. It reports measured Latin WOFF2 payloads of 51.3, 109.3, and 74.6 KiB, the `next/font` loading approach, and proposed fallback stacks. It found two constraints. No served subset includes the reference's arrows, so they need SVG icons. Schibsted Grotesk's tabular figures widen price separators. It recommends System A, with System B as the alternative. The specimens are not imported by the application, and the public routes are unchanged. `git diff --check` passed. AMSAF-015 records the owner’s selection of System B.
+
 #### AMSAF-015 — Approve visual specifications
+
+**Status.** Done.
 
 **Dependencies.** AMSAF-025.
 
 **Acceptance.** Record owner approval in the design system for type families, roles and scale, dark neutral and blue color roles, spacing and width, responsive layout, and shared component variants and states. Include tested text, control, and focus color pairings. Track open decisions with their affected scope. Treat sampled values and estimates from the audit as reference evidence.
+
+**Evidence.** On 2026-11-08, the owner approved the items now recorded in the [M2 approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification):
+
+- Bricolage Grotesque, Instrument Sans, and JetBrains Mono.
+- A dark theme on every route, with `#0D0D0D`, `#141416`, `#F4F5F1`, and the `#3973FF` accent.
+- The `amsaf.` wordmark, restrained geometric radii, a spacious hero with compact cards, and the editorial portfolio.
+- Compact expandable mobile navigation, SVG icons, and local font hosting.
+
+The specification covers each acceptance item:
+
+- **Type.** Font files, axes, payloads, preload rules, fallback stacks, and 15 responsive type tokens.
+- **Color.** 19 color tokens.
+- **Space and layout.** Spacing and width tokens, radii, and responsive rules for each M1 pattern, including which headers use the mobile disclosure.
+- **Components.** Variants and states for buttons, links, navigation, the selector, cards, rows, tags, the menu button, and the skip link.
+- **Tokens.** An implementation-ready Tailwind token block.
+
+**Contrast testing.** Every text, control, and focus pairing was calculated with the WCAG 2.2 formula. Text pairings measure at least 4.59:1, control boundaries at least 3.27:1, and the focus ring at least 4.44:1. The tests found that the approved accent measures 4.44:1 on surfaces. The specification therefore adds `accent-text` (`#6E98FF`, at least 6.28:1) for small accent text. It also keeps the pressed contact fill lighter than rest, because a darker fill drops dark labels to 3.91:1.
+
+**Reference values and open decisions.** The audit's sampled colors and pill buttons were treated as reference only and are superseded where they differ. Six open decisions are tracked with their affected tasks. Documentation links resolved and `git diff --check` passed. The standalone specimen reproduces the desktop and mobile views from AMSAF-025. No application files changed.
 
 #### AMSAF-026 — Apply the approved visual foundations
 

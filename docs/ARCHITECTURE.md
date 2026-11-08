@@ -36,6 +36,12 @@ Each of the eight approved public route patterns uses a route layout with `SiteS
 
 M2 plans to reuse the root layout and global styles for one dark visual foundation, with the existing route layouts supplying distinct navigation. The mobile disclosure belongs in the shared shell. The root 404 will adopt the commercial composition and its single main landmark. See [EPIC-02](BACKLOG.md#epic-02--visual-identity-m2).
 
+The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) sets the planned M2 implementation boundaries:
+
+- **Fonts.** Commit Latin-subset WOFF2 files and their OFL licences under `frontend/src/app/fonts/`, and load them with `next/font/local` from the root layout. Builds and visitors then make no third-party font requests.
+- **Tokens.** Extend the Tailwind theme in `globals.css`.
+- **Icons.** Use local inline SVG components with no icon dependency.
+
 The service catalog supplies the homepage and detail pages in the approved display order. Starting prices and optional monthly maintenance are stored as integer centavos in BRL for formatting at render time. The commercial header and service records reference the same WhatsApp link. The project collection is shared across the commercial showcase, professional portfolio, and project details. Empty collections represent unavailable professional and project material and allow the page to omit that content.
 
 Each of the four service routes passes its catalog record to `ServiceDetail` inside the shared service layout. The selector reads the catalog and marks the current route. The detail renders a scope note when the record provides one. The price and contact summary follows the detail in reading order and sits beside it on wider screens.
