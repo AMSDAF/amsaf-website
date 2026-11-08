@@ -37,23 +37,25 @@ export const landingPagesService: ServiceContent = {
   contact: commercialContact,
 };
 
+export const portfoliosService: ServiceContent = {
+  route: "/portfolios",
+  label: "Portfólios",
+  summary: "Um site para mostrar seus trabalhos e receber contatos.",
+  audience:
+    "Fotógrafos, designers, artistas, arquitetos e outros profissionais que precisam apresentar seus trabalhos.",
+  baseScope: [
+    "Galeria responsiva de trabalhos",
+    "Página sobre o profissional",
+    "Informações de contato e links para redes sociais",
+  ],
+  startingPriceInCentavos: 109000,
+  monthlyMaintenanceInCentavos: 7990,
+  contact: commercialContact,
+};
+
 export const services: readonly ServiceContent[] = [
   landingPagesService,
-  {
-    route: "/portfolios",
-    label: "Portfólios",
-    summary: "Um site para mostrar seus trabalhos e receber contatos.",
-    audience:
-      "Fotógrafos, designers, artistas, arquitetos e outros profissionais que precisam apresentar seus trabalhos.",
-    baseScope: [
-      "Galeria responsiva de trabalhos",
-      "Página sobre o profissional",
-      "Informações de contato e links para redes sociais",
-    ],
-    startingPriceInCentavos: 109000,
-    monthlyMaintenanceInCentavos: 7990,
-    contact: commercialContact,
-  },
+  portfoliosService,
   {
     route: "/institucionais",
     label: "Sites Institucionais",

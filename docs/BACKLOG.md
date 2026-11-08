@@ -76,9 +76,13 @@ The approved public route map is [documented in the architecture](ARCHITECTURE.m
 
 #### AMSAF-007 — Build the Portfolios service route
 
+**Status.** Done.
+
 **Dependencies.** AMSAF-006.
 
 **Acceptance.** Direct-load `/portfolios`. Review the page against its approved section inventory and Portfolios record, including audience, base scope, customization, price, maintenance language where applicable, and contact. Verify that the service route and its content are distinct from `/portfolio`.
+
+**Evidence.** On 2026-11-08, direct-loaded `/portfolios` in the production build. Verified the approved section order, audience, responsive gallery scope, customization note, R$ 1.090,00 starting price, R$ 79,90 optional monthly maintenance, WhatsApp destination, and selector current state. Headless Edge verified keyboard focus and summary placement without horizontal overflow at 320 and 1280 px. Confirmed `pt-BR` and inherited `noindex, nofollow`. The footer points to `/portfolio`, which remains a separate unpublished route under AMSAF-011. `/landing-pages` still returns 200. Build, type check, lint, SEO tests, Prettier with `--end-of-line auto`, and `git diff --check` passed.
 
 #### AMSAF-008 — Build the Institutional Websites detail route
 

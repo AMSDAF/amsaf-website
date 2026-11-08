@@ -2,6 +2,10 @@
 
 Add a short dated entry when work establishes a decision, reuses an existing asset, or revisits an earlier approach. Record the effort or work performed, what was reused, the reason for decisions, and any rework or open questions. Keep task acceptance evidence in the [backlog](BACKLOG.md).
 
+## 2026-11-08 — Portfolios service detail
+
+- **AMSAF-007.** Added `/portfolios` using the existing service layout, detail component, and approved Portfolios catalog record. The route exports its own metadata and leaves the professional portfolio at `/portfolio` for AMSAF-011.
+
 ## 2026-11-08 — Landing Pages detail
 
 - **AMSAF-006.** Reviewed the committed Landing Pages prototype and applied the approved M1 hierarchy to `/landing-pages`. Reused the service layout, approved catalog and WhatsApp configuration, and neutral scaffold styles. The shared detail component keeps the price and contact summary after the descriptive sections in reading order.
