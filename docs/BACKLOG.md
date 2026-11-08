@@ -1,43 +1,160 @@
 # AMSAF backlog
 
-This is the source of truth for tasks, acceptance criteria, and completion evidence. Each epic maps to one [roadmap milestone](ROADMAP.md). Every epic and task below is **Planned**, with acceptance criteria pending and no implementation evidence recorded. Update status and add evidence against the relevant criteria when work occurs. Use **In progress**, **Blocked**, or **Done** as appropriate.
+This is the source of truth for tasks, acceptance criteria, and completion evidence. Each epic maps to one [roadmap milestone](ROADMAP.md). Tasks are **Planned** unless a status and evidence are recorded. Update status and add evidence against the relevant criteria when work occurs. Use **In progress**, **Blocked**, or **Done** as appropriate.
 
 ## EPIC-01 — Structural Foundation (M1)
 
-| Task                                         | Acceptance criteria                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-001 — Build the commercial homepage    | Review the page structure against the approved prototype. In Brazilian Portuguese, present Landing Pages, Portfolios, Institutional Websites, and Commercial Websites with a standard scope and an approved starting price for each. Make customized proposals and optional recurring maintenance clear. Verify the primary action opens the approved WhatsApp destination. Review the page for contact forms, artificial scarcity, and manipulative sales tactics. |
-| AMSAF-002 — Build the professional portfolio | Open `/portfolio` directly and through public navigation. Verify distinct headings and purpose, Brazilian Portuguese copy, and verified professional content. Review the structure against the approved prototype.                                                                                                                                                                                                                                                  |
+**Status.** Planned. The preparation audit below records the current baseline. Implementation requires explicit approval of this plan. M1 uses static content in the existing Next.js app. Final visual identity, advanced animation and mascot behavior, production infrastructure and integrations, admin implementation, and deployment are outside M1.
+
+The approved public route map is [documented in the architecture](ARCHITECTURE.md#approved-public-routes).
+
+### A — Preparation
+
+#### AMSAF-001 — Initialize project documentation
+
+**Status.** Done. **Dependencies.** None.
+
+**Acceptance and evidence.** Establish project scope and language conventions, six milestones and epics, the design and architecture baseline, contributor instructions, and the development log. Delivered in commit `802e40c`. The previous backlog used this ID for homepage work. That work is now AMSAF-010.
+
+#### AMSAF-002 — Confirm the route and section inventory
+
+**Dependencies.** AMSAF-001. **Inputs.** Resolve the open structural questions below with the project owner.
+
+**Acceptance.** Use the approved route map to record section order, navigation destinations and anchors, and how the Landing Pages layout applies to the three other services. Confirm the contact page hierarchy and the common project detail structure, including how optional project content is presented. Decide the M1 treatment of the homepage preview and checklist and record any approved departure from the references. Use this inventory as the comparison checklist for page acceptance.
+
+#### AMSAF-003 — Confirm content and contact inputs
+
+**Dependencies.** AMSAF-001. Can run alongside AMSAF-002.
+
+**Acceptance.** Record approved Brazilian Portuguese copy or content inputs for every public route and approved project, including each service's audience, standard scope and starting price, custom proposal and optional maintenance language, and the WhatsApp destination. Identify approved work, profile facts, unique project slugs, project links, technologies, decisions, verified results, images and alt text, or record an approved omission or fallback for each missing optional item. Keep any remaining required inputs explicitly blocked. Prototype placeholders, prices, sample brands, and claims are reference material.
+
+### B — Shared structure
+
+#### AMSAF-004 — Establish public layouts and landmarks
+
+**Dependencies.** AMSAF-002.
+
+**Acceptance.** Use the existing App Router layout and shell where they fit. Render one main landmark per page and distinct header/footer compositions for the home, service details, contact page, professional portfolio and project details as specified in the route inventory. Verify on the available scaffold that Brazilian Portuguese language metadata, keyboard focus, and the default indexing policy remain intact. Final link wiring is covered by AMSAF-012.
+
+#### AMSAF-005 — Define static content contracts
+
+**Dependencies.** AMSAF-002.
+
+**Acceptance.** Type-check one static service record per approved category, with unique route and label, summary, audience, base scope, approved starting-price field and contact reference. The homepage and detail pages can consume the same service records. Keep professional profile, experience, and project content separate from service records. Use typed project records with unique slugs, summary and detail content, technologies, decisions, and verified results when available. Use those records for both the portfolio listing and detail routes. Model only fields the approved pages consume and keep absent values explicit. Approved publishable values come from AMSAF-003.
+
+### C — Pages
+
+#### AMSAF-006 — Build the Landing Pages detail route
+
+**Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005.
+
+**Acceptance.** Direct-load `/landing-pages` and verify the reference order and hierarchy. The page includes a service selector, introduction, intended audience, base scope, customization note, and starting-price and WhatsApp summary. The layout accommodates the home/services return and portfolio footer link. Verify copy and price against the Landing Pages record. Extract shared detail composition only where it fits the approved service pages.
+
+#### AMSAF-007 — Build the Portfolios service route
+
+**Dependencies.** AMSAF-006.
+
+**Acceptance.** Direct-load `/portfolios`. Review the page against its approved section inventory and Portfolios record, including audience, base scope, customization, price, maintenance language where applicable, and contact. Verify that the service route and its content are distinct from `/portfolio`.
+
+#### AMSAF-008 — Build the Institutional Websites detail route
+
+**Dependencies.** AMSAF-006.
+
+**Acceptance.** Direct-load `/institucionais`. Review the approved section inventory and service record for its own audience, base scope, customization, price, maintenance language where applicable, and contact.
+
+#### AMSAF-009 — Build the Commercial Websites detail route
+
+**Dependencies.** AMSAF-006.
+
+**Acceptance.** Direct-load `/comerciais`. Review the approved section inventory and service record for its own audience, base scope, customization, price, maintenance language where applicable, and contact.
+
+#### AMSAF-010 — Build the commercial homepage
+
+**Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside the service pages.
+
+**Acceptance.** Direct-load `/` and verify the section inventory in order. Present all four service summaries with their shared base scopes and approved starting prices, customized proposals, and optional maintenance. Verify that selected work and the developer introduction use approved content and that the layout accommodates the service, portfolio, and WhatsApp actions. Follow the agreed M1 treatment for the preview and checklist.
+
+#### AMSAF-011 — Build the professional portfolio
+
+**Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside the homepage and service pages.
+
+**Acceptance.** Direct-load `/portfolio` and verify the professional introduction, skills, experience and education, software projects, and return to commercial services in the approved order. Verify Brazilian Portuguese headings, approved profile content, and verified projects. Keep the commercial service catalog on the commercial routes.
+
+#### AMSAF-023 — Build the contact page
+
+**Dependencies.** AMSAF-003, AMSAF-004. Can run alongside the service and portfolio pages.
+
+**Acceptance.** Direct-load `/contato` and verify the approved Brazilian Portuguese heading, contact guidance, and primary WhatsApp link using the approved destination. The page has no contact form. Verify keyboard access to the contact action and shared navigation.
+
+#### AMSAF-024 — Build the dynamic project detail pages
+
+**Dependencies.** AMSAF-003, AMSAF-004, AMSAF-005. Can run alongside AMSAF-011.
+
+**Acceptance.** Direct-load each approved `/portfolio/projetos/[slug]` URL using one shared detail structure and its matching project record. Verify project-specific content, technologies, decisions, and verified results where available. Omit missing optional sections according to the approved inventory. An unknown slug returns a 404. The structure accommodates a return link to `/portfolio`.
+
+### D — Validation
+
+#### AMSAF-012 — Wire public navigation and contact
+
+**Dependencies.** AMSAF-006 through AMSAF-011, AMSAF-023, AMSAF-024.
+
+**Acceptance.** Verify the home links to all four services and the professional portfolio, `/contato` is reachable through approved public navigation, and listed projects open their own detail URLs and link back to `/portfolio`. Verify the service selector and return-to-services links from every service page, the portfolio's link back to services, and approved header and footer links. Confirm that section links work from their source routes and the service selector identifies the current page. Check that WhatsApp actions resolve to the approved destination and that all internal targets exist.
+
+#### AMSAF-013 — Add automated structural checks
+
+**Dependencies.** AMSAF-012.
+
+**Acceptance.** Using existing Vitest tooling, verify four distinct service paths, separation from `/portfolio`, consistency between service records and configured links, unique project slugs, and known and unknown slug lookup. Keep inherited SEO tests passing. Run lint, production build, type check, and tests, and attach command results. Check rendered routes separately in AMSAF-014 because the existing Vitest suite runs in Node.
+
+#### AMSAF-014 — Verify the complete M1 structure
+
+**Dependencies.** AMSAF-013.
+
+**Acceptance.** Record a local production-build smoke check covering direct entry and navigation on every fixed public route and every approved project URL, plus a 404 for an unknown project slug, including section links, the service selector, portfolio return, and WhatsApp. At 320px and a representative desktop width, verify legible content order, visible keyboard focus, usable navigation, and absence of unintended horizontal overflow. Compare headings and sections with the approved inventory and check content consistency across routes, including approved prices and scope, Brazilian Portuguese, and the absence of contact forms, artificial scarcity, manipulative sales tactics, and unsupported claims. Verify robots and sitemap remain in the inherited non-indexing state. Record evidence and outstanding defects before closing M1.
+
+### Preparation audit and open decisions
+
+| Classification | Foundation evidence and opportunity                                                                                                                                                                                                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Reusable       | App Router root layout, `pt-BR` document language, semantic landmarks, typed link and image references, static configuration pattern, centralized SEO policy and its robots/sitemap helpers, existing build/lint/type-check scripts and Vitest.                                                                                                                                     |
+| Adaptable      | `SiteShell` uses one global navigation and footer, while the references show different public navigation contexts. `Hero` renders title, copy and actions but no preview or media. `ContentSection` supports a heading and description. `Gallery` hardcodes demo headings, and `Card` requires an image. Adapt only where the approved content fits. Demo SVGs are scaffold assets. |
+| Missing        | Service, contact, portfolio and project detail routes, a service selector and detail/price composition, homepage service summaries and process steps, and professional skills and experience/project rows. Prefer route-local markup for one-off sections and share composition when multiple approved pages need it.                                                               |
+
+- The repository currently serves only the scaffold at `/` alongside robots and sitemap. The existing tests cover SEO defaults and provide no rendered-route or responsive coverage.
+- The [structural reference inventory](DESIGN_SYSTEM.md#confirmed-structure-and-content) has a homepage, one service example, and a professional portfolio. The service slugs are approved. Category-specific structural differences, the contact page hierarchy, and the project detail section order still need confirmation. Reusing the Landing Pages hierarchy is a proposal for AMSAF-002.
+- The homepage preview and checklist are shown in the prototype. Confirm whether their M1 representation is static, minimally interactive, or deferred. Final visual tokens, mascot behavior, and advanced motion remain outside M1.
+- Review cross-route anchors and shared data ownership before enabling public navigation. A single globally configured shell or copied service data could produce incorrect links and inconsistent prices.
+- Approved content, pricing, and the WhatsApp destination gate page acceptance. Keep M1 local and non-indexable. [Cloudflare, authentication, persistent content and image management](ARCHITECTURE.md#technical-risks-and-validation-gates) remain later validation gates.
 
 ## EPIC-02 — Visual Identity (M2)
 
-| Task                                              | Acceptance criteria                                                                                                                                                                               |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-003 — Approve and apply the visual identity | Record approved tokens and component states. Verify their application on both public routes at mobile and desktop widths, including hierarchy, contrast, keyboard focus, and horizontal overflow. |
+| Task                                              | Acceptance criteria                                                                                                                                                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| AMSAF-015 — Approve and apply the visual identity | Record approved tokens and component states. Verify their application on the public routes at mobile and desktop widths, including hierarchy, contrast, keyboard focus, and horizontal overflow. |
 
 ## EPIC-03 — Personality and Interactivity (M3)
 
 | Task                                         | Acceptance criteria                                                                                                                                                                                         |
 | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-004 — Select and validate interactions | Record the purpose and states of each selected interaction. Verify applicable pointer, touch, and keyboard use. With reduced motion, confirm that essential content, navigation, and contact remain usable. |
+| AMSAF-016 — Select and validate interactions | Record the purpose and states of each selected interaction. Verify applicable pointer, touch, and keyboard use. With reduced motion, confirm that essential content, navigation, and contact remain usable. |
 
 ## EPIC-04 — Configuration and Integrations (M4)
 
 | Task                                                      | Acceptance criteria                                                                                                                                                                                                                                                                |
 | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-005 — Validate Cloudflare and public configuration  | Document a repeatable non-indexable preview. Verify both public routes, metadata, assets, WhatsApp configuration, and the server capabilities needed by the panel. Document the production domain and index-enablement procedure. Smoke-test each enabled optional integration.    |
-| AMSAF-006 — Decide authentication, persistence, and media | Record provider and data ownership decisions, or explicit blockers, for each [technical risk](ARCHITECTURE.md#technical-risks-and-validation-gates). Capture preview evidence for session handling, durable reads and writes, and image delivery before the panel depends on them. |
+| AMSAF-017 — Validate Cloudflare and public configuration  | Document a repeatable non-indexable preview. Verify the public routes, metadata, assets, WhatsApp configuration, and the server capabilities needed by the panel. Document the production domain and index-enablement procedure. Smoke-test each enabled optional integration.     |
+| AMSAF-018 — Decide authentication, persistence, and media | Record provider and data ownership decisions, or explicit blockers, for each [technical risk](ARCHITECTURE.md#technical-risks-and-validation-gates). Capture preview evidence for session handling, durable reads and writes, and image delivery before the panel depends on them. |
 
 ## EPIC-05 — Administrative Panel (M5)
 
 | Task                                                  | Acceptance criteria                                                                                                                                                                                                                 |
 | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-007 — Protect administrative access             | Verify sign-in and sign-out for an authorized operator. Verify that unauthenticated and unauthorized users are denied protected reads and writes via both UI and direct requests.                                                   |
-| AMSAF-008 — Enable approved content and media changes | Edit an agreed content field, redeploy, and verify the public result according to the documented publication and cache behavior. Verify upload validation, image replacement, removal, and recovery after a failed media operation. |
+| AMSAF-019 — Protect administrative access             | Verify sign-in and sign-out for an authorized operator. Verify that unauthenticated and unauthorized users are denied protected reads and writes via both UI and direct requests.                                                   |
+| AMSAF-020 — Enable approved content and media changes | Edit an agreed content field, redeploy, and verify the public result according to the documented publication and cache behavior. Verify upload validation, image replacement, removal, and recovery after a failed media operation. |
 
 ## EPIC-06 — Quality and Launch (M6)
 
 | Task                                     | Acceptance criteria                                                                                                                                                                                                           |
 | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AMSAF-009 — Verify release readiness     | Record passing lint, build, type-check, and test results. Record responsive, accessibility, performance, and end-to-end results against agreed launch criteria. Exercise documented deployment and rollback steps in preview. |
-| AMSAF-010 — Launch and verify production | Record launch approval and smoke checks for both routes, approved content, WhatsApp, admin access controls, canonical URLs, robots, and sitemap behavior on the authorized production domain.                                 |
+| AMSAF-021 — Verify release readiness     | Record passing lint, build, type-check, and test results. Record responsive, accessibility, performance, and end-to-end results against agreed launch criteria. Exercise documented deployment and rollback steps in preview. |
+| AMSAF-022 — Launch and verify production | Record launch approval and smoke checks for the public routes, approved content, WhatsApp, admin access controls, canonical URLs, robots, and sitemap behavior on the authorized production domain.                           |

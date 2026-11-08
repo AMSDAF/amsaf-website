@@ -2,9 +2,24 @@
 
 ## Scope and baseline
 
-AMSAF is one Next.js application in `frontend/`, with project documentation at the repository root and in `docs/`. The commercial homepage and professional portfolio are separate routes within that application. Start with static, typed content. A protected administrative panel and persistent editing follow the integration decisions in M4. A separate backend, generic CMS, theme system, and plugin platform are outside the current scope.
+AMSAF is one Next.js application in `frontend/`, with project documentation at the repository root and in `docs/`. The commercial homepage, product pages, contact page, professional portfolio and project details are public routes within that application. Start with static, typed content. A protected administrative panel and persistent editing follow the integration decisions in M4. A separate backend, generic CMS, theme system, and plugin platform are outside the current scope.
 
 The inherited baseline is Next.js 16.4.1 with App Router and Turbopack, React and React DOM 19.3.0, TypeScript 5.9.3 in strict mode, Tailwind CSS and its Turbopack loader at 4.3.3, Vitest 3.2.4, and npm. See [package.json](../frontend/package.json) and [package-lock.json](../frontend/package-lock.json). The `@/*` alias resolves to `frontend/src/*`.
+
+## Approved public routes
+
+| Route                        | Responsibility                                                       |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `/`                          | Commercial homepage and service discovery.                           |
+| `/landing-pages`             | Landing Pages service.                                               |
+| `/portfolios`                | Portfolios service.                                                  |
+| `/institucionais`            | Institutional Websites service.                                      |
+| `/comerciais`                | Commercial Websites service.                                         |
+| `/contato`                   | Contact guidance and primary WhatsApp action. No contact form.       |
+| `/portfolio`                 | Antônio Marcos's professional profile and verified project listing.  |
+| `/portfolio/projetos/[slug]` | Shared project detail structure backed by a project-specific record. |
+
+M1 uses static, typed project records with unique slugs. The portfolio listing and detail route read the same records. Each detail can present project-specific content, technologies, decisions, and verified results. Unknown slugs return a 404. The dynamic route segment identifies the project, and hosting and persistence decisions remain in M4.
 
 | Location                   | Current responsibility                                                                                       |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
@@ -15,11 +30,11 @@ The inherited baseline is Next.js 16.4.1 with App Router and Turbopack, React an
 | `frontend/public/gallery/` | Local demonstration SVGs.                                                                                    |
 | `frontend/tests/`          | Unit tests for the default indexing and sitemap behavior.                                                    |
 
-Indexing is currently disabled and the canonical site URL is unset. The layout uses the indexing flag, robots disallows crawling, and the sitemap function returns no entries. When authorized for production, keep route metadata, robots, and sitemap aligned with the central policy. Include both public routes in the production sitemap and keep previews non-indexable. Protect private resources through authorization.
+Indexing is currently disabled and the canonical site URL is unset. The layout uses the indexing flag, robots disallows crawling, and the sitemap function returns no entries. When authorized for production, keep route metadata, robots, and sitemap aligned with the central policy. Include the fixed public URLs and concrete published project URLs in the production sitemap and keep previews non-indexable. Protect private resources through authorization.
 
 ## Required adaptations
 
-- Replace the template-specific copy, navigation, gallery examples, and metadata with AMSAF content in M1. Review the shell and component contracts for reuse across `/` and the new `/portfolio` route. The inherited package name remains `portfolio-foundation`.
+- Replace the template-specific copy, navigation, gallery examples, and metadata with AMSAF content in M1. Review the shell and component contracts for reuse across the homepage, product details, contact page, professional portfolio, and project details. The inherited package name remains `portfolio-foundation`.
 - Keep public copy in Brazilian Portuguese and document approved visual choices in M2. Existing styles provide a neutral scaffold.
 - Reassess the inherited hosting and service assumptions in M4. Vercel was a template possibility. Cloudflare is the deployment target to validate. Authentication, content and media providers, and optional analytics or search integrations remain undecided. None of these integrations are configured in the repository.
 

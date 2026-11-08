@@ -4,14 +4,15 @@ AMSAF is Antônio Marcos's independent developer identity and the name of his of
 
 ## Public website
 
-| Route        | Purpose                                                                                                                                                                                                                                                          |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`          | Commercial homepage for Landing Pages, Portfolios, Institutional Websites, and Commercial Websites. Each category presents a standard scope and an approved starting price. Clients can request a customized proposal and choose optional recurring maintenance. |
-| `/portfolio` | Dedicated professional portfolio for Antônio Marcos, focused on his profile and verified work. Portfolios sold as a service belong on the commercial homepage.                                                                                                   |
+| Route                      | Purpose                                                                                                                                                                                                                                                          |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                        | Commercial homepage for Landing Pages, Portfolios, Institutional Websites, and Commercial Websites. Each category presents a standard scope and an approved starting price. Clients can request a customized proposal and choose optional recurring maintenance. |
+| Four product detail routes | One page for each service. See the [M1 route plan](docs/BACKLOG.md#epic-01--structural-foundation-m1) for planning and the [approved route map](docs/ARCHITECTURE.md#approved-public-routes).                                                                    |
+| `/portfolio`               | Antônio Marcos's professional profile and verified work, separate from the commercial Portfolios service.                                                                                                                                                        |
 
-WhatsApp is the primary contact channel. The site uses no contact forms, artificial scarcity, or manipulative sales tactics. Public content is in Brazilian Portuguese. Project documentation and technical conventions are in English.
+The approved routes also include `/contato` for contact and `/portfolio/projetos/[slug]` for project details. WhatsApp is the primary contact channel. The site uses no contact forms, artificial scarcity, or manipulative sales tactics. Public content is in Brazilian Portuguese. Project documentation and technical conventions are in English.
 
-The Claude Design prototype establishes the structural direction. Visual identity and interaction details are open for refinement. The repository currently runs the inherited Portfolio Foundation scaffold at `/`. The AMSAF homepage and `/portfolio` are planned.
+The Claude Design prototype establishes the structural direction. Visual identity and interaction details are open for refinement. The repository currently runs the inherited Portfolio Foundation scaffold at `/`. The AMSAF homepage, product details, contact page, professional portfolio, and project details are planned.
 
 ## Local development
 

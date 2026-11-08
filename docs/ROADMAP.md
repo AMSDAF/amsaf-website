@@ -4,14 +4,15 @@ The Claude Design prototype defines the structural direction. Visual details are
 
 ## M1 — Structural Foundation
 
-**Scope.** Establish the commercial homepage and separate professional portfolio using static, typed content. Apply the approved prototype structure and reuse the inherited shell and components where they fit.
+**Scope.** Use static, typed content to deliver the [approved public route map](ARCHITECTURE.md#approved-public-routes), including the commercial homepage, four dedicated product pages, `/contato`, `/portfolio`, and dynamic project details at `/portfolio/projetos/[slug]`. Apply the approved structural inventory and reuse Foundation components where they fit. Final identity, advanced interactions, production integrations, admin, and deployment belong to later milestones.
 
 **Success criteria**
 
-- `/` and `/portfolio` load directly and are reachable through public navigation. Each route has a distinct purpose, heading, and Brazilian Portuguese copy.
-- The homepage lists all four categories, their standard scopes and approved starting prices, plus options for a customized proposal and recurring maintenance.
-- The primary contact action opens the approved WhatsApp destination. A route review finds no contact forms, artificial scarcity, or manipulative sales tactics.
-- Portfolio entries use verified content. Homepage and portfolio structure are reviewed against the approved prototype.
+- All fixed public routes and approved project URLs load directly in a local production build. Unknown project slugs return a 404. The homepage links to every product and the professional portfolio. Product selection, return-to-services links, portfolio return, project links and their return paths, and approved header, footer, contact, and section links work.
+- Pages match the approved structural inventory and use Brazilian Portuguese. The homepage shows all four standard scopes and approved starting prices, with customized proposals and optional recurring maintenance. Service detail content agrees with the homepage, and the professional portfolio uses verified profile and project content.
+- Project details share a common structure and present project-specific content, technologies, decisions, and verified results where available.
+- Primary contact actions, including on `/contato`, open the approved WhatsApp destination. The public routes contain no contact forms, artificial scarcity, or manipulative sales tactics.
+- Narrow and desktop checks verify readable section order, keyboard navigation, and no unintended horizontal overflow. Lint, production build, type check, and automated structural and SEO checks pass. Record evidence and keep indexing disabled.
 
 ## M2 — Visual Identity
 
@@ -19,7 +20,7 @@ The Claude Design prototype defines the structural direction. Visual details are
 
 **Success criteria**
 
-- Approved tokens and component patterns are recorded in the design system and applied across both routes.
+- Approved tokens and component patterns are recorded in the design system and applied across the public routes.
 - Mobile and desktop reviews confirm readable hierarchy, visible keyboard focus, sufficient text and control contrast, and layouts free from unintended horizontal overflow.
 
 ## M3 — Personality and Interactivity
@@ -29,7 +30,7 @@ The Claude Design prototype defines the structural direction. Visual details are
 **Success criteria**
 
 - Each approved interaction has a recorded purpose and passes a review with pointer, touch, and keyboard where applicable.
-- Essential content, navigation, and contact remain usable with reduced motion. Interaction states are documented and reviewed on both public routes where used.
+- Essential content, navigation, and contact remain usable with reduced motion. Interaction states are documented and reviewed on the public routes where used.
 
 ## M4 — Configuration and Integrations
 
@@ -37,7 +38,7 @@ The Claude Design prototype defines the structural direction. Visual details are
 
 **Success criteria**
 
-- A repeatable Cloudflare preview serves both public routes and verifies metadata routes, assets, server configuration, and the runtime capabilities needed for the panel.
+- A repeatable Cloudflare preview serves the public routes and verifies metadata routes, assets, server configuration, and the runtime capabilities needed for the panel.
 - The architecture records decisions for authentication, content storage, and media delivery with preview evidence or explicit blockers. Any optional integration enabled has a documented purpose and a smoke test.
 - Preview stays non-indexable. The canonical production domain and index-enablement procedure are documented.
 
