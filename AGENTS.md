@@ -18,6 +18,13 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Keep dependencies and abstractions tied to concrete needs. Follow the naming and commit conventions in `docs/ARCHITECTURE.md`.
 - Run scope-appropriate checks and report any unavailable validation. Keep documentation aligned with implementation. Never stage, commit, or push without explicit authorization.
 
+## Graphify
+
+- When exploring architecture, dependencies, or reuse opportunities, consult existing Graphify outputs in `graphify-out/` when available. Graphify is optional. Verify findings against the relevant source files and project requirements.
+- During implementation and analysis, reuse the existing graph without regenerating it. If the graph is missing, stale, or incomplete, continue with source verification.
+- Regenerate the graph only after an `AMSAF-###` task has been approved and completed, and only if the existing graph is outdated or a new graph is necessary.
+- Keep generated `graphify-out/` artifacts local and excluded from Git.
+
 ## Backlog work
 
 1. Locate the requested `AMSAF-###` task and acceptance criteria in `docs/BACKLOG.md`.

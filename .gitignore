@@ -20,6 +20,9 @@
 # testing
 /coverage
 
+# Graphify generated artifacts
+/graphify-out/
+
 # next.js
 /.next/
 /out/

@@ -27,3 +27,10 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Effort and reuse.** Reviewed the six export pages against the approved route map and M1 acceptance criteria. Used the homepage, Landing Pages, and professional portfolio exports as the structural baseline.
 - **Decisions.** The project owner approved one hierarchy for all four services, dedicated contact and project detail structures, and explicit navigation targets. The homepage uses a static preview and checklist to preserve their content roles in M1.
 - **Open.** AMSAF-003 tracks publishable content and the WhatsApp destination.
+
+## 2026-11-08 — Graphify experiment
+
+- **Effort.** The initial graph covered 34 files and produced 218 nodes, 390 relationships, and 14 communities. A follow-up architectural analysis using the existing graph took 19 seconds and traced reuse opportunities and implementation gaps for EPIC-01.
+- **Reuse.** The analysis identified the root layout and shell, homepage components, typed content primitives, and SEO configuration as starting points. Source inspection confirmed which routes and content models still needed implementation.
+- **Limitations.** The benchmark estimated 7.7× fewer tokens per query across four sample queries. Actual savings were unverified, and semantic extraction token counts were unavailable. The graph omitted 16 references with unresolved targets and could not verify rendered behavior.
+- **Decision.** Use Graphify as an optional aid alongside source verification. Reuse the existing graph during implementation and analysis. Regenerate it only after an approved AMSAF task is complete and a refresh is needed. Keep generated artifacts local and out of Git.
