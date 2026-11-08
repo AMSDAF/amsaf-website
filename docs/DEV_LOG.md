@@ -87,3 +87,7 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 
 - **Reuse.** Composed the page in the existing profile route group with the professional shell, shared hero and section components, and the approved profile and project records.
 - **Decisions.** Kept the required section headings and navigation anchors for skills and for experience and education. Used a short availability note for each section while its content records are empty. The project row links to its approved slug, with the detail page tracked in AMSAF-024.
+
+## 2026-11-08 — AMSAF-023 contact page
+
+- **Reuse.** Used the existing commercial layout, hero, and approved WhatsApp destination. Reused the homepage contact heading and added brief guidance on what to share in the first message.
