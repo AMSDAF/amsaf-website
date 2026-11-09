@@ -405,9 +405,17 @@ The specification covers each acceptance item:
 
 #### AMSAF-036 — Refine shared project details
 
+**Status.** Done. The project owner visually approved the project detail page on desktop and mobile on 2026-11-09.
+
 **Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
 
 **Acceptance.** Apply the professional visual patterns to the shared detail composition. Verify the approved project renders its title, summary and case content, omits absent optional material, and returns to `/portfolio#projetos`. Check narrow and wide widths and confirm unknown slugs still return HTTP 404.
+
+**Implementation.** The shared detail route reuses the professional split `Hero` with the M2 detail title and lede. The case description and optional sections use the existing editorial `ContentSection` layout. The case row stacks below 768 px and uses the 1:3 label-to-content split from that width. The title and summary split from 1024 px. The closing surface reuses the primary `ActionLink` and matches the portfolio's return band. The project record, optional content conditions, header and footer, destinations, and route handling are retained.
+
+**Evidence.** On 2026-11-09, Edge 157 checked the approved project at 320, 375, 767, 768, 1023, 1024, and 1280 px. Checks covered title and case layout, named landmarks, contrast, target sizes, visible focus, skip-link transfer, absence of horizontal overflow, and omission of empty optional content. At 320 and 1280 px, keyboard checks verified all three return links to `/portfolio#projetos` and the detail link back from the portfolio. An unknown slug returned HTTP 404 with the existing localized fallback. Main text matched the AMSAF-035 baseline, and the eight-route smoke check passed at 320 and 1280 px. Eight Vitest tests, lint, typecheck, the production build, Prettier on the edited TSX files with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** Full-page captures of `/portfolio/projetos/emilly-araujo-fotografia` are supplied at 375 and 1280 px.
 
 ### E — Fallback and final validation
 

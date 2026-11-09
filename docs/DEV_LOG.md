@@ -195,3 +195,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Kept the professional shell and profile and project records. Extended the existing name `Hero` variant for the split introduction and added an opt-in editorial layout to `ContentSection`. Used the approved surface and primary `ActionLink` for the closing return to services. The availability notes remain in place and the verified project row omits absent metadata.
 - **Validation.** Checked the production portfolio at seven widths in Edge, ran the eight-route smoke check, and recorded npm results in the [AMSAF-035 backlog entry](BACKLOG.md#amsaf-035--refine-the-professional-portfolio).
 - **Approval.** On 2026-11-09, the project owner visually approved `/portfolio` on desktop and mobile. AMSAF-035 is Done.
+
+## 2026-11-09 — AMSAF-036 shared project details
+
+- **Reuse and decisions.** Applied the professional split introduction and editorial section rows to the existing project detail route. Reused the approved surface and primary action for the return band, keeping the original destinations. The existing record still controls whether optional text, links, or images render.
+- **Validation.** Checked the production detail page and unknown slug in Edge at seven widths, ran the eight-route smoke check, and recorded npm results in the [AMSAF-036 backlog entry](BACKLOG.md#amsaf-036--refine-shared-project-details).
+- **Approval.** On 2026-11-09, the project owner visually approved the Emilly Araújo Fotografia project detail page on desktop and mobile. AMSAF-036 is Done.

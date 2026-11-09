@@ -20,7 +20,7 @@ interface HeroProps {
 
 export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
   const centered = titleStyle === "contact";
-  const splitName = titleStyle === "name";
+  const splitIntroduction = titleStyle === "name" || titleStyle === "detail";
 
   return (
     <section
@@ -32,7 +32,7 @@ export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
           className={
             centered
               ? "text-center"
-              : splitName
+              : splitIntroduction
                 ? "lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-end lg:gap-x-12"
                 : "max-w-3xl"
           }
@@ -44,7 +44,7 @@ export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
             {content.title}
           </h1>
           <p
-            className={`mt-4 max-w-[38ch] text-lede text-content-muted ${splitName ? "lg:mt-0" : "lg:mt-6"}${centered ? " mx-auto" : ""}`}
+            className={`mt-4 max-w-[38ch] text-lede text-content-muted ${splitIntroduction ? "lg:mt-0" : "lg:mt-6"}${centered ? " mx-auto" : ""}`}
           >
             {content.description}
           </p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ActionLink } from "@/components/action-link";
 import { ContentSection } from "@/components/content-section";
 import { Hero } from "@/components/hero";
 import { findProjectBySlug, projects } from "@/config/projects";
@@ -49,37 +50,49 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         content={{
           id: "sobre-o-projeto",
           title: "Sobre o projeto",
-          description: project.detail,
         }}
+        headingLayout="editorial"
       >
-        {project.images.map(({ src, alt }) => (
-          <div className="relative mt-6 aspect-video max-w-3xl" key={src}>
-            <Image
-              alt={alt}
-              className="object-contain"
-              fill
-              src={src}
-              unoptimized
-            />
-          </div>
-        ))}
+        <div>
+          <p className="text-content-muted">{project.detail}</p>
+          {project.images.map(({ src, alt }) => (
+            <div className="relative mt-6 aspect-video max-w-3xl" key={src}>
+              <Image
+                alt={alt}
+                className="object-contain"
+                fill
+                src={src}
+                unoptimized
+              />
+            </div>
+          ))}
+        </div>
       </ContentSection>
 
       {sections.map(({ id, title, items }) => (
-        <ContentSection content={{ id, title }} key={id}>
-          <ul className="mt-4 max-w-2xl list-disc space-y-2 pl-5 text-content-muted">
+        <ContentSection
+          content={{ id, title }}
+          headingLayout="editorial"
+          key={id}
+        >
+          <ul className="max-w-[65ch] list-disc divide-y divide-rule border-y border-rule pl-5 text-content-muted">
             {items.map((item) => (
-              <li key={item}>{item}</li>
+              <li className="py-3" key={item}>
+                {item}
+              </li>
             ))}
           </ul>
         </ContentSection>
       ))}
 
       {project.links.length > 0 && (
-        <ContentSection content={{ id: "links", title: "Links do projeto" }}>
-          <ul className="mt-4 space-y-2">
+        <ContentSection
+          content={{ id: "links", title: "Links do projeto" }}
+          headingLayout="editorial"
+        >
+          <ul className="divide-y divide-rule border-y border-rule" role="list">
             {project.links.map(({ href, label }) => (
-              <li key={href}>
+              <li className="py-3" key={href}>
                 <Link
                   className="inline-flex min-h-6 items-center rounded-control wrap-anywhere underline decoration-content-subtle underline-offset-4 hover:text-accent-text hover:decoration-accent-text active:text-accent-text active:decoration-accent-text"
                   href={href}
@@ -92,16 +105,21 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </ContentSection>
       )}
 
-      <ContentSection
-        content={{ id: "portfolio", title: "Portfólio profissional" }}
+      <section
+        aria-labelledby="portfolio-title"
+        className="bg-surface"
+        id="portfolio"
       >
-        <Link
-          className="mt-8 action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active"
-          href="/portfolio#projetos"
-        >
-          Voltar aos projetos
-        </Link>
-      </ContentSection>
+        <div className="site-container flex flex-col items-start gap-8 py-10 lg:flex-row lg:items-center lg:justify-between lg:py-14">
+          <h2
+            className="max-w-[18ch] font-display text-heading"
+            id="portfolio-title"
+          >
+            Portfólio profissional
+          </h2>
+          <ActionLink href="/portfolio#projetos" label="Voltar aos projetos" />
+        </div>
+      </section>
     </>
   );
 }
