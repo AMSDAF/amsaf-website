@@ -345,9 +345,19 @@ The specification covers each acceptance item:
 
 #### AMSAF-032 — Refine homepage work, process, and developer sections
 
+**Status.** Done. The project owner visually approved the desktop and mobile captures on 2026-11-09.
+
 **Dependencies.** AMSAF-029.
 
 **Acceptance.** Verify the sole approved case study has a deliberate text-led treatment and working detail link. Verify the existing process sequence has visible step hierarchy and the developer introduction retains verified profile copy and its portfolio link. Review wide and narrow compositions using available content, including the absence of approved project imagery and a developer portrait.
+
+**Implementation.** The homepage uses a text-led linked card for Emilly Araújo Fotografia. The title and summary sit side by side from 1024 px and stack below that width. The existing ordered process list uses the display numeral token, compact body-size titles, and one, two, or five columns with vertical rules in the wide layout. The developer introduction uses the existing `ContentSection` composition and secondary `ActionLink`, with the verified copy and action grouped beside the heading on wide screens. The layouts use the approved text and omit image placeholders and unapproved labels.
+
+**Evidence.** On 2026-11-09, Edge 157 verified the three sections at 320, 375, 639, 640, 1023, 1024, and 1280 px. Checks covered reading order, headings and list semantics, decorative numeral exclusion from the accessibility tree, layout breakpoints, text fit, horizontal overflow, keyboard focus and activation, and 44 px minimum link targets. The lowest measured text contrast was 5.14:1. Lint, typecheck, eight Vitest tests, the production build, Prettier on the edited TSX with `--end-of-line auto`, and `git diff --check` passed.
+
+**M1 regression.** Edge smoke checks passed for all eight public routes at 320 and 1280 px, covering content, link destinations, focus, the localized 404, and disabled indexing. Main text matched the AMSAF-031 baseline after normalizing whitespace and excluding the decorative process numerals.
+
+**Visual review.** The supplied `amsaf-032-1280.png` and `amsaf-032-375.png` show the three sections in order. To reproduce, serve the production build from `frontend/` and open `/#trabalhos` in Edge at 1280 and 375 px.
 
 #### AMSAF-033 — Refine the shared service detail layout
 

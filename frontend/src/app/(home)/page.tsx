@@ -222,21 +222,37 @@ export default function Home() {
       <ContentSection
         content={{ id: "trabalhos", title: "Trabalhos selecionados" }}
       >
-        <ul className="mt-10 lg:mt-14">
+        <ul className="mt-10 space-y-4 lg:mt-14" role="list">
           {projects.map((project) => (
-            <li
-              className="max-w-2xl rounded-card border border-border bg-surface p-5 sm:p-6"
-              key={project.slug}
-            >
-              <h3 className="max-w-[18ch] font-display text-title">
-                <Link
-                  className={textLinkClass}
-                  href={projectDetailPath(project.slug)}
+            <li key={project.slug}>
+              <Link
+                aria-labelledby={`work-${project.slug}-title`}
+                className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2 rounded-card border border-border bg-surface p-5 transition-[color,background-color,border-color] duration-150 ease-[ease] hover:border-border-strong hover:bg-surface-muted active:bg-surface-muted sm:p-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)_auto] lg:gap-x-6"
+                href={projectDetailPath(project.slug)}
+              >
+                <h3
+                  className="max-w-[18ch] font-display text-title group-hover:text-accent-text group-active:text-accent-text"
+                  id={`work-${project.slug}-title`}
                 >
                   {project.title}
-                </Link>
-              </h3>
-              <p className="mt-2 text-content-muted">{project.summary}</p>
+                </h3>
+                <p className="col-start-1 row-start-2 text-content-muted lg:col-start-2 lg:row-start-1">
+                  {project.summary}
+                </p>
+                <svg
+                  aria-hidden="true"
+                  className="col-start-2 row-span-2 row-start-1 size-5 text-accent lg:col-start-3 lg:row-span-1"
+                  fill="none"
+                  focusable="false"
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M4 12h15m-6-6 6 6-6 6" />
+                </svg>
+              </Link>
             </li>
           ))}
         </ul>
@@ -248,13 +264,23 @@ export default function Home() {
           title: "Da primeira conversa à publicação",
         }}
       >
-        <ol className="mt-10 grid list-decimal lg:mt-14 gap-x-10 gap-y-4 pl-5 marker:font-semibold sm:grid-cols-2 lg:grid-cols-5">
-          {processSteps.map(({ title, description }) => (
-            <li key={title}>
-              <h3 className="font-semibold">{title}</h3>
-              <p className="mt-2 text-body-sm text-content-muted">
-                {description}
-              </p>
+        <ol
+          className="mt-10 grid gap-x-5 border-b border-rule sm:grid-cols-2 lg:mt-14 lg:grid-cols-5 lg:gap-0"
+          role="list"
+        >
+          {processSteps.map(({ title, description }, index) => (
+            <li
+              className="border-t border-rule py-5 lg:px-4 lg:not-first:border-l lg:first:pl-0 lg:last:pr-0"
+              key={title}
+            >
+              <span
+                aria-hidden="true"
+                className="font-display text-numeral text-content-subtle"
+              >
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 text-body font-semibold">{title}</h3>
+              <p className="mt-2 text-body text-content-muted">{description}</p>
             </li>
           ))}
         </ol>
@@ -264,12 +290,19 @@ export default function Home() {
         content={{
           id: "sobre",
           title: `Sobre ${professionalProfile.name}`,
-          description: professionalProfile.introduction,
         }}
+        headingLayout="beside-content"
       >
-        <Link className={`mt-8 ${textLinkClass}`} href="/portfolio">
-          Ver portfólio profissional
-        </Link>
+        <p className="max-w-[38ch] text-lede text-content-muted">
+          {professionalProfile.introduction}
+        </p>
+        <div className="mt-8">
+          <ActionLink
+            href="/portfolio"
+            label="Ver portfólio profissional"
+            variant="secondary"
+          />
+        </div>
       </ContentSection>
 
       <ContentSection

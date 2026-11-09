@@ -171,3 +171,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Rework.** Limited `ActionLink` transitions to text color, background color, and border color after the Edge check found that the existing utility also animated the focus outline color.
 - **Visual decision.** Used 42 px for prices in the four-column grid. The 48 px desktop token exceeded the inner width of the cards for the longer BRL amounts at 1280 px. The narrower layouts use the fluid price token.
 - **Approval.** On 2026-11-09, the project owner visually approved the homepage offers and maintenance treatment at 1280 and 375 px. AMSAF-031 is Done. See the [AMSAF-031 backlog entry](BACKLOG.md#amsaf-031--refine-homepage-offers-and-maintenance) for validation evidence.
+
+## 2026-11-09 — AMSAF-032 homepage work, process, and developer sections
+
+- **Reuse and decisions.** Kept the changes in the homepage route and reused the project records, verified profile, M2 tokens, `ContentSection`, and secondary `ActionLink`. Made the full case study card actionable with the existing project title as its accessible name. Retained body-size process titles to accommodate “Desenvolvimento” in five columns and gave the display numerals the visual emphasis.
+- **Validation.** Reviewed the 1280 and 375 px Edge captures and checked the target sections across seven viewport widths. The eight-route smoke pass and npm checks are recorded in the [AMSAF-032 backlog entry](BACKLOG.md#amsaf-032--refine-homepage-work-process-and-developer-sections).
+- **Approval.** On 2026-11-09, the project owner visually approved the homepage work, process, and developer sections on desktop and mobile. AMSAF-032 is Done.
