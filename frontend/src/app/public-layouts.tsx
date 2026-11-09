@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
 import { SiteShell } from "@/components/site-shell";
 import { commercialContact } from "@/config/contact";
-import { professionalProfile } from "@/config/professional-profile";
 
 const commercialBrand = { href: "/", label: "AMSAF" };
 const professionalBrand = {
   href: "/portfolio",
-  label: professionalProfile.name,
+  label: "amsaf — Portfólio profissional",
 };
 const services = { href: "/#servicos", label: "Serviços" };
 const work = { href: "/#trabalhos", label: "Trabalhos" };
@@ -40,7 +39,7 @@ export function ServiceLayout({ children }: { children: ReactNode }) {
   return (
     <SiteShell
       brand={commercialBrand}
-      headerLinks={[returnToServices]}
+      returnLink={returnToServices}
       footerLinks={[portfolio]}
     >
       {children}
@@ -69,7 +68,7 @@ export function ProjectLayout({ children }: { children: ReactNode }) {
   return (
     <SiteShell
       brand={professionalBrand}
-      headerLinks={[returnToProjects]}
+      returnLink={returnToProjects}
       footerLinks={[returnToProjects]}
     >
       {children}

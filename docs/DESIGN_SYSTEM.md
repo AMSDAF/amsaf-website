@@ -246,7 +246,7 @@ Hover and color transitions use 150 ms ease and apply to color, background, and 
 ### Icons and wordmark
 
 - **Icons.** Author icons as local inline SVG components without an icon dependency. Use a 24 × 24 viewBox, 2 px strokes with round caps and joins, and `currentColor`. Render at 16, 20, or 24 px. Mark them `aria-hidden="true"` and `focusable="false"`, and name the control instead. The approved set is arrow left, arrow right, menu, close, and a generic chat bubble for the WhatsApp action. Use SVG for directional arrows because the Latin font subsets do not include arrow glyphs.
-- **Wordmark.** Render `amsaf` in `content` and the dot in `accent` as live text in the `wordmark` style. The brand link's accessible name must include the visible "amsaf" text. The commercial brand keeps its `/` destination and the professional brand keeps `/portfolio`.
+- **Wordmark.** Render `amsaf` in `content` and the dot in `accent` as live text in the `wordmark` style. Both identities display only `amsaf.`. The commercial brand links to `/` and keeps the accessible name "AMSAF". The professional brand links to `/portfolio` and uses the accessible name "amsaf — Portfólio profissional".
 
 ### Implementation tokens
 
@@ -345,7 +345,6 @@ Display tokens set size, line height, tracking, and weight. Pair them with `font
 
 | Decision | Status | Affected scope |
 | --- | --- | --- |
-| Professional brand presentation: an optional `/portfolio` label beside the wordmark and the brand link's accessible name. | Open. The name must include the visible "amsaf". | AMSAF-027, AMSAF-035, AMSAF-036 |
 | Palette of the illustrative site inside the homepage preview. The reference uses a warm cream mock. | Open. The frame uses `surface`. The mock content needs a separate choice. | AMSAF-030 |
 | Numbered section label wording and service category tags. | Open. Requires copy approval. Components render without them. | AMSAF-029, AMSAF-031 |
 | Highlighted hero word. | Open. Depends on approved heading copy. | AMSAF-030 |

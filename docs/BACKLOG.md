@@ -206,7 +206,7 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, and AMSAF-026 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, AMSAF-026, and AMSAF-027 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
 
 ### A — Visual foundations
 
@@ -265,9 +265,19 @@ The specification covers each acceptance item:
 
 #### AMSAF-027 — Refine the wordmark and responsive header
 
+**Status.** Done. The project owner visually approved the shared wordmark, responsive navigation, accessible disclosure and focus behavior, and single-row service and project headers on 2026-11-08. The approval confirms the existing navigation destinations and M1 behavior. No visual corrections were requested.
+
 **Dependencies.** AMSAF-026.
 
 **Acceptance.** Adapt `SiteShell` and its route compositions to display the lowercase `amsaf.` wordmark with a blue dot. Preserve brand destinations, distinct commercial and professional navigation, and each existing action. At desktop widths verify the brand, links and actions fit in the approved hierarchy. At mobile widths verify a compact collapsed header and a disclosure that exposes every applicable link and action. Check the Portuguese accessible name, exposed expanded state, hidden links out of tab order, and operation by keyboard and touch. Verify usable targets and visible focus at 320 px.
+
+**Implementation.** Reused the shared shell, route link data, local display font, design tokens, and global focus style. Commercial and portfolio headers share one responsive navigation rendered by a small client disclosure. Service and project headers render a server-side return link alongside the shared wordmark.
+
+**Evidence.** On 2026-11-08, headless Microsoft Edge 157 checked all four header compositions in the production build at 320, 375, 1024, and 1280 px. Verified wordmark text, color, typography, accessible names, destinations, row heights, visible focus, and no horizontal overflow. At 320 and 375 px, checked touch taps, keyboard tab order, the collapsed accessibility tree, the trigger's expanded state and panel reference, Escape focus return, and closing on link activation. Measured 44 px controls and at least 48 px disclosure rows. The M1 regression pass at 320 and 1280 px verified all eight routes, 67 internal navigations and 12 intercepted WhatsApp navigations per width, and the localized 404 and indexing policy.
+
+**Checks.** Lint, typecheck, eight automated tests, production build, `git diff --check`, and Prettier with `--end-of-line auto` passed. The default Prettier command flags existing CRLF files in this Windows checkout.
+
+**Visual review.** From `frontend/`, run `npm run build` and `npm run start`. In Edge, use responsive widths 320, 375, 1024, and 1280 px on `/`, `/portfolio`, `/landing-pages`, and `/portfolio/projetos/emilly-araujo-fotografia`. Review both disclosure states on the first two routes below 1024 px.
 
 #### AMSAF-028 — Refine shared footers
 
