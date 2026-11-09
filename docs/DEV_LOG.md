@@ -201,3 +201,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Applied the professional split introduction and editorial section rows to the existing project detail route. Reused the approved surface and primary action for the return band, keeping the original destinations. The existing record still controls whether optional text, links, or images render.
 - **Validation.** Checked the production detail page and unknown slug in Edge at seven widths, ran the eight-route smoke check, and recorded npm results in the [AMSAF-036 backlog entry](BACKLOG.md#amsaf-036--refine-shared-project-details).
 - **Approval.** On 2026-11-09, the project owner visually approved the Emilly Araújo Fotografia project detail page on desktop and mobile. AMSAF-036 is Done.
+
+## 2026-11-09 — AMSAF-037 commercial shell for the 404
+
+- **Reuse and decisions.** Wrapped the existing root fallback hero in `CommercialLayout`. The shell owns the main landmark and skip link, and the recovery copy, metadata, and destination stay in the fallback.
+- **Validation.** Checked both unknown URL cases in Edge at five widths and ran the eight-route smoke check and npm checks. See the [AMSAF-037 backlog entry](BACKLOG.md#amsaf-037--align-the-404-page-with-the-commercial-shell).
+- **Approval.** On 2026-11-09, the project owner visually approved the unknown top-level URL and unknown project slug fallbacks on desktop and mobile. AMSAF-037 is Done.

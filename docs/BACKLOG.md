@@ -421,9 +421,19 @@ The specification covers each acceptance item:
 
 #### AMSAF-037 — Align the 404 page with the commercial shell
 
+**Status.** Done. On 2026-11-09, the project owner visually approved both 404 scenarios on desktop and mobile.
+
 **Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
 
 **Acceptance.** Verify an unknown top-level URL and unknown project slug retain HTTP 404, Brazilian Portuguese fallback copy, and a visible home recovery action in the dark commercial shell. Check exactly one main landmark, skip-link focus transfer, and usable navigation on mobile and desktop.
+
+**Implementation.** The existing root fallback renders its localized recovery hero inside `CommercialLayout`. The shared shell provides the single main landmark, skip link, wordmark, navigation, mobile disclosure, and footer. The fallback metadata, recovery destination, and routing behavior are retained.
+
+**Evidence.** On 2026-11-09, Edge 157 checked an unknown top-level URL and an unknown project slug at 320, 375, 1023, 1024, and 1280 px. Both returned HTTP 404 with Portuguese copy and `noindex`. Checks covered a single main landmark, skip-link focus transfer, visible keyboard focus, home recovery, header and footer destinations, menu behavior, target sizes, and no horizontal overflow. Header WhatsApp navigation was intercepted at 320 and 1280 px. The eight-route smoke check passed at 320 and 1280 px. Eight Vitest tests, lint, typecheck, the production build, Prettier on the edited TSX with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** Full-page captures for both fallback URLs are supplied at 375 and 1280 px.
+
+The automated axe WCAG A/AA checks reported no violations or incomplete results for either fallback at 320 and 1280 px, including the expanded mobile menu at 320 px.
 
 #### AMSAF-038 — Verify the complete M2 visual identity
 

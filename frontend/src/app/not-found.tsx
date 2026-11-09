@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CommercialLayout } from "@/app/public-layouts";
 import { Hero } from "@/components/hero";
 
 export const metadata: Metadata = {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main>
+    <CommercialLayout>
       <Hero
         content={{
           title: "Página não encontrada",
@@ -16,6 +17,6 @@ export default function NotFound() {
           actions: [{ href: "/", label: "Voltar à página inicial" }],
         }}
       />
-    </main>
+    </CommercialLayout>
   );
 }

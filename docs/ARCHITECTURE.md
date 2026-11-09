@@ -34,7 +34,7 @@ Indexing is currently disabled and the canonical site URL is unset. The layout u
 
 Each of the eight approved public route patterns uses a route layout with `SiteShell` to render the header, main landmark, and footer. The four services share a composition. Home and contact share the commercial composition. The portfolio page lives in `app/portfolio/(profile)/`. The project detail page belongs under `app/portfolio/projetos/` so their shells are siblings. The profile route group resolves to `/portfolio`.
 
-M2 plans to reuse the root layout and global styles for one dark visual foundation, with the existing route layouts supplying distinct navigation. The mobile disclosure belongs in the shared shell. The root 404 will adopt the commercial composition and its single main landmark. See [EPIC-02](BACKLOG.md#epic-02--visual-identity-m2).
+M2 uses the root layout and global styles for one dark visual foundation, with route layouts supplying distinct navigation. The mobile disclosure belongs in the shared shell. The root 404 uses the commercial composition, which supplies its single main landmark and skip link. See [EPIC-02](BACKLOG.md#epic-02--visual-identity-m2).
 
 The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) sets the planned M2 implementation boundaries:
 
