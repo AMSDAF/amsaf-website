@@ -5,7 +5,7 @@ import { ActionLink, type ActionVariant } from "./action-link";
 const titleStyles = {
   default: "max-w-[12ch] text-display-xl",
   contact: "max-w-[18ch] text-display-xl",
-  name: "max-w-[12ch] text-display-name",
+  name: "max-w-[8ch] text-display-name",
   detail: "max-w-[18ch] text-display-lg",
 };
 
@@ -20,6 +20,7 @@ interface HeroProps {
 
 export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
   const centered = titleStyle === "contact";
+  const splitName = titleStyle === "name";
 
   return (
     <section
@@ -27,7 +28,15 @@ export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
       className={centered ? "bg-canvas" : "border-b border-border bg-canvas"}
     >
       <div className="site-container flex flex-col gap-10 py-hero lg:flex-row lg:items-center lg:[&>*]:min-w-0 lg:[&>*]:flex-1">
-        <div className={centered ? "text-center" : "max-w-3xl"}>
+        <div
+          className={
+            centered
+              ? "text-center"
+              : splitName
+                ? "lg:grid lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-end lg:gap-x-12"
+                : "max-w-3xl"
+          }
+        >
           <h1
             className={`font-display ${titleStyles[titleStyle]}${centered ? " mx-auto" : ""}`}
             id="hero-title"
@@ -35,7 +44,7 @@ export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
             {content.title}
           </h1>
           <p
-            className={`mt-4 max-w-[38ch] text-lede text-content-muted lg:mt-6${centered ? " mx-auto" : ""}`}
+            className={`mt-4 max-w-[38ch] text-lede text-content-muted ${splitName ? "lg:mt-0" : "lg:mt-6"}${centered ? " mx-auto" : ""}`}
           >
             {content.description}
           </p>

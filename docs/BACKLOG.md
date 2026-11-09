@@ -391,9 +391,17 @@ The specification covers each acceptance item:
 
 #### AMSAF-035 — Refine the professional portfolio
 
+**Status.** Done. The project owner visually approved the professional portfolio on desktop and mobile on 2026-11-09.
+
 **Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
 
 **Acceptance.** Adapt the portfolio export's large name, split introduction, section rows and rules, and closing return to services to the approved dark palette. Preserve anchors and verify the skills and experience availability notes, the sole approved project row and its detail link, and the return to `/#servicos`. Check the stacked reading order at mobile widths. Use verified data for tags, dates, or stacks when available.
+
+**Implementation.** Reused the professional `Hero` variant for the large two-line name and placed the verified introduction alongside it from 1024 px. The opt-in editorial `ContentSection` layout uses full-width rules, monospace headings, and a 1:3 split from 768 px. The availability notes and sole approved project remain in reading order. The project link gains a decorative arrow and the closing surface reuses the primary `ActionLink` to return to services. Profile data, anchors, and the professional shell are retained.
+
+**Evidence.** On 2026-11-09, Edge 157 checked `/portfolio` at 320, 375, 767, 768, 1023, 1024, and 1280 px. Checks covered the split and stacked layouts, contrast, accessible names and landmarks, visible focus, target sizes, and absence of horizontal overflow. At 320 and 1280 px, keyboard activation verified the section anchors, the project detail and return, and the commercial services destination. The mobile disclosure passed keyboard, Escape, and close-on-navigation checks. Main text matched the AMSAF-034 baseline, and the eight-route smoke check passed at 320 and 1280 px. Eight Vitest tests, lint, typecheck, the production build, Prettier for the edited TSX files with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** Full-page `/portfolio` captures are supplied at 375 and 1280 px.
 
 #### AMSAF-036 — Refine shared project details
 

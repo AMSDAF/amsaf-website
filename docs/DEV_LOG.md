@@ -189,3 +189,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Centered the existing contact `Hero` and added an opt-in centered `ContentSection` heading layout for the homepage invitation. Reused the approved typography, spacing, and WhatsApp action. The dedicated page retains its single main action, and the homepage keeps the guidance link after the primary action. The footer supplies the closing rule on the dedicated page.
 - **Validation.** Checked both contact surfaces across eight viewport widths in Edge and ran the eight-route smoke check and npm checks. See the [AMSAF-034 backlog entry](BACKLOG.md#amsaf-034--refine-contact-and-the-homepage-contact-invitation).
 - **Approval.** On 2026-11-09, the project owner visually approved `/contato` and the homepage contact invitation on desktop and mobile. AMSAF-034 is Done.
+
+## 2026-11-09 — AMSAF-035 professional portfolio
+
+- **Reuse and decisions.** Kept the professional shell and profile and project records. Extended the existing name `Hero` variant for the split introduction and added an opt-in editorial layout to `ContentSection`. Used the approved surface and primary `ActionLink` for the closing return to services. The availability notes remain in place and the verified project row omits absent metadata.
+- **Validation.** Checked the production portfolio at seven widths in Edge, ran the eight-route smoke check, and recorded npm results in the [AMSAF-035 backlog entry](BACKLOG.md#amsaf-035--refine-the-professional-portfolio).
+- **Approval.** On 2026-11-09, the project owner visually approved `/portfolio` on desktop and mobile. AMSAF-035 is Done.
