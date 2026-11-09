@@ -341,13 +341,15 @@ AMSAF-026 applies these tokens in `frontend/src/app/globals.css`, replacing the 
 
 Display tokens set size, line height, tracking, and weight. Pair them with `font-display`. Body tokens inherit `font-sans` from the root. Label tokens pair with `font-mono`.
 
+### Homepage hero and preview
+
+Highlight only “seu trabalho” in the approved hero heading using `accent` (`#3973FF`). The illustrative browser keeps the AMSAF `surface` frame and uses a separate warm palette inside the mock site. Use cream `#F1ECE6` for the mock background, `#282119` and `#655A4E` for text, and `#D8CEC0` and `#E2D8CB` for the decorative tiles.
+
 ### Open decisions
 
 | Decision | Status | Affected scope |
 | --- | --- | --- |
-| Palette of the illustrative site inside the homepage preview. The reference uses a warm cream mock. | Open. The frame uses `surface`. The mock content needs a separate choice. | AMSAF-030 |
 | Numbered section label wording and service category tags. | Open. Requires copy approval. Components render without them. | AMSAF-029, AMSAF-031 |
-| Highlighted hero word. | Open. Depends on approved heading copy. | AMSAF-030 |
 | Official WhatsApp logo. | Not approved. Use the generic chat icon. | AMSAF-029, AMSAF-031, AMSAF-033, AMSAF-034 |
 | Bricolage Grotesque optical-size axis. It adds the display optical cut for 34.7 KiB more. | Not adopted. The approved specimens used the weight-only file. Revisit only with owner approval. | AMSAF-026 |
 

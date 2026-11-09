@@ -157,3 +157,10 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Reused the M2 action target and global focus outline in `ActionLink` and wired the existing hero to accept action variants. Used the existing contact copy and destination with the approved generic chat icon. Kept section headings stacked by default and used the split treatment on the homepage services heading. The optional label renders only when supplied because public wording still needs approval.
 - **Validation.** Verified action states and destinations and the split breakpoint in headless Edge. Checked the optional label and section reading order with a static render. See the [AMSAF-029 backlog entry](BACKLOG.md#amsaf-029--define-shared-action-and-section-treatments) for the check results and preview steps.
 - **Approval.** On 2026-11-08, the project owner visually approved the shared action and section treatments. AMSAF-029 is Done.
+
+## 2026-11-08 — AMSAF-030 homepage hero, preview, and checklist
+
+- **Reuse.** Kept the shared `Hero` and `ActionLink` hierarchy and extended `ContentSection` with an opt-in layout for content beside the introduction. The homepage keeps the M1 copy, destinations, and section order.
+- **Decisions and rework.** The first pass used the dark tokens throughout the preview and left the heading unaccented. The correction applies the approved independent mock palette and highlights only “seu trabalho” in the approved blue. The reserved `estudio.example` address is decorative and the visible caption identifies the mock site.
+- **Approval.** The project owner approved the corrected desktop and mobile captures on 2026-11-08. AMSAF-030 is Done.
+- **Validation.** Reviewed desktop and mobile captures and verified the responsive composition, keyboard links, and static content in Edge. The eight-route M1 smoke check and build checks passed. See the [AMSAF-030 backlog entry](BACKLOG.md#amsaf-030--refine-the-homepage-hero-preview-and-checklist) for widths and results.

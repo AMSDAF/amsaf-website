@@ -10,7 +10,8 @@ const titleStyles = {
 };
 
 interface HeroProps {
-  content: Omit<HeroContent, "actions"> & {
+  content: Omit<HeroContent, "actions" | "title"> & {
+    title: ReactNode;
     actions?: readonly (LinkContent & { variant?: ActionVariant })[];
   };
   children?: ReactNode;

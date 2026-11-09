@@ -60,7 +60,12 @@ export default function Home() {
     <>
       <Hero
         content={{
-          title: "Um site para apresentar seu trabalho",
+          title: (
+            <>
+              Um site para apresentar{" "}
+              <span className="text-accent">seu trabalho</span>
+            </>
+          ),
           description:
             "Desenvolvo sites sob medida para profissionais, autônomos e pequenos negócios.",
           actions: [
@@ -73,26 +78,39 @@ export default function Home() {
           ],
         }}
       >
-        <figure className="rounded-card border border-border bg-surface p-5 sm:p-6">
-          <figcaption className="text-body-sm text-content-muted">
-            Exemplo ilustrativo de site
-          </figcaption>
-          <div className="mt-3 overflow-hidden rounded-lg border border-border bg-canvas">
-            <p className="border-b border-border bg-surface-muted px-4 py-3 text-sm">
-              Estúdio de fotografia
-            </p>
-            <div className="space-y-3 px-4 py-6 sm:px-6">
-              <p className="text-body-sm text-content-muted">
+        <figure>
+          <div className="overflow-hidden rounded-card border border-border bg-surface">
+            <div
+              aria-hidden="true"
+              className="flex items-center gap-3 border-b border-rule px-3 py-2"
+            >
+              <div className="flex gap-1">
+                <span className="size-1.5 rounded-full bg-content-subtle" />
+                <span className="size-1.5 rounded-full bg-content-subtle" />
+                <span className="size-1.5 rounded-full bg-content-subtle" />
+              </div>
+              <span className="flex-1 rounded-control bg-canvas px-3 py-1 font-mono text-label-sm text-content-muted">
+                estudio.example
+              </span>
+            </div>
+            <div className="space-y-3 bg-[#f1ece6] p-5 text-[#282119] sm:p-6">
+              <p className="text-body-sm font-semibold">
+                Estúdio de fotografia
+              </p>
+              <p className="text-body-sm text-[#655a4e]">
                 Portfólio de ensaios
               </p>
               <p className="font-display text-title">Retratos em luz natural</p>
-              <div aria-hidden="true" className="grid grid-cols-3 gap-2">
-                <div className="aspect-square rounded-sm bg-surface-muted" />
-                <div className="aspect-square rounded-sm bg-surface" />
-                <div className="aspect-square rounded-sm bg-surface-muted" />
+              <div aria-hidden="true" className="mt-5 grid grid-cols-3 gap-2">
+                <div className="aspect-[3/2] rounded-tag bg-[#d8cec0]" />
+                <div className="aspect-[3/2] rounded-tag bg-[#e2d8cb]" />
+                <div className="aspect-[3/2] rounded-tag bg-[#d8cec0]" />
               </div>
             </div>
           </div>
+          <figcaption className="mt-3 text-body-sm text-content-muted">
+            Exemplo ilustrativo de site
+          </figcaption>
         </figure>
       </Hero>
 
@@ -103,13 +121,26 @@ export default function Home() {
           description:
             "Um site complementa suas redes sociais e reúne o que você faz, seus serviços e seus canais de contato.",
         }}
+        headingLayout="beside-content"
       >
-        <p className="mt-10 max-w-[18ch] font-display text-title lg:mt-14">
+        <h3
+          className="max-w-[18ch] font-display text-title"
+          id="checklist-title"
+        >
           O que vale conferir no seu site
-        </p>
-        <ul className="mt-3 max-w-2xl list-disc space-y-2 pl-5 text-content-muted">
+        </h3>
+        <ul
+          aria-labelledby="checklist-title"
+          className="mt-3 space-y-2 text-content-muted"
+          role="list"
+        >
           {presenceChecklist.map((item) => (
-            <li key={item}>{item}</li>
+            <li
+              className="rounded-card border border-border bg-surface px-4 py-3"
+              key={item}
+            >
+              {item}
+            </li>
           ))}
         </ul>
       </ContentSection>

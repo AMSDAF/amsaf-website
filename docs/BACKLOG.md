@@ -317,9 +317,15 @@ The specification covers each acceptance item:
 
 #### AMSAF-030 — Refine the homepage hero, preview, and checklist
 
+**Status.** Done. The project owner approved the corrected desktop and mobile captures on 2026-11-08.
+
 **Dependencies.** AMSAF-029.
 
 **Acceptance.** Verify primary and secondary hero hierarchy and destinations, a clearly illustrative static browser-style preview with caption, and static checklist rows. Verify the wide composition and narrow stacking in the M1 order. Any highlighted word must work with the approved heading copy.
+
+**Implementation.** Reused `Hero` and its primary and secondary actions for `#servicos` and `#trabalhos`. Only “seu trabalho” uses the approved blue accent. The static preview uses an independent warm palette for the mock site within the dark browser frame and keeps the existing caption. An opt-in `ContentSection` layout places the five static rows beside the digital presence introduction at 1024 px and above and below it at narrower widths.
+
+**Evidence.** Edge 157 verified the exact heading and blue phrase, independent preview colors, static semantics, section order, action hierarchy, responsive layout, lack of horizontal overflow, and keyboard focus and activation of both hero links at 320, 375, 1023, 1024, and 1280 px. The hero accent measures 4.69:1 against the page and both mock text colors exceed 5.7:1 against cream. The owner approved the 1280 and 375 px captures. All eight public routes passed the M1 smoke checks at 320 and 1280 px, including link destinations, localized 404, and disabled indexing. Build, typecheck, lint, eight automated tests, Prettier with `--end-of-line auto`, and `git diff --check` passed. The default Windows format check flags existing line endings.
 
 #### AMSAF-031 — Refine homepage offers and maintenance
 

@@ -5,7 +5,7 @@ interface ContentSectionProps {
   content: ContentSectionContent;
   children?: ReactNode;
   headingSize?: "heading" | "display-xl";
-  headingLayout?: "stacked" | "split";
+  headingLayout?: "stacked" | "split" | "beside-content";
   label?: string;
 }
 
@@ -17,6 +17,7 @@ export function ContentSection({
   label,
 }: ContentSectionProps) {
   const split = headingLayout === "split" && content.description;
+  const besideContent = headingLayout === "beside-content";
 
   return (
     <section
@@ -24,10 +25,16 @@ export function ContentSection({
       className="border-b border-border bg-canvas last:border-b-0"
       id={content.id}
     >
-      <div className="site-container py-section">
+      <div
+        className={`site-container py-section ${besideContent ? "lg:grid lg:grid-cols-12 lg:items-start" : ""}`}
+      >
         <div
           className={
-            split ? "lg:grid lg:grid-cols-12 lg:items-start" : undefined
+            split
+              ? "lg:grid lg:grid-cols-12 lg:items-start"
+              : besideContent
+                ? "lg:col-span-5 lg:pr-6"
+                : undefined
           }
         >
           <div className={split ? "lg:col-span-5 lg:pr-6" : undefined}>
@@ -51,7 +58,11 @@ export function ContentSection({
             </p>
           )}
         </div>
-        {children}
+        {besideContent ? (
+          <div className="mt-10 lg:col-span-7 lg:mt-0">{children}</div>
+        ) : (
+          children
+        )}
       </div>
     </section>
   );
