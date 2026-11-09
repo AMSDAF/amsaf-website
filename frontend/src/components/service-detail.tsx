@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ActionLink } from "@/components/action-link";
 import {
   serviceMaintenanceNote,
   serviceProposalNote,
@@ -9,14 +10,14 @@ import { formatBrl } from "@/lib/format-brl";
 
 export function ServiceDetail({ service }: { service: ServiceContent }) {
   return (
-    <div className="site-container py-6 sm:py-8">
+    <div className="site-container pt-6 sm:pt-8">
       <nav aria-label="Serviços">
-        <ul className="flex flex-wrap gap-2">
+        <ul className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap" role="list">
           {services.map(({ route, label }) => (
             <li key={route}>
               <Link
                 aria-current={route === service.route ? "page" : undefined}
-                className="inline-flex min-h-11 items-center rounded-control border border-border-strong px-4 text-nav text-content hover:bg-surface aria-[current=page]:border-inverse aria-[current=page]:bg-inverse aria-[current=page]:text-on-inverse"
+                className="flex min-h-11 items-center justify-center rounded-control border-b-2 border-transparent px-3 py-2 text-center text-nav text-content-muted transition-[color,background-color,border-color] duration-150 ease-[ease] hover:bg-surface hover:text-content active:bg-surface active:text-content aria-[current=page]:border-accent aria-[current=page]:bg-surface aria-[current=page]:text-content sm:px-4"
                 href={route}
               >
                 {label}
@@ -26,9 +27,12 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
         </ul>
       </nav>
 
-      <div className="grid gap-8 py-section lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-12">
-        <div className="space-y-8">
+      <div className="mt-10 grid gap-10 pb-section lg:mt-14 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-start lg:gap-14">
+        <div className="space-y-10 lg:space-y-14">
           <div>
+            <p className="mb-3 font-mono text-label wrap-anywhere text-accent-text">
+              {service.route}
+            </p>
             <h1 className="max-w-[18ch] font-display text-display-lg">
               {service.label}
             </h1>
@@ -44,7 +48,7 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             >
               Ideal para
             </h2>
-            <p className="mt-2 text-content-muted">{service.audience}</p>
+            <p className="mt-3 text-content-muted">{service.audience}</p>
           </section>
 
           <section aria-labelledby="service-scope">
@@ -54,10 +58,19 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             >
               O que está no escopo base
             </h2>
-            <ul className="mt-3 divide-y divide-rule border-y border-rule">
-              {service.baseScope.map((item) => (
-                <li className="py-3 text-content-muted" key={item}>
-                  {item}
+            <ul
+              className="mt-4 divide-y divide-rule border-y border-rule"
+              role="list"
+            >
+              {service.baseScope.map((item, index) => (
+                <li className="flex items-baseline gap-3 py-3" key={item}>
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 font-mono text-label text-content-subtle"
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
@@ -73,7 +86,7 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             >
               Precisa de algo a mais?
             </h2>
-            <p className="mt-2 text-content-muted">{serviceProposalNote}</p>
+            <p className="mt-3 text-content-muted">{serviceProposalNote}</p>
           </section>
         </div>
 
@@ -88,7 +101,7 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             {formatBrl(service.startingPriceInCentavos)}
           </p>
 
-          <div className="mt-5 border-t border-rule pt-5 text-body-sm text-content-muted">
+          <div className="mt-5 border-t border-dashed border-rule pt-5 text-body-sm text-content-muted">
             <p className="font-semibold text-content">
               Manutenção opcional de{" "}
               {formatBrl(service.monthlyMaintenanceInCentavos)} por mês
@@ -96,12 +109,9 @@ export function ServiceDetail({ service }: { service: ServiceContent }) {
             <p className="mt-2">{serviceMaintenanceNote}</p>
           </div>
 
-          <a
-            className="mt-5 w-full justify-center text-center action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active"
-            href={service.contact.href}
-          >
-            {service.contact.label}
-          </a>
+          <div className="mt-8 grid">
+            <ActionLink {...service.contact} variant="contact" />
+          </div>
         </section>
       </div>
     </div>

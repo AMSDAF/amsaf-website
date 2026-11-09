@@ -177,3 +177,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Kept the changes in the homepage route and reused the project records, verified profile, M2 tokens, `ContentSection`, and secondary `ActionLink`. Made the full case study card actionable with the existing project title as its accessible name. Retained body-size process titles to accommodate “Desenvolvimento” in five columns and gave the display numerals the visual emphasis.
 - **Validation.** Reviewed the 1280 and 375 px Edge captures and checked the target sections across seven viewport widths. The eight-route smoke pass and npm checks are recorded in the [AMSAF-032 backlog entry](BACKLOG.md#amsaf-032--refine-homepage-work-process-and-developer-sections).
 - **Approval.** On 2026-11-09, the project owner visually approved the homepage work, process, and developer sections on desktop and mobile. AMSAF-032 is Done.
+
+## 2026-11-09 — AMSAF-033 shared service detail layout
+
+- **Reuse and decisions.** Applied the Landing Pages composition in the existing `ServiceDetail` for all four routes. Used each catalog path for the route label and retained the approved return link in the shared shell. Kept the scope list and made its numerals decorative. Reused the BRL formatter, M2 tokens, and contact `ActionLink` with its generic chat icon.
+- **Validation.** Checked all four production routes in Edge at seven widths, including selector state and activation, text and prices, summary order, and WhatsApp states. The [AMSAF-033 backlog entry](BACKLOG.md#amsaf-033--refine-the-shared-service-detail-layout) records the npm and browser results.
+- **Approval.** On 2026-11-09, the project owner visually approved `/landing-pages`, `/portfolios`, `/institucionais`, and `/comerciais` on desktop and mobile. AMSAF-033 is Done.

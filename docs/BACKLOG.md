@@ -361,9 +361,17 @@ The specification covers each acceptance item:
 
 #### AMSAF-033 — Refine the shared service detail layout
 
+**Status.** Done. The project owner visually approved all four service pages on desktop and mobile on 2026-11-09.
+
 **Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
 
 **Acceptance.** Use the Landing Pages export for the route label, title, numbered scope rows, service selector, return link, and price/contact hierarchy. Verify all four routes use `ServiceDetail`, mark the current service, and match the corresponding catalog scope, prices, optional maintenance, and contact destination. Verify the summary sits beside the details at wide widths and follows them at narrow widths and in reading order. Keep the commercial-only scope note on `/comerciais`.
+
+**Implementation.** Updated `ServiceDetail` for all four routes. The catalog selector uses two columns below 640 px, then wraps as needed, and marks the current route with `aria-current` and a blue bottom indicator. The existing route path serves as a monospace label. The scope list keeps its semantics and gains decorative row numbers. The price summary uses the existing BRL formatter, a dashed divider, and the full-width contact `ActionLink` with the approved generic chat icon. The 3:2 layout starts at 1024 px and the summary follows the details in DOM order at every width. The shared return link, footer, catalog, and commercial-only scope note are retained.
+
+**Evidence.** On 2026-11-09, Edge 157 checked all four routes at 320, 375, 639, 640, 1023, 1024, and 1280 px. Checks covered headings, list semantics, current-service indication, text and control contrast, selector wrapping, summary alignment and reading order, no horizontal overflow, focus, and 44 px action targets. At 320 and 1280 px, activation checks covered the selector, return link, and intercepted WhatsApp destination. The desktop contact action also passed hover and pressed state checks. Main text matched the AMSAF-032 baseline after normalizing whitespace and excluding the route labels and decorative numerals. Eight Vitest tests, lint, typecheck, the production build, Prettier for the edited component with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** Full-page Edge captures for `/landing-pages`, `/portfolios`, `/institucionais`, and `/comerciais` are supplied at 375 and 1280 px.
 
 #### AMSAF-034 — Refine contact and the homepage contact invitation
 
