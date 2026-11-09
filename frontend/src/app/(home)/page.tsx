@@ -312,9 +312,10 @@ export default function Home() {
           description:
             "Me conte sobre seu negócio e o que você precisa apresentar no site.",
         }}
+        headingLayout="centered"
         headingSize="display-xl"
       >
-        <div className="mt-8 flex flex-wrap items-center gap-3">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-center">
           <ActionLink {...commercialContact} variant="contact" />
           <Link className={textLinkClass} href="/contato">
             Veja como iniciar a conversa

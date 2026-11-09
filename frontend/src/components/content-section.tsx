@@ -5,7 +5,7 @@ interface ContentSectionProps {
   content: ContentSectionContent;
   children?: ReactNode;
   headingSize?: "heading" | "display-xl";
-  headingLayout?: "stacked" | "split" | "beside-content";
+  headingLayout?: "stacked" | "split" | "beside-content" | "centered";
   label?: string;
 }
 
@@ -18,6 +18,7 @@ export function ContentSection({
 }: ContentSectionProps) {
   const split = headingLayout === "split" && content.description;
   const besideContent = headingLayout === "beside-content";
+  const centered = headingLayout === "centered";
 
   return (
     <section
@@ -34,7 +35,9 @@ export function ContentSection({
               ? "lg:grid lg:grid-cols-12 lg:items-start"
               : besideContent
                 ? "lg:col-span-5 lg:pr-6"
-                : undefined
+                : centered
+                  ? "text-center"
+                  : undefined
           }
         >
           <div className={split ? "lg:col-span-5 lg:pr-6" : undefined}>
@@ -44,7 +47,7 @@ export function ContentSection({
               </p>
             )}
             <h2
-              className={`max-w-[18ch] font-display ${headingSize === "heading" ? "text-heading" : "text-display-xl"}`}
+              className={`max-w-[18ch] font-display ${headingSize === "heading" ? "text-heading" : "text-display-xl"}${centered ? " mx-auto" : ""}`}
               id={`${content.id}-title`}
             >
               {content.title}
@@ -52,7 +55,7 @@ export function ContentSection({
           </div>
           {content.description && (
             <p
-              className={`mt-4 max-w-[38ch] text-lede text-content-muted ${split ? "lg:col-span-7 lg:mt-0" : "lg:mt-6"}`}
+              className={`mt-4 max-w-[38ch] text-lede text-content-muted ${split ? "lg:col-span-7 lg:mt-0" : "lg:mt-6"}${centered ? " mx-auto" : ""}`}
             >
               {content.description}
             </p>

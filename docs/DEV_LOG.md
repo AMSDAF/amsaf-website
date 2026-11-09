@@ -183,3 +183,9 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Applied the Landing Pages composition in the existing `ServiceDetail` for all four routes. Used each catalog path for the route label and retained the approved return link in the shared shell. Kept the scope list and made its numerals decorative. Reused the BRL formatter, M2 tokens, and contact `ActionLink` with its generic chat icon.
 - **Validation.** Checked all four production routes in Edge at seven widths, including selector state and activation, text and prices, summary order, and WhatsApp states. The [AMSAF-033 backlog entry](BACKLOG.md#amsaf-033--refine-the-shared-service-detail-layout) records the npm and browser results.
 - **Approval.** On 2026-11-09, the project owner visually approved `/landing-pages`, `/portfolios`, `/institucionais`, and `/comerciais` on desktop and mobile. AMSAF-033 is Done.
+
+## 2026-11-09 — AMSAF-034 contact page and homepage invitation
+
+- **Reuse and decisions.** Centered the existing contact `Hero` and added an opt-in centered `ContentSection` heading layout for the homepage invitation. Reused the approved typography, spacing, and WhatsApp action. The dedicated page retains its single main action, and the homepage keeps the guidance link after the primary action. The footer supplies the closing rule on the dedicated page.
+- **Validation.** Checked both contact surfaces across eight viewport widths in Edge and ran the eight-route smoke check and npm checks. See the [AMSAF-034 backlog entry](BACKLOG.md#amsaf-034--refine-contact-and-the-homepage-contact-invitation).
+- **Approval.** On 2026-11-09, the project owner visually approved `/contato` and the homepage contact invitation on desktop and mobile. AMSAF-034 is Done.

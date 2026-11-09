@@ -375,9 +375,17 @@ The specification covers each acceptance item:
 
 #### AMSAF-034 — Refine contact and the homepage contact invitation
 
+**Status.** Done. The project owner visually approved the contact page and homepage invitation on desktop and mobile on 2026-11-09.
+
 **Dependencies.** AMSAF-027, AMSAF-028, AMSAF-029.
 
 **Acceptance.** Verify the two surfaces share the approved centered contact hierarchy with a prominent WhatsApp action using the approved destination. Confirm the homepage retains its guidance link to `/contato` and the contact page keeps its guidance and single primary action. Verify keyboard access and wrapping at narrow widths.
+
+**Implementation.** The existing contact `Hero` variant centers the `/contato` heading, guidance, and action. The homepage invitation opts into the centered `ContentSection` layout and wraps its action and guidance link as space allows. Both surfaces use the approved display and lede measures, spacing tokens, and contact `ActionLink` with the generic chat icon. Heading levels, named landmarks, copy, and destinations are preserved.
+
+**Evidence.** On 2026-11-09, Edge 157 checked both production surfaces at 320, 375, 390, 414, 480, 1023, 1024, and 1280 px. Checks covered centered hierarchy, action wrapping, contrast, visible focus, target sizes, skip-link focus transfer, mobile disclosure and Escape behavior on `/contato`, and absence of horizontal overflow. At 320 and 1280 px, the homepage guidance link opened `/contato` and each contact action reached the approved WhatsApp destination via an intercepted request. Desktop hover and pressed states passed. Main text matched the AMSAF-032 baseline on both surfaces. The eight-route smoke check passed at 320 and 1280 px. Eight Vitest tests, lint, typecheck, the production build, Prettier for the edited TSX files with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** Full-page `/contato` captures and homepage invitation captures are supplied at 375 and 1280 px.
 
 ### D — Professional pages
 
