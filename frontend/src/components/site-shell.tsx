@@ -16,20 +16,14 @@ type SiteShellProps = {
   | { returnLink: LinkContent; headerLinks?: never; headerAction?: never }
 );
 
-function Navigation({
-  label,
-  links,
-}: {
-  label: string;
-  links: readonly LinkContent[];
-}) {
+function FooterNavigation({ links }: { links: readonly LinkContent[] }) {
   return (
-    <nav aria-label={label}>
-      <ul className="flex flex-wrap gap-x-5 gap-y-2 text-nav text-content-muted">
+    <nav aria-label="Navegação do rodapé">
+      <ul className="flex flex-wrap gap-x-5 gap-y-2 text-nav text-content-muted md:justify-end">
         {links.map(({ href, label }) => (
           <li key={href}>
             <Link
-              className="inline-flex min-h-6 items-center rounded-control underline-offset-4 hover:text-content hover:underline active:underline"
+              className="inline-flex min-h-6 items-center rounded-control underline-offset-4 transition-colors duration-150 ease-[ease] hover:text-content hover:underline active:text-content active:underline"
               href={href}
             >
               {label}
@@ -108,8 +102,9 @@ export function SiteShell({
       </main>
 
       <footer className="border-t border-border bg-surface">
-        <div className="site-container py-8">
-          <Navigation label="Navegação do rodapé" links={footerLinks} />
+        <div className="site-container flex flex-col items-start gap-4 py-8 md:flex-row md:items-center md:justify-between">
+          {wordmark}
+          <FooterNavigation links={footerLinks} />
         </div>
       </footer>
     </div>

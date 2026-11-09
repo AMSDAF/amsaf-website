@@ -206,7 +206,7 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, AMSAF-026, and AMSAF-027 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, AMSAF-026, AMSAF-027, and AMSAF-028 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
 
 ### A — Visual foundations
 
@@ -281,9 +281,21 @@ The specification covers each acceptance item:
 
 #### AMSAF-028 — Refine shared footers
 
+**Status.** Done. The project owner visually approved the commercial and professional footers on desktop and mobile on 2026-11-08.
+
 **Dependencies.** AMSAF-026.
 
 **Acceptance.** Verify the approved brand treatment and existing route-specific footer links in the commercial, service, profile, and project compositions. Verify desktop alignment, narrow-width wrapping, and visible link and focus states. Use approved identity content.
+
+**Implementation.** Reused the approved linked wordmark and the existing footer surface, border, and padding in `SiteShell`. The wordmark sits above the wrapping navigation below 768 px and aligns with the navigation in a single row from 768 px. Existing route layouts supply the brand destination and navigation links for each composition. Footer links reuse the navigation typography, color tokens, and global focus outline.
+
+**Evidence.** On 2026-11-08, headless Microsoft Edge 157 checked all eight public routes in the production build at 320, 375, 1024, and 1280 px, plus 767 and 768 px for the layout transition. Verified all four footer compositions, commercial link wrapping at 320 px, aligned gutters, and no horizontal overflow with a reserved scrollbar gutter. Verified accessible names, Tab order, Enter activation, destination fragments, hover styles, and link heights of at least 24 px. On the footer surface, navigation text measured 6.89:1 at rest and 16.80:1 on hover, and the blue dot and 2 px focus outline measured 4.44:1. The approved header checks passed at the four requested widths.
+
+**Checks.** Lint, typecheck, eight automated tests, production build, `git diff --check`, and Prettier with `--end-of-line auto` passed. Default Prettier reported existing Windows checkout line endings.
+
+**M1 regression.** At both 320 and 1280 px, Edge verified all eight routes, followed 75 internal links, and intercepted 12 WhatsApp navigations to the approved destination. The main content text matched the AMSAF-027 baseline on all eight routes. The localized 404 and indexing checks passed.
+
+**Visual review.** From `frontend/`, run `npm run build` and `npm run start`. In Edge responsive mode at 320, 375, 1024, and 1280 px, open `/`, `/portfolio`, `/landing-pages`, and `/portfolio/projetos/emilly-araujo-fotografia` at `http://localhost:3000`. Scroll to the footer, then Tab through the wordmark and links to check order and focus.
 
 #### AMSAF-029 — Define shared action and section treatments
 
