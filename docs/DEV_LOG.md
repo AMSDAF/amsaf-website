@@ -207,3 +207,10 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Reuse and decisions.** Wrapped the existing root fallback hero in `CommercialLayout`. The shell owns the main landmark and skip link, and the recovery copy, metadata, and destination stay in the fallback.
 - **Validation.** Checked both unknown URL cases in Edge at five widths and ran the eight-route smoke check and npm checks. See the [AMSAF-037 backlog entry](BACKLOG.md#amsaf-037--align-the-404-page-with-the-commercial-shell).
 - **Approval.** On 2026-11-09, the project owner visually approved the unknown top-level URL and unknown project slug fallbacks on desktop and mobile. AMSAF-037 is Done.
+
+## 2026-11-09 — AMSAF-038 M2 visual verification
+
+- **Scope and evidence.** Reviewed the eight public routes and both localized fallback URLs in the production build with Edge at 320, 375, and 1280 px. Recorded the route matrix, screenshots, and README checks in the [AMSAF-038 backlog entry](BACKLOG.md#amsaf-038--verify-the-complete-m2-visual-identity).
+- **Finding.** Axe flagged the homepage project link because the accessible name omitted the visible summary. The default Prettier command reports existing Windows line-ending differences and passes with automatic line-ending detection.
+- **Approval.** On 2026-11-09, the project owner visually approved the eight public routes and both 404 scenarios at 320, 375, and 1280 px.
+- **Correction and closure.** Removed the homepage project link's title-only name override so the visible title and summary supply its accessible name. The 30-case Edge rerun found no axe violations or incomplete results, verified keyboard activation, and produced pixel-identical captures. Lint, typecheck, eight tests, and the production build passed. AMSAF-038 is Done.

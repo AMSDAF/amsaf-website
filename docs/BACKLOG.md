@@ -437,9 +437,32 @@ The automated axe WCAG A/AA checks reported no violations or incomplete results 
 
 #### AMSAF-038 — Verify the complete M2 visual identity
 
+**Status.** Done. Visual approval and the accessibility retest are recorded below.
+
 **Dependencies.** AMSAF-030 through AMSAF-037.
 
 **Acceptance.** Review a local production build at 320, 375, and 1280 px on every public route and the 404. Record screenshots and results by route and width, including readable hierarchy, contrast (4.5:1 for normal text and 3:1 for large text and required control indicators), visible focus, navigation target sizing, mobile disclosure behavior, and absence of unintended horizontal overflow. Recheck the [M1 route acceptance checklist](DESIGN_SYSTEM.md#m1-route-acceptance-checklist), approved prices and verified content, WhatsApp destination, landmarks, links and anchors, 404 status, and disabled indexing. Run the README checks and record evidence and any blockers in the backlog.
+
+**Evidence.** On 2026-11-09, Edge 157 checked the local production build. The eight approved routes returned HTTP 200 and the two fallback URLs returned HTTP 404. The checks verified M1 structure, catalog scopes and prices, verified project copy, header, footer, and main link destinations, representative anchor and WhatsApp activation, single main and H1, skip-link focus transfer, keyboard focus, navigation target sizes, disclosure behavior, dark appearance under both system preferences, and absence of horizontal overflow. All eight public routes matched the AMSAF-037 main text baseline. Metadata, robots, and the empty sitemap still disable indexing. The lowest measured control indicator contrast was 3.27:1. Axe reported no text contrast violations in the tested states.
+
+| Route | 320 px | 375 px | 1280 px |
+| --- | --- | --- | --- |
+| `/` | Pass | Pass | Pass |
+| `/landing-pages` | Pass | Pass | Pass |
+| `/portfolios` | Pass | Pass | Pass |
+| `/institucionais` | Pass | Pass | Pass |
+| `/comerciais` | Pass | Pass | Pass |
+| `/contato` | Pass | Pass | Pass |
+| `/portfolio` | Pass | Pass | Pass |
+| `/portfolio/projetos/emilly-araujo-fotografia` | Pass | Pass | Pass |
+| `/pagina-desconhecida` | Pass, HTTP 404 | Pass, HTTP 404 | Pass, HTTP 404 |
+| `/portfolio/projetos/projeto-desconhecido` | Pass, HTTP 404 | Pass, HTTP 404 | Pass, HTTP 404 |
+
+**Accessibility correction.** Removed the homepage project link's title-only accessible name override. The link now derives its name from the existing visible title and summary. Edge verified the complete accessible name and keyboard activation at all three widths. The full 30-case rerun reported zero axe violations and zero incomplete results, including the expanded mobile menu states. All 30 new captures matched the approved captures pixel for pixel.
+
+**Final checks.** Lint, typecheck, eight Vitest tests, the production build, and `git diff --check` passed. The README's default format check reports existing Windows line-ending differences in 13 files. The same check with `--end-of-line auto` passed.
+
+**Visual approval.** On 2026-11-09, the project owner visually approved all eight public routes and both 404 scenarios at 320, 375, and 1280 px. The review archive contains 30 full-page Edge captures organized by width, with overview images for all three widths.
 
 ## EPIC-03 — Personality and Interactivity (M3)
 

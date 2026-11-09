@@ -226,14 +226,10 @@ export default function Home() {
           {projects.map((project) => (
             <li key={project.slug}>
               <Link
-                aria-labelledby={`work-${project.slug}-title`}
                 className="group grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-2 rounded-card border border-border bg-surface p-5 transition-[color,background-color,border-color] duration-150 ease-[ease] hover:border-border-strong hover:bg-surface-muted active:bg-surface-muted sm:p-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)_auto] lg:gap-x-6"
                 href={projectDetailPath(project.slug)}
               >
-                <h3
-                  className="max-w-[18ch] font-display text-title group-hover:text-accent-text group-active:text-accent-text"
-                  id={`work-${project.slug}-title`}
-                >
+                <h3 className="max-w-[18ch] font-display text-title group-hover:text-accent-text group-active:text-accent-text">
                   {project.title}
                 </h3>
                 <p className="col-start-1 row-start-2 text-content-muted lg:col-start-2 lg:row-start-1">
