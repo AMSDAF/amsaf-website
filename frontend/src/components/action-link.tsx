@@ -13,13 +13,15 @@ const variantStyles = {
 export type ActionVariant = keyof typeof variantStyles;
 
 export function ActionLink({
+  "aria-label": ariaLabel,
   href,
   label,
   variant = "primary",
-}: LinkContent & { variant?: ActionVariant }) {
+}: LinkContent & { "aria-label"?: string; variant?: ActionVariant }) {
   return (
     <Link
-      className={`action-target justify-center text-center transition-colors duration-150 ease-[ease] ${variantStyles[variant]}`}
+      aria-label={ariaLabel}
+      className={`action-target justify-center text-center transition-[color,background-color,border-color] duration-150 ease-[ease] ${variantStyles[variant]}`}
       href={href}
     >
       {variant === "contact" && (

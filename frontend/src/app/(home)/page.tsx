@@ -50,8 +50,6 @@ const processSteps = [
   },
 ];
 
-const actionClass =
-  "action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active";
 const textLinkClass =
   "inline-flex min-h-6 items-center rounded-control font-medium underline decoration-content-subtle underline-offset-4 hover:text-accent-text hover:decoration-accent-text active:text-accent-text active:decoration-accent-text";
 
@@ -153,7 +151,10 @@ export default function Home() {
         }}
         headingLayout="split"
       >
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:gap-5 xl:grid-cols-4">
+        <ul
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:gap-5 xl:grid-cols-4"
+          role="list"
+        >
           {services.map((service) => (
             <li
               className="flex flex-col rounded-card border border-border bg-surface p-5 sm:p-6"
@@ -162,14 +163,25 @@ export default function Home() {
               <h3 className="max-w-[18ch] font-display text-title">
                 {service.label}
               </h3>
-              <p className="mt-2 text-body-sm text-content-muted">
+              <p className="mt-3 text-body text-content-muted">
                 {service.summary}
               </p>
-              <ul className="my-4 list-disc space-y-2 pl-5 text-body-sm text-content-muted">
-                {service.baseScope.map((item) => (
-                  <li key={item}>{item}</li>
+              <ol className="my-4" role="list">
+                {service.baseScope.map((item, index) => (
+                  <li
+                    className="flex items-baseline gap-3 border-t border-rule py-3 text-body text-content"
+                    key={item}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 font-mono text-label text-content-subtle"
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span>{item}</span>
+                  </li>
                 ))}
-              </ul>
+              </ol>
               {service.scopeNote && (
                 <p className="mb-4 text-body-sm text-content-muted">
                   {service.scopeNote}
@@ -177,34 +189,33 @@ export default function Home() {
               )}
               <div className="mt-auto border-t border-dashed border-rule pt-4">
                 <p className="text-body-sm text-content-muted">A partir de</p>
-                <p className="font-display text-price proportional-nums">
+                <p className="mt-2 font-display text-price wrap-anywhere proportional-nums xl:[font-size:2.625rem]">
                   {formatBrl(service.startingPriceInCentavos)}
                 </p>
                 <p className="mt-2 text-body-sm text-content-muted">
                   Manutenção opcional de{" "}
                   {formatBrl(service.monthlyMaintenanceInCentavos)} por mês
                 </p>
-                <div className="mt-4 flex flex-wrap items-center gap-3 text-body-sm">
-                  <Link
+                <div className="mt-4 flex flex-wrap gap-3 *:grow">
+                  <ActionLink
                     aria-label={`Ver detalhes de ${service.label}`}
-                    className={textLinkClass}
                     href={service.route}
-                  >
-                    Ver detalhes
-                  </Link>
-                  <a className={actionClass} href={service.contact.href}>
-                    {service.contact.label}
-                  </a>
+                    label="Ver detalhes"
+                    variant="secondary"
+                  />
+                  <ActionLink {...service.contact} variant="contact" />
                 </div>
               </div>
             </li>
           ))}
         </ul>
-        <div className="mt-6 max-w-2xl">
-          <h3 className="max-w-[18ch] font-display text-title">
+        <div className="mt-4 rounded-card border border-border bg-surface p-5 sm:p-6 lg:mt-5 lg:grid lg:grid-cols-12 lg:items-baseline">
+          <h3 className="max-w-[18ch] font-display text-title lg:col-span-5">
             Depois da publicação
           </h3>
-          <p className="mt-2 text-content-muted">{serviceMaintenanceNote}</p>
+          <p className="mt-3 max-w-[65ch] text-body-sm text-content-muted lg:col-span-7 lg:mt-0">
+            {serviceMaintenanceNote}
+          </p>
         </div>
       </ContentSection>
 

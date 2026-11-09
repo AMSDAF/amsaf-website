@@ -164,3 +164,10 @@ Add a short dated entry when work establishes a decision, reuses an existing ass
 - **Decisions and rework.** The first pass used the dark tokens throughout the preview and left the heading unaccented. The correction applies the approved independent mock palette and highlights only “seu trabalho” in the approved blue. The reserved `estudio.example` address is decorative and the visible caption identifies the mock site.
 - **Approval.** The project owner approved the corrected desktop and mobile captures on 2026-11-08. AMSAF-030 is Done.
 - **Validation.** Reviewed desktop and mobile captures and verified the responsive composition, keyboard links, and static content in Edge. The eight-route M1 smoke check and build checks passed. See the [AMSAF-030 backlog entry](BACKLOG.md#amsaf-030--refine-the-homepage-hero-preview-and-checklist) for widths and results.
+
+## 2026-11-09 — AMSAF-031 homepage offers and maintenance
+
+- **Reuse and decisions.** Reused the shared section, catalog, BRL formatter, M2 tokens, and action variants. Kept monthly amounts with each service and grouped the existing terms in one panel below the offers. Kept scope numbers decorative within ordered lists and retained each details link's service-specific accessible name through `ActionLink`.
+- **Rework.** Limited `ActionLink` transitions to text color, background color, and border color after the Edge check found that the existing utility also animated the focus outline color.
+- **Visual decision.** Used 42 px for prices in the four-column grid. The 48 px desktop token exceeded the inner width of the cards for the longer BRL amounts at 1280 px. The narrower layouts use the fluid price token.
+- **Approval.** On 2026-11-09, the project owner visually approved the homepage offers and maintenance treatment at 1280 and 375 px. AMSAF-031 is Done. See the [AMSAF-031 backlog entry](BACKLOG.md#amsaf-031--refine-homepage-offers-and-maintenance) for validation evidence.

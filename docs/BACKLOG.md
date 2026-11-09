@@ -329,9 +329,19 @@ The specification covers each acceptance item:
 
 #### AMSAF-031 — Refine homepage offers and maintenance
 
+**Status.** Done. The project owner approved the desktop and mobile captures on 2026-11-09.
+
 **Dependencies.** AMSAF-029.
 
 **Acceptance.** Verify all four service cards show the catalog scope, approved starting price, custom proposal context, optional maintenance price and terms, and distinct details and WhatsApp actions. Review numbering, scope rows, price separation and action wrapping on desktop and mobile. Any separate maintenance treatment must keep each monthly price clearly associated with its service.
+
+**Implementation.** The homepage reuses the catalog, BRL formatter, split `ContentSection`, and shared `ActionLink` variants. Each card uses numbered scope rows and a dashed price divider, with its monthly amount directly below its starting price. The cards use one column below 640 px, two from 640 px, and four from 1280 px. The existing maintenance terms appear in a shared panel below the grid. Section labels and category tags remain pending copy approval. The WhatsApp action uses the approved generic chat icon.
+
+**Evidence.** On 2026-11-09, eight Vitest tests, ESLint, standalone typecheck after the production build, and Prettier for the edited TSX files with `--end-of-line auto` passed. Production checks in headless Edge 157 covered 320, 375, 639, 640, 1023, 1024, 1279, and 1280 px. They verified the column counts, lack of horizontal overflow, scope numbering, price dividers, price fit, action wrapping, 44 × 44 px minimum targets, accessible details names, tab order, and visible focus. At 320 and 1280 px, all four details links opened their service routes and an intercepted WhatsApp action verified the destination and its hover and pressed colors.
+
+**M1 regression.** The eight public routes passed content, link, keyboard focus, 404, and indexing checks at 320 and 1280 px. Rendered text matched the AMSAF-030 baseline after excluding the new scope numerals and normalizing whitespace.
+
+**Visual review.** Serve the production build from `frontend/` with `npm run build` and `npm run start`. Open `/#servicos` in Edge at 375 and 1280 px. Review the cards and maintenance panel in the supplied captures and tab through the two actions in each card.
 
 #### AMSAF-032 — Refine homepage work, process, and developer sections
 
