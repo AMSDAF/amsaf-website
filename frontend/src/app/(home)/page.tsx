@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ActionLink } from "@/components/action-link";
 import { ContentSection } from "@/components/content-section";
 import { Hero } from "@/components/hero";
 import { commercialContact } from "@/config/contact";
@@ -64,7 +65,11 @@ export default function Home() {
             "Desenvolvo sites sob medida para profissionais, autônomos e pequenos negócios.",
           actions: [
             { href: "#servicos", label: "Ver serviços e preços" },
-            { href: "#trabalhos", label: "Ver trabalhos" },
+            {
+              href: "#trabalhos",
+              label: "Ver trabalhos",
+              variant: "secondary",
+            },
           ],
         }}
       >
@@ -115,6 +120,7 @@ export default function Home() {
           title: "Serviços e preços",
           description: serviceProposalNote,
         }}
+        headingLayout="split"
       >
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:gap-5 xl:grid-cols-4">
           {services.map((service) => (
@@ -234,9 +240,7 @@ export default function Home() {
         headingSize="display-xl"
       >
         <div className="mt-8 flex flex-wrap items-center gap-3">
-          <a className={actionClass} href={commercialContact.href}>
-            {commercialContact.label}
-          </a>
+          <ActionLink {...commercialContact} variant="contact" />
           <Link className={textLinkClass} href="/contato">
             Veja como iniciar a conversa
           </Link>

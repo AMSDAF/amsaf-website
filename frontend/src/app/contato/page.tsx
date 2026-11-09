@@ -15,7 +15,7 @@ export default function ContactPage() {
         title: "Vamos conversar sobre seu site?",
         description:
           "Na sua mensagem, me conte sobre seu negócio, o que você precisa apresentar no site e como gostaria que seus clientes entrassem em contato.",
-        actions: [commercialContact],
+        actions: [{ ...commercialContact, variant: "contact" }],
       }}
       titleStyle="contact"
     />

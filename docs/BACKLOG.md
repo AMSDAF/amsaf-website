@@ -206,7 +206,7 @@ Reviewed rendered headings, screenshots, and copy against the approved inventory
 
 ## EPIC-02 — Visual Identity (M2)
 
-**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, AMSAF-026, AMSAF-027, and AMSAF-028 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
+**Status.** In progress. M1 is complete. AMSAF-025, AMSAF-015, AMSAF-026, AMSAF-027, AMSAF-028, and AMSAF-029 are done. The [approved visual specification](DESIGN_SYSTEM.md#m2-approved-visual-specification) guides the remaining M2 tasks. See the [M2 visual audit](m2-visual-audit.md), the [typography exploration](m2-typography-exploration.md), the [Claude Design references](DESIGN_SYSTEM.md#confirmed-structure-and-content), and the [approved M2 direction](DESIGN_SYSTEM.md#m2-visual-direction).
 
 ### A — Visual foundations
 
@@ -299,9 +299,19 @@ The specification covers each acceptance item:
 
 #### AMSAF-029 — Define shared action and section treatments
 
+**Status.** Done. The project owner visually approved the shared action and section treatments on 2026-11-08.
+
 **Dependencies.** AMSAF-026.
 
 **Acceptance.** Adapt the existing hero and section components where they fit. Demonstrate distinct filled contact, primary, and secondary action treatments and approved hover, focus, and active states. Verify the approved section heading, optional monospace label, and wide-screen split heading treatment collapse in reading order. Use existing copy or separately approved labels.
+
+**Implementation.** `ActionLink` reuses the approved action target, color, and focus tokens. The homepage hero demonstrates the primary and secondary variants, and the homepage invitation and `/contato` demonstrate the contact variant with the generic chat icon. `ContentSection` supports an optional monospace label and an opt-in split. The services heading uses the 5/12 and 7/12 split from 1024 px and stacks above its introduction below that width. Numbered section labels remain pending copy approval, and the existing offer and service summary treatments are reserved for their page tasks.
+
+**Evidence.** On 2026-11-08, headless Edge 157 verified rest, hover, pressed, and keyboard focus states, 44 × 44 px minimum targets, activation of the homepage anchors and intercepted WhatsApp destination, split heading alignment and reading order, and absence of horizontal overflow at 320, 375, 1023, 1024, and 1280 px. A static render check verified the optional label's typography classes and DOM order, omission without a label, and fallback without an introduction. Lint, typecheck, eight automated tests, production build, Prettier with `--end-of-line auto`, and `git diff --check` passed.
+
+**Visual review.** From `frontend/`, run `npm run build` and `npm run start`. In Edge, open `/` and `/contato` at `http://localhost:3000`. Compare the hero actions and the services heading at 320 and 1280 px. Tab through the actions to review their focus outlines.
+
+**M1 regression.** At 320 and 1280 px, all eight public routes passed checks for content, link destinations, focus, and horizontal overflow. Main content text matched the AMSAF-028 baseline byte for byte. The localized 404 and disabled indexing checks passed.
 
 ### C — Commercial pages
 

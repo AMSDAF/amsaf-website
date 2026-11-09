@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
-import type { HeroContent } from "@/types/content";
+import type { HeroContent, LinkContent } from "@/types/content";
+import { ActionLink, type ActionVariant } from "./action-link";
 
 const titleStyles = {
   default: "max-w-[12ch] text-display-xl",
@@ -10,7 +10,9 @@ const titleStyles = {
 };
 
 interface HeroProps {
-  content: HeroContent;
+  content: Omit<HeroContent, "actions"> & {
+    actions?: readonly (LinkContent & { variant?: ActionVariant })[];
+  };
   children?: ReactNode;
   titleStyle?: keyof typeof titleStyles;
 }
@@ -36,13 +38,7 @@ export function Hero({ content, children, titleStyle = "default" }: HeroProps) {
           {content.actions && content.actions.length > 0 ? (
             <div className="mt-8 flex flex-wrap gap-3">
               {content.actions.map((action) => (
-                <Link
-                  className="action-target border border-inverse bg-inverse px-4 text-on-inverse hover:bg-inverse-hover active:bg-inverse-active"
-                  href={action.href}
-                  key={action.href}
-                >
-                  {action.label}
-                </Link>
+                <ActionLink key={action.href} {...action} />
               ))}
             </div>
           ) : null}
