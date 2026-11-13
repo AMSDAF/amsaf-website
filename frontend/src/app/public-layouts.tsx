@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { SiteHeader } from "@/components/site-header";
 import { SiteShell } from "@/components/site-shell";
 import { commercialContact } from "@/config/contact";
 
@@ -16,20 +17,25 @@ const returnToProjects = {
   label: "Voltar aos projetos",
 };
 
+const commercialHeader = {
+  brand: commercialBrand,
+  headerLinks: [
+    services,
+    work,
+    { href: "/#como-funciona", label: "Como funciona" },
+    { href: "/#sobre", label: "Sobre" },
+    portfolio,
+  ],
+  headerAction: commercialContact,
+};
+
+export function CommercialHeader() {
+  return <SiteHeader {...commercialHeader} />;
+}
+
 export function CommercialLayout({ children }: { children: ReactNode }) {
   return (
-    <SiteShell
-      brand={commercialBrand}
-      headerLinks={[
-        services,
-        work,
-        { href: "/#como-funciona", label: "Como funciona" },
-        { href: "/#sobre", label: "Sobre" },
-        portfolio,
-      ]}
-      headerAction={commercialContact}
-      footerLinks={[services, work, portfolio]}
-    >
+    <SiteShell {...commercialHeader} footerLinks={[services, work, portfolio]}>
       {children}
     </SiteShell>
   );
